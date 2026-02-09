@@ -4,7 +4,7 @@ import Section from "./components/Section";
 import { useLocation, useNavigate, Routes, Route, Link } from "react-router-dom";
 import { disablePageScroll, enablePageScroll } from "scroll-lock";
 
-import { brainwave } from "./assets";
+import { brainwave, grid, searchMd, sliders04, plusSquare } from "./assets";
 import { navigation } from "./constants";
 import Button from "./components/Button";
 import MenuSvg from "./assets/svg/MenuSvg";
@@ -291,7 +291,7 @@ const HowWeWorkDetail = () => {
           >
             <motion.h1
               variants={textVariants}
-              className="h1 font-playfair mb-6 text-n-1 text-[3.5rem] leading-tight md:text-[5rem]"
+              className="h1 font-playfair mb-6 text-n-1 text-[2.5rem] leading-tight md:text-[5rem]"
             >
               We keep you close, and your users closer
             </motion.h1>
@@ -366,7 +366,7 @@ const HowWeWorkDetail = () => {
             whileInView="visible"
             viewport={{ once: true }}
             variants={containerVariants}
-            className="grid grid-cols-2 md:grid-cols-4 gap-10"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
           >
             {[
               { letter: "N", title: "NAVIGATE", text: "We start by exploring your business, objectives and what makes it all tick." },
@@ -377,14 +377,17 @@ const HowWeWorkDetail = () => {
               <motion.div
                 key={index}
                 variants={textVariants}
-                whileHover={{ scale: 1.05 }}
-                className="text-center group"
+                whileHover={{ scale: 1.05, borderColor: "rgba(172, 106, 255, 0.5)" }}
+                className="relative p-6 md:p-8 bg-n-7 rounded-3xl border border-n-6 text-center group transition-colors overflow-hidden"
               >
-                <div className="font-playfair text-[8rem] md:text-[10rem] leading-none mb-4 text-n-1 transition-colors group-hover:text-color-1">
-                  {item.letter}
+                <div className="absolute inset-0 bg-gradient-to-br from-n-8/0 to-n-8/50 opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="relative z-1">
+                  <div className="font-playfair text-[6rem] leading-none mb-2 text-n-1 transition-colors group-hover:text-color-1">
+                    {item.letter}
+                  </div>
+                  <h6 className="h6 font-code uppercase tracking-widest mb-4 text-xs font-bold text-n-1/50 group-hover:text-n-1">{item.title}</h6>
+                  <p className="body-2 text-n-4">{item.text}</p>
                 </div>
-                <h6 className="h6 font-code uppercase tracking-widest mb-4 text-xs font-bold text-n-1/50 group-hover:text-n-1">{item.title}</h6>
-                <p className="body-1 text-n-4 px-4">{item.text}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -395,31 +398,58 @@ const HowWeWorkDetail = () => {
       <Section id="stages" crosses>
         <div className="container py-12 lg:py-24 relative z-2">
           <h3 className="h3 font-playfair text-center mb-20 text-n-1">And this is how we work</h3>
-          <div className="max-w-4xl mx-auto space-y-16">
+          <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
             {[
               {
-                stage: "Stage 1: Discover",
-                text: "The first stage of our process is unearthing everything we can about the brief - the objectives and the needed outcomes. This delivers the strategic underpinning of everything moving forward. Culminating in the analysis and development of key insights and truths, this part of the process will ultimately drive the recommendations we make, with outputs including target audience segmentation, user research, and defined functional scope with recommended User Centered Navigation including Information Architecture and Wireframes."
+                stage: "Discover",
+                title: "Research & Strategy",
+                text: "We unearth everything about the brief. This delivers the strategic underpinning, culminating in key insights, target audience segmentation, and defined functional scope.",
+                icon: searchMd,
+                color: "text-color-1"
               },
               {
-                stage: "Stage 2: Design",
-                text: "We bring the strategy to life, with a focus on simplification. This is the most important tool we have when approaching all elements of design. We constantly strive to make content more accessible and consumable, whilst delivering the best user experience for all of our identified audiences. The new simplicity paradigm has always shaped and continues to shape everything we do, most notably in this instance via our recommended aesthetics."
+                stage: "Design",
+                title: "UI/UX & Creative",
+                text: "We bring strategy to life with a focus on simplification. We strive to make content accessible and consumable, delivering the best user experience for identified audiences.",
+                icon: sliders04,
+                color: "text-color-2"
               },
               {
-                stage: "Stage 3: Develop",
-                text: "Finally, we wrap our recommendations into a technically crafted solution in the most effective and efficient way possible for both internal and external audiences. Mostly executed in two week sprints with ongoing QA and user-testing, here we bring the project to life via a combination of Agile and Waterfall project management procedures and high end code."
+                stage: "Develop",
+                title: "Code & QA",
+                text: "We wrap recommendations into a technically crafted solution. Executed in sprints with ongoing QA, bringing the project to life via high-end code and agile procedures.",
+                icon: plusSquare,
+                color: "text-color-3"
               }
             ].map((item, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: index * 0.2 }}
-                className="grid md:grid-cols-[1fr_2fr] gap-8 md:gap-16 border-b border-n-6 pb-16 last:border-0 relative"
+                transition={{ duration: 0.5, delay: index * 0.2 }}
+                whileHover={{ y: -10 }}
+                className="relative p-6 md:p-8 bg-n-8 border border-n-6 rounded-3xl overflow-hidden group hover:border-color-1/50 transition-colors"
               >
-                <h4 className="h4 font-playfair whitespace-nowrap text-n-1">{item.stage}</h4>
-                <p className="body-1 text-n-4 leading-relaxed">{item.text}</p>
+                <div className="absolute inset-0 bg-n-8 z-0" />
+                <div className="absolute inset-0 opacity-10 mix-blend-soft-light z-0 pointer-events-none" style={{ backgroundImage: `url(${grid})`, backgroundSize: '300px' }} />
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-color-1 to-color-2 opacity-0 group-hover:opacity-100 transition-opacity z-10" />
+
+                <div className="relative z-10 mb-6">
+                  <div className="flex justify-between items-start mb-4">
+                    <span className="inline-block py-1 px-3 rounded-full bg-n-7 font-code text-[0.75rem] uppercase tracking-wider text-n-1 border border-n-6">
+                      Stage 0{index + 1}
+                    </span>
+                    <div className={`p-3 rounded-xl bg-n-7 border border-n-6 ${item.color}`}>
+                      <img src={item.icon} width={24} height={24} alt={item.title} />
+                    </div>
+                  </div>
+
+                  <h4 className="h4 font-playfair text-n-1 mb-2">{item.stage}</h4>
+                  <p className="font-code text-xs font-bold text-n-1/50 uppercase tracking-widest">{item.title}</p>
+                </div>
+
+                <p className="relative z-10 body-2 text-n-4 leading-relaxed group-hover:text-n-3 transition-colors">{item.text}</p>
               </motion.div>
             ))}
           </div>
