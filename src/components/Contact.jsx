@@ -77,7 +77,7 @@ const Contact = () => {
 
                     <motion.form
                         variants={textVariants}
-                        className="text-left space-y-10 bg-n-8/80 backdrop-blur-md p-8 md:p-16 rounded-3xl border border-n-1/10 shadow-2xl relative overflow-hidden"
+                        className="text-left space-y-10 bg-n-8/80 backdrop-blur-md p-6 md:p-16 rounded-3xl border border-n-1/10 shadow-2xl relative overflow-hidden"
                         onSubmit={(e) => e.preventDefault()}
                     >
                         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-color-1 to-color-2 opacity-50" />
@@ -90,7 +90,7 @@ const Contact = () => {
                             <textarea
                                 rows="3"
                                 placeholder="Tell us about your project, goals, and any specific requirements..."
-                                className="w-full bg-n-7 rounded-xl p-4 md:p-6 border-2 border-transparent focus:border-color-1 outline-none transition-all font-sora text-n-1 text-lg font-light resize-none placeholder:text-n-4/50"
+                                className="w-full bg-n-7 rounded-xl p-4 md:p-6 border-2 border-transparent focus:border-color-1 outline-none transition-all font-sora text-n-1 text-lg lg:text-xl font-light resize-none placeholder:text-n-4/50"
                             ></textarea>
                         </div>
 
@@ -103,7 +103,7 @@ const Contact = () => {
                                 <input
                                     type="text"
                                     placeholder="Your Name"
-                                    className="w-full bg-n-7 rounded-xl p-4 md:p-6 border-2 border-transparent focus:border-color-1 outline-none transition-all font-sora text-n-1 text-lg font-light placeholder:text-n-4/50"
+                                    className="w-full bg-n-7 rounded-xl p-4 md:p-6 border-2 border-transparent focus:border-color-1 outline-none transition-all font-sora text-n-1 text-lg lg:text-xl font-light placeholder:text-n-4/50"
                                 />
                             </div>
                             <div className="space-y-4">
@@ -113,7 +113,7 @@ const Contact = () => {
                                 <input
                                     type="email"
                                     placeholder="email@example.com"
-                                    className="w-full bg-n-7 rounded-xl p-4 md:p-6 border-2 border-transparent focus:border-color-1 outline-none transition-all font-sora text-n-1 text-lg font-light placeholder:text-n-4/50"
+                                    className="w-full bg-n-7 rounded-xl p-4 md:p-6 border-2 border-transparent focus:border-color-1 outline-none transition-all font-sora text-n-1 text-lg lg:text-xl font-light placeholder:text-n-4/50"
                                 />
                             </div>
                         </div>

@@ -130,7 +130,7 @@ const WhoWeAre = () => {
             transition={{ duration: 0.8 }}
             className="max-w-[45rem]"
           >
-            <h2 className="h2 font-playfair mb-4 md:mb-8 text-[3rem] leading-tight bg-clip-text text-transparent bg-gradient-to-br from-n-1 to-n-1/50">
+            <h2 className="h2 font-playfair mb-4 md:mb-8 text-[2rem] lg:text-[3rem] leading-tight bg-clip-text text-transparent bg-gradient-to-br from-n-1 to-n-1/50">
               We're a digital solutions business made up by tech misfits, passionate creatives and curious humans.
             </h2>
           </motion.div>
