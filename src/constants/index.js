@@ -39,35 +39,28 @@ import {
 export const navigation = [
   {
     id: "0",
-    title: "Features",
-    url: "#features",
+    title: "Who we are",
+    url: "#who-we-are",
   },
   {
     id: "1",
-    title: "Pricing",
-    url: "#pricing",
+    title: "How we work",
+    url: "#how-we-work",
   },
   {
     id: "2",
-    title: "How to use",
-    url: "#how-to-use",
+    title: "What we do",
+    url: "#what-we-do",
   },
   {
     id: "3",
-    title: "Roadmap",
-    url: "#roadmap",
+    title: "Stuff that worked",
+    url: "#stuff-that-worked",
   },
   {
     id: "4",
-    title: "New account",
-    url: "#signup",
-    onlyMobile: true,
-  },
-  {
-    id: "5",
-    title: "Sign in",
-    url: "#login",
-    onlyMobile: true,
+    title: "Let’s talk",
+    url: "#lets-talk",
   },
 ];
 
@@ -78,9 +71,9 @@ export const notificationImages = [notification4, notification3, notification2];
 export const companyLogos = [yourlogo, yourlogo, yourlogo, yourlogo, yourlogo];
 
 export const brainwaveServices = [
-  "Photo generating",
-  "Photo enhance",
-  "Seamless Integration",
+  "Target audience segmentation",
+  "Information Architecture",
+  "Functional scope design",
 ];
 
 export const brainwaveServicesIcons = [
@@ -124,6 +117,22 @@ export const roadmap = [
     date: "May 2023",
     status: "progress",
     imageUrl: roadmap4,
+  },
+  {
+    id: "4",
+    title: "Adaptive Learning",
+    text: "Enable the AI to learn from user interactions in real-time, tailoring responses to individual preferences and history.",
+    date: "June 2023",
+    status: "done",
+    imageUrl: roadmap1,
+  },
+  {
+    id: "5",
+    title: "Eco-Friendly Hosting",
+    text: "Migrate our core architecture to carbon-neutral servers, ensuring our digital footprint is as light as our user experience.",
+    date: "July 2023",
+    status: "progress",
+    imageUrl: roadmap2,
   },
 ];
 
@@ -205,41 +214,6 @@ export const collabApps = [
   },
 ];
 
-export const pricing = [
-  {
-    id: "0",
-    title: "Basic",
-    description: "AI chatbot, personalized recommendations",
-    price: "0",
-    features: [
-      "An AI chatbot that can understand your queries",
-      "Personalized recommendations based on your preferences",
-      "Ability to explore the app and its features without any cost",
-    ],
-  },
-  {
-    id: "1",
-    title: "Premium",
-    description: "Advanced AI chatbot, priority support, analytics dashboard",
-    price: "9.99",
-    features: [
-      "An advanced AI chatbot that can understand complex queries",
-      "An analytics dashboard to track your conversations",
-      "Priority support to solve issues quickly",
-    ],
-  },
-  {
-    id: "2",
-    title: "Enterprise",
-    description: "Custom AI chatbot, advanced analytics, dedicated account",
-    price: null,
-    features: [
-      "An AI chatbot that can understand your queries",
-      "Personalized recommendations based on your preferences",
-      "Ability to explore the app and its features without any cost",
-    ],
-  },
-];
 
 export const benefits = [
   {

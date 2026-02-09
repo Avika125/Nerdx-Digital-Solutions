@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Section from "./Section";
 import Heading from "./Heading";
 import { service1, service2, service3, check } from "../assets";
@@ -13,15 +14,15 @@ import Generating from "./Generating";
 
 const Services = () => {
   return (
-    <Section id="how-to-use">
+    <Section id="what-we-do">
       <div className="container">
         <Heading
-          title="Generative AI made for creators."
-          text="Brainwave unlocks the potential of AI-powered applications"
+          title="Solutions that solve. Products that inspire."
+          text="We combine strategic thinking with artisanal engineering to deliver genuine outcomes."
         />
 
         <div className="relative">
-          <div className="relative z-1 flex items-center h-[39rem] mb-5 p-8 border border-n-1/10 rounded-3xl overflow-hidden lg:p-20 xl:h-[46rem]">
+          <div className="relative z-1 flex items-center h-[28rem] mb-5 p-6 border border-n-1/10 rounded-3xl overflow-hidden lg:p-12 xl:h-[32rem]">
             <div className="absolute top-0 left-0 w-full h-full pointer-events-none md:w-3/5 xl:w-auto">
               <img
                 className="w-full h-full object-cover md:object-right"
@@ -33,9 +34,9 @@ const Services = () => {
             </div>
 
             <div className="relative z-1 max-w-[17rem] ml-auto">
-              <h4 className="h4 mb-4">Smartest AI</h4>
+              <h4 className="h4 mb-4">Strategic Deep-Dives</h4>
               <p className="body-2 mb-[3rem] text-n-3">
-                Brainwave unlocks the potential of AI-powered applications
+                We unearth truth through research, ensuring we build the right thing, the right way.
               </p>
               <ul className="body-2">
                 {brainwaveServices.map((item, index) => (
@@ -54,7 +55,7 @@ const Services = () => {
           </div>
 
           <div className="relative z-1 grid gap-5 lg:grid-cols-2">
-            <div className="relative min-h-[39rem] border border-n-1/10 rounded-3xl overflow-hidden">
+            <div className="relative min-h-[28rem] border border-n-1/10 rounded-3xl overflow-hidden">
               <div className="absolute inset-0">
                 <img
                   src={service2}
@@ -65,34 +66,31 @@ const Services = () => {
                 />
               </div>
 
-              <div className="absolute inset-0 flex flex-col justify-end p-8 bg-gradient-to-b from-n-8/0 to-n-8/90 lg:p-15">
-                <h4 className="h4 mb-4">Photo editing</h4>
+              <div className="absolute inset-0 flex flex-col justify-end p-6 bg-gradient-to-b from-n-8/0 to-n-8/90 lg:p-10">
+                <h4 className="h4 mb-4">Artisanal Dev</h4>
                 <p className="body-2 mb-[3rem] text-n-3">
-                  Automatically enhance your photos using our AI app&apos;s
-                  photo editing feature. Try it now!
+                  Technically crafted solutions executed in Agile sprints with high-end code and QA.
                 </p>
               </div>
 
               <PhotoChatMessage />
             </div>
 
-            <div className="p-4 bg-n-7 rounded-3xl overflow-hidden lg:min-h-[46rem]">
-              <div className="py-12 px-4 xl:px-8">
-                <h4 className="h4 mb-4">Video generation</h4>
+            <div className="p-4 bg-n-7 rounded-3xl overflow-hidden lg:min-h-[32rem]">
+              <div className="py-8 px-4 xl:px-8">
+                <h4 className="h4 mb-4">Connected AI</h4>
                 <p className="body-2 mb-[2rem] text-n-3">
-                  The world’s most powerful AI photo and video art generation
-                  engine. What will you create?
+                  Intelligent automation and conversational UI designed to evolve with your business.
                 </p>
 
                 <ul className="flex items-center justify-between">
                   {brainwaveServicesIcons.map((item, index) => (
                     <li
                       key={index}
-                      className={`rounded-2xl flex items-center justify-center ${
-                        index === 2
-                          ? "w-[3rem] h-[3rem] p-0.25 bg-conic-gradient md:w-[4.5rem] md:h-[4.5rem]"
-                          : "flex w-10 h-10 bg-n-6 md:w-15 md:h-15"
-                      }`}
+                      className={`rounded-2xl flex items-center justify-center ${index === 2
+                        ? "w-[3rem] h-[3rem] p-0.25 bg-conic-gradient md:w-[4.5rem] md:h-[4.5rem]"
+                        : "flex w-10 h-10 bg-n-6 md:w-15 md:h-15"
+                        }`}
                     >
                       <div
                         className={
@@ -121,6 +119,15 @@ const Services = () => {
                 <VideoBar />
               </div>
             </div>
+          </div>
+
+          <div className="relative z-1 flex justify-center mt-10 lg:mt-15">
+            <Link
+              to="/what-we-do-detail"
+              className="h4 font-playfair text-n-1 animate-pulse hover:text-color-1 transition-colors"
+            >
+              Discover all our services <span className="inline-block transition-transform group-hover:translate-x-2">→</span>
+            </Link>
           </div>
 
           <Gradient />
