@@ -59,6 +59,10 @@ src/
     npm run build
     ```
 
+5. Deployed :-
+   https://nerdxdigitalsolutions.netlify.app/    
+    
+
 ## 🎨 Design Philosophy
 
 **Nerdx** isn't just a portfolio; it's a statement. The design reflects a balance between technical expertise and creative freedom.
