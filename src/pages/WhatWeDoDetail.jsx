@@ -80,10 +80,13 @@ const WhatWeDoDetail = () => {
                         variants={containerVariants}
                         className="max-w-[62rem]"
                     >
-                        <motion.h1 variants={textVariants} className="h1 font-playfair mb-6">
+                        <motion.h1
+                            variants={textVariants}
+                            className="h1 font-playfair mb-6 text-[2.5rem] sm:text-[3.5rem] md:text-[4.5rem] lg:text-[5rem] leading-tight"
+                        >
                             We can help in many ways…
                         </motion.h1>
-                        <motion.p variants={textVariants} className="body-1 text-n-3 max-w-3xl mb-12">
+                        <motion.p variants={textVariants} className="body-1 text-n-3 max-w-3xl mb-12 text-base md:text-lg lg:text-xl">
                             Or just a few depending on what you need.
                         </motion.p>
                     </motion.div>

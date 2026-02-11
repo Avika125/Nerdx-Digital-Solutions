@@ -30,6 +30,7 @@ const Roadmap = () => {
             className="mb-0 !mb-0"
             tag="Ready to get started"
             title="Stuff that worked"
+            titleClassName="text-[1.8rem] sm:text-[2.2rem] md:text-[3rem]"
           />
 
           <div className="hidden lg:flex gap-4">
@@ -55,7 +56,7 @@ const Roadmap = () => {
           >
             {roadmap.map((item) => (
               <div
-                className={`flex-shrink-0 w-[19rem] md:w-[22rem] p-0.25 rounded-3xl overflow-hidden ${item.colorful ? "bg-conic-gradient" : "bg-n-6"
+                className={`flex-shrink-0 w-[17rem] md:w-[22rem] p-0.25 rounded-3xl overflow-hidden ${item.colorful ? "bg-conic-gradient" : "bg-n-6"
                   }`}
                 key={item.id}
               >
@@ -87,10 +88,10 @@ const Roadmap = () => {
 
                   {/* Bottom part: Content (Size minimized like in picture) */}
                   <div className="p-6 bg-n-7 flex-grow">
-                    <h4 className="h4 text-n-1 mb-2 tracking-wide text-lg lg:text-xl uppercase">
+                    <h4 className="h4 text-n-1 mb-2 tracking-wide text-base md:text-lg lg:text-xl uppercase">
                       {item.title}
                     </h4>
-                    <p className="body-2 text-n-4 text-sm leading-relaxed">
+                    <p className="body-2 text-n-4 text-xs md:text-sm leading-relaxed">
                       {item.text}
                     </p>
                   </div>
@@ -99,10 +100,10 @@ const Roadmap = () => {
             ))}
           </div>
 
-          {/* Floating "More" Arrow */}
+          {/* Floating "More" Arrow - Hidden on small mobile */}
           <button
             onClick={() => scroll("right")}
-            className="flex absolute top-1/2 right-4 lg:-right-4 -translate-y-1/2 w-12 h-12 lg:w-14 lg:h-14 bg-n-8/90 backdrop-blur-md border border-n-1/20 rounded-full items-center justify-center text-n-1 transition-all hover:bg-n-6 hover:scale-110 hover:border-color-1 shadow-2xl z-10 animate-pulse"
+            className="hidden sm:flex absolute top-1/2 right-4 lg:-right-4 -translate-y-1/2 w-12 h-12 lg:w-14 lg:h-14 bg-n-8/90 backdrop-blur-md border border-n-1/20 rounded-full items-center justify-center text-n-1 transition-all hover:bg-n-6 hover:scale-110 hover:border-color-1 shadow-2xl z-10 animate-pulse"
             aria-label="Scroll Right"
           >
             <Arrow className="ml-1 w-6 h-6" />

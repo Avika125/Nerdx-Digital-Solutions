@@ -22,10 +22,10 @@ const Services = () => {
         />
 
         <div className="relative">
-          <div className="relative z-1 flex items-center h-[28rem] mb-5 p-6 border border-n-1/10 rounded-3xl overflow-hidden lg:p-12 xl:h-[32rem]">
+          <div className="relative z-1 flex items-center min-h-[28rem] mb-5 p-6 border border-n-1/10 rounded-3xl overflow-hidden lg:p-12 xl:min-h-[32rem]">
             <div className="absolute top-0 left-0 w-full h-full pointer-events-none md:w-3/5 xl:w-auto">
               <img
-                className="w-full h-full object-cover md:object-right"
+                className="w-full h-full object-cover md:object-right opacity-50 md:opacity-100"
                 width={800}
                 alt="Smartest AI"
                 height={730}
@@ -34,11 +34,11 @@ const Services = () => {
             </div>
 
             <div className="relative z-1 max-w-[17rem] ml-auto">
-              <h4 className="h4 mb-4">Strategic Deep-Dives</h4>
-              <p className="body-2 mb-[3rem] text-n-3">
+              <h4 className="h4 mb-4 text-2xl md:text-3xl">Strategic Deep-Dives</h4>
+              <p className="body-2 mb-[2rem] md:mb-[3rem] text-n-3 text-sm md:text-base">
                 We unearth truth through research, ensuring we build the right thing, the right way.
               </p>
-              <ul className="body-2">
+              <ul className="body-2 text-sm md:text-base">
                 {brainwaveServices.map((item, index) => (
                   <li
                     key={index}
@@ -67,8 +67,8 @@ const Services = () => {
               </div>
 
               <div className="absolute inset-0 flex flex-col justify-end p-6 bg-gradient-to-b from-n-8/0 to-n-8/90 lg:p-10">
-                <h4 className="h4 mb-4">Artisanal Dev</h4>
-                <p className="body-2 mb-[3rem] text-n-3">
+                <h4 className="h4 mb-4 text-2xl md:text-3xl">Artisanal Dev</h4>
+                <p className="body-2 mb-[2rem] md:mb-[3rem] text-n-3 text-sm md:text-base">
                   Technically crafted solutions executed in Agile sprints with high-end code and QA.
                 </p>
               </div>
@@ -78,8 +78,8 @@ const Services = () => {
 
             <div className="p-4 bg-n-7 rounded-3xl overflow-hidden lg:min-h-[32rem]">
               <div className="py-8 px-4 xl:px-8">
-                <h4 className="h4 mb-4">Connected AI</h4>
-                <p className="body-2 mb-[2rem] text-n-3">
+                <h4 className="h4 mb-4 text-2xl md:text-3xl">Connected AI</h4>
+                <p className="body-2 mb-[1.5rem] md:mb-[2rem] text-n-3 text-sm md:text-base">
                   Intelligent automation and conversational UI designed to evolve with your business.
                 </p>
 

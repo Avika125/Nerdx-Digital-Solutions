@@ -55,13 +55,13 @@ const HowWeWorkDetail = () => {
                     >
                         <motion.h1
                             variants={textVariants}
-                            className="h1 font-playfair mb-6 text-n-1 text-[2.5rem] leading-tight md:text-[5rem]"
+                            className="h1 font-playfair mb-6 text-n-1 text-[2.5rem] leading-[1.1] sm:text-[3.5rem] md:text-[4.5rem] lg:text-[5rem]"
                         >
                             We keep you close, and your users closer
                         </motion.h1>
                         <motion.p
                             variants={textVariants}
-                            className="body-1 text-n-3 max-w-3xl"
+                            className="body-1 text-n-3 max-w-3xl text-base md:text-lg lg:text-xl"
                         >
                             We know that delivering work that doesn’t meet the needed user outcomes hurts us as much as our partners. So we focus every part of our process around the end users, and only them.
                         </motion.p>

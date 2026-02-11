@@ -67,17 +67,17 @@ const Contact = () => {
                 >
                     <motion.h2
                         variants={textVariants}
-                        className="h2 font-playfair mb-6 bg-clip-text text-transparent bg-gradient-to-br from-n-1 to-n-1/50"
+                        className="h2 font-playfair mb-6 bg-clip-text text-transparent bg-gradient-to-br from-n-1 to-n-1/50 text-[2.2rem] sm:text-[3rem] md:text-[3.5rem]"
                     >
                         Let's do this
                     </motion.h2>
-                    <motion.p variants={textVariants} className="body-1 font-sora text-n-3 mb-12 max-w-2xl mx-auto">
+                    <motion.p variants={textVariants} className="body-1 font-sora text-n-3 mb-12 max-w-2xl mx-auto text-sm md:text-base lg:text-lg">
                         Check out what we do, drop your brief below or get an instant quote.
                     </motion.p>
 
                     <motion.form
                         variants={textVariants}
-                        className="text-left space-y-10 bg-n-8/80 backdrop-blur-md p-6 md:p-16 rounded-3xl border border-n-1/10 shadow-2xl relative overflow-hidden"
+                        className="text-left space-y-8 md:space-y-10 bg-n-8/80 backdrop-blur-md p-6 md:p-16 rounded-3xl border border-n-1/10 shadow-2xl relative overflow-hidden"
                         onSubmit={(e) => e.preventDefault()}
                     >
                         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-color-1 to-color-2 opacity-50" />
@@ -90,7 +90,7 @@ const Contact = () => {
                             <textarea
                                 rows="3"
                                 placeholder="Tell us about your project, goals, and any specific requirements..."
-                                className="w-full bg-n-7 rounded-xl p-4 md:p-6 border-2 border-transparent focus:border-color-1 outline-none transition-all font-sora text-n-1 text-lg lg:text-xl font-light resize-none placeholder:text-n-4/50"
+                                className="w-full bg-n-7 rounded-xl p-4 md:p-6 border-2 border-transparent focus:border-color-1 outline-none transition-all font-sora text-n-1 text-base md:text-lg lg:text-xl font-light resize-none placeholder:text-n-4/50"
                             ></textarea>
                         </div>
 
