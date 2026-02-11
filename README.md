@@ -40,7 +40,11 @@ src/
 
 1.  **Clone the repository**
     ```bash
+<<<<<<< HEAD
     git clone https://github.com/your-username/nerdx.git
+=======
+    git clone https://github.com/Avika125/Nerdx-Digital-Solutions.git
+>>>>>>> e2d2bd6af4234b94801d3bd36817dc4a69795c2f
     cd nerdx
     ```
 
@@ -59,6 +63,7 @@ src/
     npm run build
     ```
 
+<<<<<<< HEAD
 ## 🎨 Design Philosophy
 
 **Nerdx** isn't just a portfolio; it's a statement. The design reflects a balance between technical expertise and creative freedom.
@@ -67,4 +72,18 @@ src/
 
 ---
 
+=======
+5. Deployed :-
+   https://nerdxdigitalsolutions.netlify.app/    
+    
+
+## 🎨 Design Philosophy
+
+**Nerdx** isn't just a portfolio; it's a statement. The design reflects a balance between technical expertise and creative freedom.
+-   **"Navigate, Explode, Refine, Define"**: Our core methodology visualizing how we take raw ideas and turn them into polished digital products.
+-   **User-Centric**: Every animation and layout decision is made to enhance the user's journey through the site.
+
+---
+
+>>>>>>> e2d2bd6af4234b94801d3bd36817dc4a69795c2f
 *Built with ❤️ by the Nerdx*
