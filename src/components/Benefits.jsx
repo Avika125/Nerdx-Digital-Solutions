@@ -1,5 +1,5 @@
+import { motion } from "framer-motion";
 import { benefits } from "../constants";
-import Heading from "./Heading";
 import Section from "./Section";
 import Arrow from "../assets/svg/Arrow";
 import { GradientLight } from "./design/Benefits";
@@ -9,10 +9,31 @@ const Benefits = () => {
   return (
     <Section id="features">
       <div className="container relative z-2">
-        <Heading
-          className="md:max-w-md lg:max-w-2xl"
-          title="Chat Smarter, Not Harder with Nerdx"
-        />
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="flex flex-col items-center text-center mb-12 lg:mb-20"
+        >
+          <div className="flex items-center space-x-3 opacity-70 px-3 py-1.5 bg-n-1/5 rounded-full backdrop-blur-md border border-n-1/10 mb-8">
+            <div className="w-2 h-2 rounded-full bg-color-1 animate-pulse" />
+            <span className="uppercase tracking-[0.25em] text-[0.6rem] md:text-xs text-n-1 font-bold">
+              The Advantage
+            </span>
+          </div>
+
+          <h2 className="h1 font-grotesk font-black uppercase tracking-tighter text-[2rem] sm:text-[3rem] md:text-[4rem] lg:text-[5.5rem] leading-[1.05] bg-clip-text text-transparent bg-gradient-to-b from-n-1 via-n-1 to-n-1/30">
+            Chat Smarter, <br className="hidden md:block" />
+            <span className="text-color-1 inline-block -skew-x-6 px-2 hover:scale-105 transition-transform duration-500 cursor-default">
+              Not Harder
+            </span>
+          </h2>
+
+          <p className="body-1 text-n-3 mt-6 max-w-2xl font-light text-base md:text-lg lg:text-xl">
+            Experience the next generation of digital assistance with Nerdx's battle-tested frameworks.
+          </p>
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-10">
           {benefits
