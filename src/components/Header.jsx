@@ -30,24 +30,6 @@ const Header = () => {
         setOpenNavigation(false);
     };
 
-    const handleNavItemClick = (e, item) => {
-        // Specialized logic for "How we work"
-        if (item.id === "1") {
-            if (pathname.pathname === "/" && pathname.hash === "#how-we-work") {
-                e.preventDefault();
-                navigate("/how-we-work-detail");
-            }
-        }
-        // Specialized logic for "What we do"
-        if (item.id === "2") {
-            if (pathname.pathname === "/" && pathname.hash === "#what-we-do") {
-                e.preventDefault();
-                navigate("/what-we-do-detail");
-            }
-        }
-        handleClick();
-    };
-
     return (
         <div
             className={`fixed top-0 left-0 w-full z-50  border-b border-n-6 lg:bg-n-8/90 lg:backdrop-blur-sm ${openNavigation ? "bg-n-8" : "bg-n-8/90 backdrop-blur-sm"
@@ -64,18 +46,18 @@ const Header = () => {
                 >
                     <div className="relative z-2 flex flex-col items-center justify-center m-auto lg:flex-row">
                         {navigation.map((item) => (
-                            <a
+                            <Link
                                 key={item.id}
-                                href={item.url.startsWith("#") ? `/${item.url}` : item.url}
-                                onClick={(e) => handleNavItemClick(e, item)}
-                                className={`block relative font-code text-xl uppercase text-n-1 transition-colors hover:text-color-1 ${item.onlyMobile ? "lg:hidden" : ""
-                                    } px-6 py-6 md:py-8 lg:-mr-0.25 lg:text-xs lg:font-semibold ${item.url === pathname.hash
+                                to={item.url}
+                                onClick={handleClick}
+                                className={`block relative font-code text-2xl uppercase text-n-1 transition-colors hover:text-color-1 ${item.onlyMobile ? "lg:hidden" : ""
+                                    } px-6 py-6 md:py-8 lg:-mr-0.25 lg:text-sm lg:font-semibold ${item.url === pathname.pathname || item.url === pathname.hash
                                         ? "z-2 lg:text-n-1"
                                         : "lg:text-n-1/50"
                                     } lg:leading-5 lg:hover:text-n-1 xl:px-12`}
                             >
                                 {item.title}
-                            </a>
+                            </Link>
                         ))}
                     </div>
 
@@ -86,10 +68,10 @@ const Header = () => {
                     href="#signup"
                     className="button hidden mr-8 text-n-1/50 transition-colors hover:text-n-1 lg:block"
                 >
-                    New account
+                    NEW ACCOUNT
                 </a>
                 <Button className="hidden lg:flex" href="#login">
-                    Sign in
+                    SIGN IN
                 </Button>
 
                 <Button

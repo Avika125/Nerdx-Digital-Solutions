@@ -192,15 +192,15 @@ const HowWeWorkDetail = () => {
                             The Methodology
                         </motion.h3>
                         <motion.h2
-  variants={textVariants}
-  className="h1 font-grotesk font-black uppercase 
+                            variants={textVariants}
+                            className="h1 font-grotesk font-black uppercase 
   tracking-[-0.03em]
   text-n-1 
   text-[1.8rem] sm:text-[2.5rem] md:text-[3.5rem] lg:text-[4.5rem]
   leading-none opacity-[0.03]
   text-center mb-4 select-none">
-  OUR NERD CORE
-</motion.h2>
+                            OUR NERD CORE
+                        </motion.h2>
 
 
 

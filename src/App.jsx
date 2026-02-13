@@ -7,6 +7,8 @@ import LandingPage from "./pages/LandingPage";
 import WhoWeAreDetail from "./pages/WhoWeAreDetail";
 import HowWeWorkDetail from "./pages/HowWeWorkDetail";
 import WhatWeDoDetail from "./pages/WhatWeDoDetail";
+import StuffThatWorkedDetail from "./pages/StuffThatWorkedDetail";
+import ContactDetail from "./pages/ContactDetail";
 
 const App = () => {
   return (
@@ -18,6 +20,8 @@ const App = () => {
           <Route path="/who-we-are-detail" element={<WhoWeAreDetail />} />
           <Route path="/how-we-work-detail" element={<HowWeWorkDetail />} />
           <Route path="/what-we-do-detail" element={<WhatWeDoDetail />} />
+          <Route path="/stuff-that-worked" element={<StuffThatWorkedDetail />} />
+          <Route path="/contact" element={<ContactDetail />} />
         </Routes>
         <Footer />
       </div>

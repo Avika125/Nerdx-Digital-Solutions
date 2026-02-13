@@ -46,27 +46,27 @@ export const navigation = [
   {
     id: "0",
     title: "Who we are",
-    url: "#who-we-are",
+    url: "/who-we-are-detail",
   },
   {
     id: "1",
     title: "How we work",
-    url: "#how-we-work",
+    url: "/how-we-work-detail",
   },
   {
     id: "2",
     title: "What we do",
-    url: "#what-we-do",
+    url: "/what-we-do-detail",
   },
   {
     id: "3",
     title: "Stuff that worked",
-    url: "#stuff-that-worked",
+    url: "/stuff-that-worked",
   },
   {
     id: "4",
     title: "Let’s talk",
-    url: "#lets-talk",
+    url: "/contact",
   },
 ];
 

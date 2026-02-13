@@ -23,12 +23,18 @@ const Benefits = () => {
             </span>
           </div>
 
-          <h2 className="h1 font-grotesk font-black uppercase tracking-tighter text-[2rem] sm:text-[3rem] md:text-[4rem] lg:text-[5.5rem] leading-[1.05] bg-clip-text text-transparent bg-gradient-to-b from-n-1 via-n-1 to-n-1/30">
+          <h2 className="h1 font-grotesk font-black uppercase tracking-[-0.02em] 
+text-[1.7rem] sm:text-[2.4rem] md:text-[3.2rem] lg:text-[4rem] 
+leading-[1.1] 
+bg-clip-text text-transparent 
+bg-gradient-to-b from-n-1 via-n-1 to-n-1/30">
             Chat Smarter, <br className="hidden md:block" />
-            <span className="text-color-1 inline-block -skew-x-6 px-2 hover:scale-105 transition-transform duration-500 cursor-default">
+            <span className="text-color-1 inline-block -skew-x-6 px-2 
+  hover:scale-105 transition-transform duration-500 cursor-default">
               Not Harder
             </span>
           </h2>
+
 
           <p className="body-1 text-n-3 mt-6 max-w-2xl font-light text-base md:text-lg lg:text-xl">
             Experience the next generation of digital assistance with Nerdx's battle-tested frameworks.

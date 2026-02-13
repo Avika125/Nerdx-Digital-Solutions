@@ -4,18 +4,21 @@ import Section from "../components/Section";
 import Button from "../components/Button";
 
 const WhatWeDoDetail = () => {
+
     const textVariants = {
-        hidden: { opacity: 0, y: 20 },
-        visible: { opacity: 1, y: 0 },
+        hidden: { opacity: 0, y: 40 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.8, ease: "easeOut" }
+        },
     };
 
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
             opacity: 1,
-            transition: {
-                staggerChildren: 0.1,
-            },
+            transition: { staggerChildren: 0.15 }
         },
     };
 
@@ -23,129 +26,190 @@ const WhatWeDoDetail = () => {
         {
             metaphor: "Above the screen",
             title: "Strategy",
-            description: "Digital audits, facilitated design thinking workshops, digital strategy development, campaign and website analytics, user research, content strategy development.",
-            color: "bg-color-1/20",
-            delay: 0,
+            description: "Digital audits, design thinking workshops, digital strategy, campaign analytics, user research, and content strategy.",
+            accent: "#AC6AFF"
         },
         {
             metaphor: "On the screen",
             title: "Design + UX",
-            description: "UX design, interface design, visual design, digital advertising campaigns, branding, IA + wireframing, motion graphics and video.",
-            color: "bg-color-2/20",
-            delay: 0.2,
+            description: "UX systems, interface design, branding, IA, wireframing, motion graphics, and immersive digital experiences.",
+            accent: "#FFC876"
         },
         {
             metaphor: "Below the screen",
             title: "Tech + Dev",
-            description: "CMS (Custom, Wordpress, Drupal), front end development, API integration, mobile app development, website and eCommerce development.",
-            color: "bg-color-3/20",
-            delay: 0.4,
+            description: "Custom CMS, frontend engineering, APIs, mobile apps, and scalable eCommerce platforms.",
+            accent: "#FF776F"
         },
         {
             metaphor: "In the brain",
             title: "AI + Automation",
-            description: "AI chatbot development, conversational UI/UX, intelligent automation, predictive analytics, NLP integration, machine learning.",
-            color: "bg-color-4/20",
-            delay: 0.6,
+            description: "Conversational AI, automation systems, predictive analytics, NLP integration, and machine learning.",
+            accent: "#7ADB78"
         },
     ];
 
-    const FloatingOrb = ({ color, size, top, left, delay }) => (
-        <motion.div
-            className={`absolute ${size} ${color} blur-[12rem] rounded-full pointer-events-none -z-1`}
-            animate={{
-                x: [0, 30, -20, 0],
-                y: [0, -30, 40, 0],
+    const GlowOrb = ({ color, size, top, left }) => (
+        <div
+            style={{
+                position: "absolute",
+                width: size,
+                height: size,
+                top,
+                left,
+                background: color,
+                filter: "blur(180px)",
+                opacity: 0.25,
+                borderRadius: "50%",
+                zIndex: 0
             }}
-            transition={{
-                duration: 20,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: delay,
-            }}
-            style={{ top, left }}
         />
     );
 
     return (
-        <div className="bg-n-8 overflow-hidden relative min-h-screen">
-            <FloatingOrb color="bg-color-1/10" size="w-[50rem] h-[50rem]" top="-10%" left="-10%" delay={0} />
-            <FloatingOrb color="bg-color-2/10" size="w-[40rem] h-[40rem]" top="50%" left="60%" delay={5} />
+        <div
+            className="relative min-h-screen overflow-hidden text-white"
+            style={{
+                background: "#050510"
+            }}
+        >
 
-            <Section className="pt-[12rem] -mt-[5.25rem]" id="what-we-do-hero" crosses customPaddings>
-                <div className="container relative z-2">
+            {/* Ambient Background Glow */}
+            <GlowOrb color="#AC6AFF" size="600px" top="-10%" left="-10%" />
+            <GlowOrb color="#7ADB78" size="500px" top="60%" left="60%" />
+
+            {/* ===== HERO ===== */}
+            <Section className="pt-[12rem] pb-20 relative z-10">
+
+                <div className="container">
+
                     <motion.div
                         initial="hidden"
                         animate="visible"
                         variants={containerVariants}
-                        className="max-w-[62rem]"
+                        className="max-w-[70rem]"
                     >
                         <motion.h1
                             variants={textVariants}
-                            className="h1 font-playfair mb-6 text-[2.5rem] sm:text-[3.5rem] md:text-[4.5rem] lg:text-[5rem] leading-tight"
+                            className="font-playfair font-semibold tracking-tight leading-[1.05]"
+                            style={{
+                                fontSize: "clamp(2.8rem, 6vw, 5.5rem)",
+                                background: "linear-gradient(to bottom, #ffffff, #ffffff80)",
+                                WebkitBackgroundClip: "text",
+                                color: "transparent"
+                            }}
                         >
                             We can help in many ways…
                         </motion.h1>
-                        <motion.p variants={textVariants} className="body-1 text-n-3 max-w-3xl mb-12 text-base md:text-lg lg:text-xl">
-                            Or just a few depending on what you need.
+
+                        <motion.p
+                            variants={textVariants}
+                            className="mt-8 text-lg md:text-xl text-white/60 max-w-2xl"
+                        >
+                            Or just a few — depending on what you truly need.
                         </motion.p>
                     </motion.div>
+
                 </div>
             </Section>
 
-            <Section id="services-grid" crosses>
-                <div className="container pb-20 relative z-2">
+            {/* ===== SERVICES GRID ===== */}
+            <Section className="relative z-10 pb-32">
+
+                <div className="container">
+
                     <motion.div
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true }}
                         variants={containerVariants}
-                        className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
+                        className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
                     >
+
                         {categories.map((cat, index) => (
                             <motion.div
                                 key={index}
                                 variants={textVariants}
-                                whileHover={{ y: -5 }}
-                                className={`p-6 lg:p-8 rounded-2xl border border-n-6 bg-n-7 transition-colors hover:border-color-1/50 flex flex-col h-full`}
+                                whileHover={{ y: -10 }}
+                                className="p-8 rounded-3xl border border-white/5 backdrop-blur-xl flex flex-col"
+                                style={{
+                                    background: "rgba(255,255,255,0.02)",
+                                    boxShadow: "0 0 60px rgba(255,255,255,0.02)"
+                                }}
                             >
-                                <div className="mb-6">
-                                    <span className="font-code text-xs uppercase tracking-widest text-n-4 block mb-2">
-                                        {cat.metaphor}
-                                    </span>
-                                    <h3 className="h3 font-playfair text-n-1">{cat.title}</h3>
-                                </div>
-                                <p className="body-2 text-n-4 leading-relaxed mb-8 flex-grow">
+                                <span className="uppercase text-xs tracking-widest text-white/40 mb-3">
+                                    {cat.metaphor}
+                                </span>
+
+                                <h3
+                                    className="text-2xl font-playfair mb-6"
+                                    style={{ color: cat.accent }}
+                                >
+                                    {cat.title}
+                                </h3>
+
+                                <p className="text-white/60 leading-relaxed flex-grow">
                                     {cat.description}
                                 </p>
-                                <div className={`w-12 h-1 ${cat.color} rounded-full`} />
+
+                                <div
+                                    className="mt-10 h-[2px] w-0 transition-all duration-500"
+                                    style={{
+                                        background: cat.accent
+                                    }}
+                                />
+
                             </motion.div>
                         ))}
+
                     </motion.div>
                 </div>
+
             </Section>
 
-            <Section id="work-cta" crosses>
-                <div className="container py-20 text-center">
+            {/* ===== CTA ===== */}
+            <Section className="relative z-10 pb-28">
+
+                <div className="container text-center">
+
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
+                        transition={{ duration: 0.8 }}
+                        className="max-w-3xl mx-auto"
                     >
-                        <h2 className="h2 font-playfair mb-10">Let’s find the right way for you.</h2>
+                        <h2
+                            className="font-playfair mb-10"
+                            style={{
+                                fontSize: "clamp(2rem, 4vw, 3rem)"
+                            }}
+                        >
+                            Let’s find the right way for you.
+                        </h2>
+
                         <div className="flex flex-col sm:flex-row justify-center gap-6">
+
                             <Link to="/contact">
                                 <Button white>
                                     Get started
                                 </Button>
                             </Link>
+
                             <Link to="/">
-                                <Button>Back to Home</Button>
+                                <Button>
+                                    Back to Home
+                                </Button>
                             </Link>
+
                         </div>
+
                     </motion.div>
+
                 </div>
+
             </Section>
+
         </div>
     );
 };

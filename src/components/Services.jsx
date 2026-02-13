@@ -9,124 +9,143 @@ import {
   VideoBar,
   VideoChatMessage,
 } from "./design/Services";
-
 import Generating from "./Generating";
+import { motion } from "framer-motion";
 
 const Services = () => {
   return (
     <Section id="what-we-do">
-      <div className="container">
+      <div className="container px-4 sm:px-6">
         <Heading
           title="Solutions that solve. Products that inspire."
           text="We combine strategic thinking with artisanal engineering to deliver genuine outcomes."
         />
 
         <div className="relative">
-          <div className="relative z-1 flex items-center min-h-[28rem] mb-5 p-6 border border-n-1/10 rounded-3xl overflow-hidden lg:p-12 xl:min-h-[32rem]">
-            <div className="absolute top-0 left-0 w-full h-full pointer-events-none md:w-3/5 xl:w-auto">
+
+          {/* MAIN CARD */}
+          <motion.div
+            whileHover={{ y: -8, scale: 1.01 }}
+            transition={{ duration: 0.4 }}
+            className="relative z-1 flex flex-col lg:flex-row min-h-[20rem] mb-6 p-5 sm:p-6 md:p-8 border border-n-1/10 rounded-3xl overflow-hidden transition-all duration-500 hover:border-white/20 hover:shadow-2xl"
+          >
+            {/* Background Image */}
+            <div className="absolute inset-0 lg:w-3/5 pointer-events-none">
               <img
-                className="w-full h-full object-cover md:object-right opacity-50 md:opacity-100"
-                width={800}
-                alt="Smartest AI"
-                height={730}
                 src={service1}
+                alt="AI Strategy"
+                className="w-full h-full object-cover opacity-30 sm:opacity-40 lg:opacity-90 transition-opacity duration-500"
               />
             </div>
 
-            <div className="relative z-1 max-w-[17rem] ml-auto">
-              <h4 className="h4 mb-4 text-2xl md:text-3xl">Strategic Deep-Dives</h4>
-              <p className="body-2 mb-[2rem] md:mb-[3rem] text-n-3 text-sm md:text-base">
+            {/* Content */}
+            <div className="relative z-1 lg:ml-auto lg:max-w-[18rem]">
+              <h4 className="h4 mb-3 text-lg sm:text-xl md:text-2xl">
+                Strategic Deep-Dives
+              </h4>
+
+              <p className="body-2 mb-6 text-n-3 text-sm sm:text-base">
                 We unearth truth through research, ensuring we build the right thing, the right way.
               </p>
-              <ul className="body-2 text-sm md:text-base">
+
+              <ul className="text-sm sm:text-base">
                 {brainwaveServices.map((item, index) => (
                   <li
                     key={index}
-                    className="flex items-start py-4 border-t border-n-6"
+                    className="flex items-start py-2 sm:py-3 border-t border-n-6"
                   >
-                    <img width={24} height={24} src={check} />
-                    <p className="ml-4">{item}</p>
+                    <img src={check} width={18} height={18} alt="check" />
+                    <p className="ml-3">{item}</p>
                   </li>
                 ))}
               </ul>
             </div>
 
-            <Generating className="absolute left-4 right-4 bottom-4 border-n-1/10 border lg:left-1/2 lg-right-auto lg:bottom-8 lg:-translate-x-1/2" />
-          </div>
+            <Generating className="hidden lg:block absolute left-1/2 bottom-6 -translate-x-1/2 border-n-1/10 border" />
+          </motion.div>
 
-          <div className="relative z-1 grid gap-5 lg:grid-cols-2">
-            <div className="relative min-h-[28rem] border border-n-1/10 rounded-3xl overflow-hidden">
+          {/* GRID CARDS */}
+          <div className="grid gap-6 lg:grid-cols-2">
+
+            {/* CARD 2 */}
+            <motion.div
+              whileHover={{ y: -8, scale: 1.02 }}
+              transition={{ duration: 0.4 }}
+              className="relative min-h-[18rem] sm:min-h-[20rem] border border-n-1/10 rounded-3xl overflow-hidden transition-all duration-500 hover:border-white/20 hover:shadow-xl"
+            >
               <div className="absolute inset-0">
                 <img
                   src={service2}
-                  className="h-full w-full object-cover"
-                  width={630}
-                  height={750}
-                  alt="robot"
+                  alt="Development"
+                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                 />
               </div>
 
-              <div className="absolute inset-0 flex flex-col justify-end p-6 bg-gradient-to-b from-n-8/0 to-n-8/90 lg:p-10">
-                <h4 className="h4 mb-4 text-2xl md:text-3xl">Artisanal Dev</h4>
-                <p className="body-2 mb-[2rem] md:mb-[3rem] text-n-3 text-sm md:text-base">
+              <div className="absolute inset-0 flex flex-col justify-end p-5 sm:p-7 bg-gradient-to-b from-n-8/0 to-n-8/90">
+                <h4 className="h4 mb-2 text-lg sm:text-xl md:text-2xl">
+                  Artisanal Dev
+                </h4>
+
+                <p className="text-n-3 text-sm sm:text-base">
                   Technically crafted solutions executed in Agile sprints with high-end code and QA.
                 </p>
               </div>
 
               <PhotoChatMessage />
-            </div>
+            </motion.div>
 
-            <div className="p-4 bg-n-7 rounded-3xl overflow-hidden lg:min-h-[32rem]">
-              <div className="py-8 px-4 xl:px-8">
-                <h4 className="h4 mb-4 text-2xl md:text-3xl">Connected AI</h4>
-                <p className="body-2 mb-[1.5rem] md:mb-[2rem] text-n-3 text-sm md:text-base">
+            {/* CARD 3 */}
+            <motion.div
+              whileHover={{ y: -8, scale: 1.02 }}
+              transition={{ duration: 0.4 }}
+              className="p-4 sm:p-5 bg-n-7 rounded-3xl overflow-hidden transition-all duration-500 hover:shadow-xl hover:bg-n-7/90"
+            >
+              <div className="py-4 sm:py-6">
+                <h4 className="h4 mb-2 text-lg sm:text-xl md:text-2xl">
+                  Connected AI
+                </h4>
+
+                <p className="text-n-3 mb-5 text-sm sm:text-base">
                   Intelligent automation and conversational UI designed to evolve with your business.
                 </p>
 
-                <ul className="flex items-center justify-between">
+                {/* Icons */}
+                <ul className="flex flex-wrap justify-between gap-3">
                   {brainwaveServicesIcons.map((item, index) => (
                     <li
                       key={index}
-                      className={`rounded-2xl flex items-center justify-center ${index === 2
-                        ? "w-[3rem] h-[3rem] p-0.25 bg-conic-gradient md:w-[4.5rem] md:h-[4.5rem]"
-                        : "flex w-10 h-10 bg-n-6 md:w-15 md:h-15"
-                        }`}
+                      className="rounded-xl flex items-center justify-center w-10 h-10 sm:w-14 sm:h-14 bg-n-6 transition-transform duration-300 hover:scale-110"
                     >
-                      <div
-                        className={
-                          index === 2
-                            ? "flex items-center justify-center w-full h-full bg-n-7 rounded-[1rem]"
-                            : ""
-                        }
-                      >
-                        <img src={item} width={24} height={24} alt={item} />
-                      </div>
+                      <img src={item} width={22} height={22} alt="icon" />
                     </li>
                   ))}
                 </ul>
               </div>
 
-              <div className="relative h-[20rem] bg-n-8 rounded-xl overflow-hidden md:h-[25rem]">
+              {/* Video Section */}
+              <div className="relative h-[14rem] sm:h-[18rem] bg-n-8 rounded-xl overflow-hidden">
                 <img
                   src={service3}
-                  className="w-full h-full object-cover"
-                  width={520}
-                  height={400}
-                  alt="Scary robot"
+                  alt="AI"
+                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                 />
 
                 <VideoChatMessage />
                 <VideoBar />
               </div>
-            </div>
+            </motion.div>
           </div>
 
-          <div className="relative z-1 flex justify-center mt-10 lg:mt-15">
+          {/* LINK */}
+          <div className="flex justify-center mt-10 sm:mt-14">
             <Link
               to="/what-we-do-detail"
-              className="h4 font-playfair text-n-1 animate-pulse hover:text-color-1 transition-colors"
+              className="text-lg sm:text-xl font-playfair text-n-1 hover:text-color-1 transition-all group"
             >
-              Discover all our services <span className="inline-block transition-transform group-hover:translate-x-2">→</span>
+              Discover all our services
+              <span className="ml-2 inline-block transition-transform group-hover:translate-x-2">
+                →
+              </span>
             </Link>
           </div>
 

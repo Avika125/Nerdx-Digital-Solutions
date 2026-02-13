@@ -17,7 +17,7 @@ const Contact = () => {
 
     const textVariants = {
         hidden: { opacity: 0, y: 20 },
-        visible: { opacity: 1, y: 0 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
     };
 
     const containerVariants = {
@@ -26,6 +26,7 @@ const Contact = () => {
             opacity: 1,
             transition: {
                 staggerChildren: 0.1,
+                delayChildren: 0.2
             },
         },
     };
@@ -55,133 +56,169 @@ const Contact = () => {
         }
     };
 
+    // Reusable Input Component for cleaner JSX
+    const FormInput = ({ label, placeholder, type = "text", ...props }) => (
+        <div className="group relative">
+            <label className="block font-code text-[0.65rem] uppercase tracking-[0.2em] text-n-4 mb-2 group-focus-within:text-color-1 transition-colors">
+                {label}
+            </label>
+            <div className="relative">
+                {type === "textarea" ? (
+                    <textarea
+                        rows="1"
+                        placeholder={placeholder}
+                        className="w-full bg-transparent border-b border-n-6 py-3 text-n-1 text-lg lg:text-xl font-light outline-none transition-all focus:border-color-1 placeholder:text-n-6 resize-none overflow-hidden"
+                        style={{ minHeight: "3rem" }}
+                        onInput={(e) => {
+                            e.target.style.height = "auto";
+                            e.target.style.height = e.target.scrollHeight + "px";
+                        }}
+                        {...props}
+                    ></textarea>
+                ) : (
+                    <input
+                        type={type}
+                        placeholder={placeholder}
+                        className="w-full bg-transparent border-b border-n-6 py-3 text-n-1 text-lg lg:text-xl font-light outline-none transition-all focus:border-color-1 placeholder:text-n-6"
+                        {...props}
+                    />
+                )}
+                <div className="absolute bottom-0 left-0 w-0 h-[1px] bg-color-1 transition-all duration-500 group-focus-within:w-full" />
+            </div>
+        </div>
+    );
+
     return (
-        <Section className="py-20 lg:py-32" id="lets-talk" crosses>
-            <div className="container relative z-2">
+        <Section className="py-20 lg:py-24 overflow-hidden" id="lets-talk" crosses>
+            {/* Ambient Background Glows */}
+            <div className="absolute top-[20%] left-[20%] w-[40rem] h-[40rem] bg-color-1/10 rounded-full blur-[10rem] pointer-events-none mix-blend-screen animate-pulse" />
+            <div className="absolute bottom-[20%] right-[20%] w-[35rem] h-[35rem] bg-color-2/10 rounded-full blur-[8rem] pointer-events-none mix-blend-screen" />
+
+            <div className="container relative z-10">
                 <motion.div
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true }}
                     variants={containerVariants}
-                    className="max-w-[55rem] mx-auto text-center"
+                    className="max-w-[60rem] mx-auto"
                 >
-                    <motion.h2
-                        variants={textVariants}
-                        className="h2 font-playfair mb-6 bg-clip-text text-transparent bg-gradient-to-br from-n-1 to-n-1/50 text-[2.2rem] sm:text-[3rem] md:text-[3.5rem]"
-                    >
-                        Let's do this
-                    </motion.h2>
-                    <motion.p variants={textVariants} className="body-1 font-sora text-n-3 mb-12 max-w-2xl mx-auto text-sm md:text-base lg:text-lg">
-                        Check out what we do, drop your brief below or get an instant quote.
-                    </motion.p>
+                    {/* Header Section */}
+                    <div className="text-center mb-16 lg:mb-20">
+                        <motion.h2
+                            variants={textVariants}
+                            className="font-grotesk font-black uppercase tracking-tighter text-[1rem] sm:text-[2rem] md:text-[3rem] lg:text-[4rem] leading-[0.9] text-white mb-6"
+                        >
+                            Let's Build <br />
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-color-1 to-color-2">
+                                The Future
+                            </span>
+                        </motion.h2>
 
+                        <motion.p
+                            variants={textVariants}
+                            className="text-n-3 text-lg md:text-xl font-light max-w-2xl mx-auto leading-relaxed"
+                        >
+                            Have a vision? We have the engineering artistry to realize it.
+                            <br className="hidden md:block" /> Drop your brief below or request a quote.
+                        </motion.p>
+                    </div>
+
+                    {/* Form Container */}
                     <motion.form
                         variants={textVariants}
-                        className="text-left space-y-8 md:space-y-10 bg-n-8/80 backdrop-blur-md p-6 md:p-16 rounded-3xl border border-n-1/10 shadow-2xl relative overflow-hidden"
+                        className="relative bg-[#050510]/80 backdrop-blur-xl border border-white/10 rounded-[2.5rem] p-8 md:p-12 lg:p-16 overflow-hidden shadow-2xl"
                         onSubmit={(e) => e.preventDefault()}
                     >
-                        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-color-1 to-color-2 opacity-50" />
+                        {/* Decorative Top Border Gradient */}
+                        <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-color-1 to-transparent opacity-50" />
 
-                        {/* Project Description */}
-                        <div className="space-y-4">
-                            <label className="block font-code text-[0.75rem] uppercase tracking-widest text-n-4 font-bold">
-                                My project is...
-                            </label>
-                            <textarea
-                                rows="3"
-                                placeholder="Tell us about your project, goals, and any specific requirements..."
-                                className="w-full bg-n-7 rounded-xl p-4 md:p-6 border-2 border-transparent focus:border-color-1 outline-none transition-all font-sora text-n-1 text-base md:text-lg lg:text-xl font-light resize-none placeholder:text-n-4/50"
-                            ></textarea>
-                        </div>
+                        <div className="grid gap-12 lg:gap-16">
+                            {/* Section 1: Project Details */}
+                            <div className="space-y-8">
+                                <FormInput
+                                    label="The Vision"
+                                    placeholder="Tell us about your project, goals, and any specific requirements..."
+                                    type="textarea"
+                                />
+                            </div>
 
-                        {/* Name and Email */}
-                        <div className="grid md:grid-cols-2 gap-8 md:gap-12">
-                            <div className="space-y-4">
-                                <label className="block font-code text-[0.75rem] uppercase tracking-widest text-n-4 font-bold">
-                                    My name is...
-                                </label>
-                                <input
+                            {/* Section 2: User Info */}
+                            <div className="grid md:grid-cols-2 gap-10 md:gap-12">
+                                <FormInput
+                                    label="Your Name"
+                                    placeholder="John Doe"
                                     type="text"
-                                    placeholder="Your Name"
-                                    className="w-full bg-n-7 rounded-xl p-4 md:p-6 border-2 border-transparent focus:border-color-1 outline-none transition-all font-sora text-n-1 text-lg lg:text-xl font-light placeholder:text-n-4/50"
                                 />
-                            </div>
-                            <div className="space-y-4">
-                                <label className="block font-code text-[0.75rem] uppercase tracking-widest text-n-4 font-bold">
-                                    My email is...
-                                </label>
-                                <input
+                                <FormInput
+                                    label="Email Address"
+                                    placeholder="john@example.com"
                                     type="email"
-                                    placeholder="email@example.com"
-                                    className="w-full bg-n-7 rounded-xl p-4 md:p-6 border-2 border-transparent focus:border-color-1 outline-none transition-all font-sora text-n-1 text-lg lg:text-xl font-light placeholder:text-n-4/50"
                                 />
                             </div>
-                        </div>
 
-                        {/* Help Options */}
-                        <div className="space-y-6">
-                            <label className="block font-code text-[0.75rem] uppercase tracking-widest text-n-4 font-bold">
-                                I need help with a:
-                            </label>
-                            <div className="flex flex-wrap gap-3">
-                                {options.map((option) => (
-                                    <div
-                                        key={option}
-                                        onClick={() => toggleService(option)}
-                                        className={`
-                                            cursor-pointer px-5 py-2.5 rounded-full border transition-all duration-300 font-sora text-sm font-medium
-                                            ${selectedServices.includes(option)
-                                                ? "bg-color-1 border-color-1 text-n-1 shadow-[0_0_15px_rgba(172,106,255,0.4)]"
-                                                : "bg-n-7/50 border-n-6 text-n-3 hover:border-n-4 hover:text-n-1"
-                                            }
-                                        `}
-                                    >
-                                        <span className="capitalize">{option}</span>
-                                    </div>
-                                ))}
-                                {isAdding ? (
-                                    <input
-                                        autoFocus
-                                        type="text"
-                                        value={newOption}
-                                        onChange={(e) => setNewOption(e.target.value)}
-                                        onKeyDown={handleAddOption}
-                                        onBlur={() => setIsAdding(false)}
-                                        className="px-5 py-2.5 rounded-full border border-color-1 bg-n-7 text-n-1 text-sm font-medium outline-none placeholder:text-n-4/50 w-32"
-                                        placeholder="Type & Enter"
-                                    />
-                                ) : (
-                                    <button
-                                        onClick={() => setIsAdding(true)}
-                                        className="px-5 py-2.5 rounded-full border border-n-6 bg-n-7/50 text-n-3 hover:border-color-1 hover:text-color-1 transition-all duration-300 font-sora text-sm font-medium flex items-center gap-2 group"
-                                    >
-                                        <span>Add</span>
-                                        <span className="text-lg leading-none group-hover:rotate-90 transition-transform duration-300">+</span>
-                                    </button>
-                                )}
+                            {/* Section 3: Services */}
+                            <div className="space-y-6">
+                                <label className="block font-code text-[1rem] uppercase tracking-[0.2em] text-n-4">
+                                    I need help with:
+                                </label>
+                                <div className="flex flex-wrap gap-3">
+                                    {options.map((option) => (
+                                        <div
+                                            key={option}
+                                            onClick={() => toggleService(option)}
+                                            className={`
+                                                relative cursor-pointer px-6 py-3 rounded-full border transition-all duration-300 font-code text-xs uppercase tracking-wider
+                                                ${selectedServices.includes(option)
+                                                    ? "bg-white/5 border-color-1 text-white shadow-[0_0_20px_rgba(172,106,255,0.3)]"
+                                                    : "bg-transparent border-white/10 text-n-3 hover:border-white/30 hover:text-white"
+                                                }
+                                            `}
+                                        >
+                                            {selectedServices.includes(option) && (
+                                                <div className="absolute inset-0 rounded-full bg-color-1/10 blur-md -z-1" />
+                                            )}
+                                            {option}
+                                        </div>
+                                    ))}
+
+                                    {/* Add Custom Tag Logic */}
+                                    {isAdding ? (
+                                        <input
+                                            autoFocus
+                                            type="text"
+                                            value={newOption}
+                                            onChange={(e) => setNewOption(e.target.value)}
+                                            onKeyDown={handleAddOption}
+                                            onBlur={() => setIsAdding(false)}
+                                            className="px-6 py-3 rounded-full border border-color-1 bg-transparent text-white text-xs font-code uppercase tracking-wider outline-none w-40 placeholder:text-white/20"
+                                            placeholder="TYPE & ENTER"
+                                        />
+                                    ) : (
+                                        <button
+                                            onClick={() => setIsAdding(true)}
+                                            className="px-6 py-3 rounded-full border border-dashed border-white/20 text-white/40 hover:text-white hover:border-white/60 transition-all font-code text-xs uppercase tracking-wider flex items-center gap-2 group"
+                                        >
+                                            <span>+ Build Custom</span>
+                                        </button>
+                                    )}
+                                </div>
+                            </div>
+
+                            {/* Actions */}
+                            <div className="pt-8 flex justify-center">
+                                <Button
+                                    className="w-full sm:w-auto min-w-[12rem]"
+                                    white // Use white variant for high contrast CTA
+                                    onClick={() => alert("Form submitted!")}
+                                >
+                                    Let's Make It Happen
+                                </Button>
                             </div>
                         </div>
 
-                        {/* Actions */}
-                        <div className="flex items-center justify-center pt-6">
-                            <Button
-                                className="w-full sm:w-auto px-12 group"
-                                white
-                                onClick={() => alert("Form submitted!")}
-                            >
-                                <span className="flex items-center justify-center">
-                                    <span className="font-code font-bold uppercase tracking-wider">Send Message</span>
-                                    <Arrow className="ml-2 fill-n-8 transition-transform group-hover:translate-x-1" />
-                                </span>
-                            </Button>
-                        </div>
                     </motion.form>
                 </motion.div>
             </div>
-
-            {/* Background Atmosphere */}
-            <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[60rem] h-[60rem] bg-color-1/5 blur-[12rem] rounded-full -z-1 pointer-events-none" />
-            <div className="absolute bottom-0 right-0 w-[40rem] h-[40rem] bg-color-2/5 blur-[12rem] rounded-full -z-1 pointer-events-none" />
         </Section>
     );
 };
