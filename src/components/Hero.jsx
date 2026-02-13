@@ -22,21 +22,25 @@ const Hero = () => {
     >
       <div className="container relative" ref={parallaxRef}>
         <div className="relative z-1 max-w-[62rem] mx-auto text-center mb-[3.875rem] md:mb-20 lg:mb-[6.25rem]">
-          <h1 className="h1 text-[1.5rem] sm:text-[2rem] md:text-[3rem] lg:text-[4rem] xl:text-[5rem] mb-6 leading-tight">
-            We give thoughts a {` `}
+          <h1 className="h1 text-[1.25rem] sm:text-[1.5rem] md:text-[2rem] lg:text-[2.75rem] xl:text-[3.5rem] mb-6 leading-tight">
+            We transform imagination into{" "}
             <span className="inline-block relative">
-              chance at reality{" "}
-              <img
+              purposeful{" "}
+              <span className="inline-block relative"> digital experiences.{" "}
+                <img
                 src={curve}
                 className="absolute top-full left-0 w-full xl:-mt-2"
                 width={624}
                 height={28}
                 alt="Curve"
               />
+              </span>
+              
             </span>
           </h1>
+
           <p className="body-1 max-w-3xl mx-auto mb-6 text-n-2 lg:mb-8 text-sm md:text-base lg:text-lg">
-            through digital craftsmanship for forward-looking brands
+            By combining creative thinking, advanced technology, and refined design, we help ambitious brands shape their identity, connect with audiences, and stand confidently in the digital future.
           </p>
           <Button href="#features" white>
             Chat us

@@ -53,9 +53,8 @@ const WhoWeAre = () => {
           loop
           playsInline
           onLoadedData={() => setVideoLoaded(true)}
-          className={`absolute inset-0 w-full h-full object-contain scale-110 transition-opacity duration-[2000ms] ${
-            videoLoaded ? "opacity-70" : "opacity-0"
-          }`}
+          className={`absolute inset-0 w-full h-full object-contain scale-110 transition-opacity duration-[2000ms] ${videoLoaded ? "opacity-70" : "opacity-0"
+            }`}
         />
         <div className="absolute inset-0 bg-n-8/60" />
         <div className="absolute inset-0 bg-gradient-to-b from-n-8 via-transparent to-n-8" />
