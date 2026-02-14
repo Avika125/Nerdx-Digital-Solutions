@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Section from "./Section";
+import relationshipImage from "../assets/therelationship.jpg";
 import { useRef, useState, useEffect } from "react";
 import {
   heroVideo,
@@ -186,13 +187,13 @@ const WhoWeAre = () => {
               <div className="bg-[#111126]/60 backdrop-blur-xl border border-n-1/10 rounded-2xl overflow-hidden shadow-xl h-full flex flex-col">
                 {/* Image Section */}
                 <div className="relative h-48 md:h-56 overflow-hidden">
-                  <img
-                    src="src/assets/therelationship.jpg"
-                    alt="Team collaboration"
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#111126] via-[#111126]/50 to-transparent" />
-                </div>
+  <img
+    src={relationshipImage}
+    alt="Team collaboration"
+    className="w-full h-full object-cover"
+  />
+  <div className="absolute inset-0 bg-gradient-to-t from-[#111126] via-[#111126]/50 to-transparent" />
+</div>
 
                 {/* Content Section */}
                 <div className="p-6 md:p-8 flex-1 flex flex-col">
