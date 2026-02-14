@@ -149,7 +149,10 @@ const WhoWeAre = () => {
                 </div>
 
                 <p className="text-n-4 text-sm leading-relaxed mb-6">
-                From understanding user needs through design thinking to delivering flawless technical execution, we create digital solutions that simplify complexity, enhance performance, and prepare businesses for future growth and innovation.
+                  From understanding user needs through design thinking to
+                  delivering flawless technical execution, we create digital
+                  solutions that simplify complexity, enhance performance, and
+                  prepare businesses for future growth and innovation.
                 </p>
 
                 {/* Tool Icons */}
@@ -187,13 +190,13 @@ const WhoWeAre = () => {
               <div className="bg-[#111126]/60 backdrop-blur-xl border border-n-1/10 rounded-2xl overflow-hidden shadow-xl h-full flex flex-col">
                 {/* Image Section */}
                 <div className="relative h-48 md:h-56 overflow-hidden">
-  <img
-    src={relationshipImage}
-    alt="Team collaboration"
-    className="w-full h-full object-cover"
-  />
-  <div className="absolute inset-0 bg-gradient-to-t from-[#111126] via-[#111126]/50 to-transparent" />
-</div>
+                  <img
+                    src={relationshipImage}
+                    alt="Team collaboration"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#111126] via-[#111126]/50 to-transparent" />
+                </div>
 
                 {/* Content Section */}
                 <div className="p-6 md:p-8 flex-1 flex flex-col">
