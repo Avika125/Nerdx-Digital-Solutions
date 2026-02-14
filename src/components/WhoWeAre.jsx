@@ -2,7 +2,17 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Section from "./Section";
 import { useRef, useState, useEffect } from "react";
-import { heroVideo } from "../assets";
+import {
+  heroVideo,
+  figma,
+  notion,
+  slack,
+  discord,
+  framer,
+  photoshop,
+  benefitImage2,
+  robot,
+} from "../assets";
 
 const WhoWeAre = () => {
   const [videoLoaded, setVideoLoaded] = useState(false);
@@ -53,8 +63,9 @@ const WhoWeAre = () => {
           loop
           playsInline
           onLoadedData={() => setVideoLoaded(true)}
-          className={`absolute inset-0 w-full h-full object-contain scale-110 transition-opacity duration-[2000ms] ${videoLoaded ? "opacity-70" : "opacity-0"
-            }`}
+          className={`absolute inset-0 w-full h-full object-contain scale-110 transition-opacity duration-[2000ms] ${
+            videoLoaded ? "opacity-70" : "opacity-0"
+          }`}
         />
         <div className="absolute inset-0 bg-n-8/60" />
         <div className="absolute inset-0 bg-gradient-to-b from-n-8 via-transparent to-n-8" />
@@ -87,7 +98,7 @@ const WhoWeAre = () => {
             variants={itemVariants}
             className="max-w-[60rem] text-center mb-10 md:mb-16"
           >
-            <h2 className="font-grotesk font-black uppercase tracking-tighter text-[1.8rem] sm:text-[2.8rem] md:text-[3.8rem] lg:text-[4.8rem] leading-[1.05] mb-6 bg-clip-text text-transparent bg-gradient-to-b from-n-1 via-n-1 to-n-1/30">
+            <h2 className="font-grotesk font-black uppercase tracking-tighter text-[1.5rem] sm:text-[2.5rem] md:text-[3.5rem] lg:text-[4.5rem] leading-[1.05] mb-6 bg-clip-text text-transparent bg-gradient-to-b from-n-1 via-n-1 to-n-1/30">
               Digital Solutions <br className="hidden md:block" />
               <span className="text-color-3 inline-block -skew-x-6 px-1">
                 Misfits
@@ -97,8 +108,10 @@ const WhoWeAre = () => {
             <div className="relative mx-auto max-w-[40rem] p-1 bg-gradient-to-r from-color-1/20 via-transparent to-color-3/20 rounded-2xl">
               <div className="bg-n-8/80 backdrop-blur-xl rounded-xl p-6 md:p-8 border border-n-1/5 shadow-xl">
                 <p className="text-n-2 text-base md:text-lg lg:text-xl font-light italic leading-relaxed tracking-tight">
-                  "We're a digital solutions business made up by tech misfits,
-                  passionate creatives and curious humans."
+                  We’re a digital solutions studio built by tech misfits,
+                  passionate creatives, and endlessly curious minds — united by
+                  a shared mission to challenge norms and build meaningful
+                  digital experiences.
                 </p>
               </div>
             </div>
@@ -112,7 +125,7 @@ const WhoWeAre = () => {
               whileHover={{ y: -6 }}
               className="lg:col-span-12 xl:col-span-5"
             >
-              <div className="bg-[#0b0b1a]/60 backdrop-blur-xl border border-n-1/10 rounded-2xl p-6 md:p-8 shadow-xl">
+              <div className="bg-[#0b0b1a]/60 backdrop-blur-xl border border-n-1/10 rounded-2xl p-6 md:p-8 shadow-xl h-full flex flex-col">
                 <h4 className="mb-6 tracking-[0.25em] text-color-1 uppercase text-xs font-bold">
                   The Mission
                 </h4>
@@ -134,10 +147,33 @@ const WhoWeAre = () => {
                   ))}
                 </div>
 
-                <p className="text-n-4 text-sm leading-relaxed">
-                  From design through to code, we find simple solutions to
-                  complex challenges.
+                <p className="text-n-4 text-sm leading-relaxed mb-6">
+                From understanding user needs through design thinking to delivering flawless technical execution, we create digital solutions that simplify complexity, enhance performance, and prepare businesses for future growth and innovation.
                 </p>
+
+                {/* Tool Icons */}
+                <div className="mt-auto pt-6 border-t border-n-1/10">
+                  <p className="text-n-4 text-xs uppercase tracking-wider mb-4">
+                    Our Toolkit
+                  </p>
+                  <div className="flex flex-wrap gap-4 items-center">
+                    {[figma, notion, slack, discord, framer, photoshop].map(
+                      (tool, index) => (
+                        <motion.div
+                          key={index}
+                          whileHover={{ scale: 1.1, y: -2 }}
+                          className="w-10 h-10 rounded-lg bg-n-1/5 border border-n-1/10 p-2 flex items-center justify-center"
+                        >
+                          <img
+                            src={tool}
+                            alt="tool"
+                            className="w-full h-full object-contain"
+                          />
+                        </motion.div>
+                      ),
+                    )}
+                  </div>
+                </div>
               </div>
             </motion.div>
 
@@ -147,33 +183,47 @@ const WhoWeAre = () => {
               whileHover={{ y: -6 }}
               className="lg:col-span-12 xl:col-span-7"
             >
-              <div className="bg-[#111126]/60 backdrop-blur-xl border border-n-1/10 rounded-2xl p-6 md:p-8 shadow-xl h-full flex flex-col justify-between">
-                <div>
+              <div className="bg-[#111126]/60 backdrop-blur-xl border border-n-1/10 rounded-2xl overflow-hidden shadow-xl h-full flex flex-col">
+                {/* Image Section */}
+                <div className="relative h-48 md:h-56 overflow-hidden">
+                  <img
+                    src="src/assets/therelationship.jpg"
+                    alt="Team collaboration"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#111126] via-[#111126]/50 to-transparent" />
+                </div>
+
+                {/* Content Section */}
+                <div className="p-6 md:p-8 flex-1 flex flex-col">
                   <h4 className="tracking-[0.25em] text-n-4 uppercase text-xs font-bold mb-6">
                     The Relationship
                   </h4>
 
                   <p className="text-n-1 text-lg md:text-xl font-light leading-tight mb-6">
-                    We build rewarding relationships that help companies grow
-                    and evolve.
+                    Great work begins with strong relationships. We partner
+                    closely with companies to understand their vision,
+                    challenges, and goals — helping them grow and evolve with
+                    confidence.
                   </p>
 
-                  <p className="text-n-3 text-sm md:text-base leading-relaxed">
-                    Our integrated approach to strategy, design and development
-                    allows us to deliver from concept to launch.
+                  <p className="text-n-3 text-sm md:text-base leading-relaxed mb-6">
+                    Through our integrated strategy, design, and development
+                    process, we transform ideas into powerful digital
+                    experiences from concept to launch.
                   </p>
-                </div>
 
-                <div className="mt-8 pt-6 border-t border-n-1/10 flex flex-col sm:flex-row items-center justify-between gap-4">
-                  <p className="text-n-1 font-bold text-base">
-                    Learn more about{" "}
-                    <Link
-                      to="/who-we-are-detail"
-                      className="text-color-1 hover:text-n-1 transition-colors"
-                    >
-                      who we are →
-                    </Link>
-                  </p>
+                  <div className="mt-auto pt-6 border-t border-n-1/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <p className="text-n-1 font-bold text-base">
+                      Learn more about{" "}
+                      <Link
+                        to="/who-we-are-detail"
+                        className="text-color-1 hover:text-n-1 transition-colors"
+                      >
+                        who we are →
+                      </Link>
+                    </p>
+                  </div>
                 </div>
               </div>
             </motion.div>

@@ -25,15 +25,15 @@ const Hero = () => {
           <h1 className="h1 text-[1.25rem] sm:text-[1.5rem] md:text-[2rem] lg:text-[2.75rem] xl:text-[3.5rem] mb-6 leading-tight">
             We transform imagination into{" "}
             <span className="inline-block relative">
-              purposeful{" "}
-              <span className="inline-block relative"> digital experiences.{" "}
-                <img
+              purposeful digital experiences.{" "}
+              {/* <img
                 src={curve}
                 className="absolute top-full left-0 w-full xl:-mt-2"
                 width={624}
                 height={28}
                 alt="Curve"
-              />
+              /> */}
+              <span className="inline-block relative"> {" "}
               </span>
               
             </span>
