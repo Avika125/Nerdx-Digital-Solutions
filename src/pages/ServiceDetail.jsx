@@ -4,12 +4,42 @@ import Section from "../components/Section";
 import Button from "../components/Button";
 import { getServiceBySlug } from "./services";
 import UIUXWebDesignPage from "./services/design/UIUXWebDesignPage";
+import BrandIdentityStrategyPage from "./services/design/BrandIdentityStrategyPage";
+import MarketingAdvertisingDesignPage from "./services/design/MarketingAdvertisingDesignPage";
+import FullStackWebDevelopmentPage from "./services/development/FullStackWebDevelopmentPage";
+import WordPressDevelopmentPage from "./services/development/WordPressDevelopmentPage";
+import ChromeExtensionDevelopmentPage from "./services/development/ChromeExtensionDevelopmentPage";
+import AppDevelopmentPage from "./services/development/AppDevelopmentPage";
+import ChatBotPage from "./services/development/ChatBotPage";
+import SeoSemPage from "./services/marketing/SeoSemPage";
+import BrandingStrategicsPage from "./services/marketing/BrandingStrategicsPage";
+import SocialMediaMarketingPage from "./services/marketing/SocialMediaMarketingPage";
+import EbayStoreSetupManagementPage from "./services/marketing/EbayStoreSetupManagementPage";
+import DevOpsPage from "./services/management/DevOpsPage";
+import EpicorErpPage from "./services/management/EpicorErpPage";
+
+const slugToPage = {
+    "ui-ux-web-design": UIUXWebDesignPage,
+    "brand-identity-strategy": BrandIdentityStrategyPage,
+    "marketing-advertising-design": MarketingAdvertisingDesignPage,
+    "full-stack-web-development": FullStackWebDevelopmentPage,
+    "wordpress-development": WordPressDevelopmentPage,
+    "chrome-extension-development": ChromeExtensionDevelopmentPage,
+    "app-development": AppDevelopmentPage,
+    "chat-bot": ChatBotPage,
+    "seo-sem": SeoSemPage,
+    "branding-strategics": BrandingStrategicsPage,
+    "social-media-marketing": SocialMediaMarketingPage,
+    "ebay-store-setup-management": EbayStoreSetupManagementPage,
+    devops: DevOpsPage,
+    "epicor-erp": EpicorErpPage
+};
 
 const ServiceDetail = () => {
     const { slug } = useParams();
-
-    if (slug === "ui-ux-web-design") {
-        return <UIUXWebDesignPage />;
+    const PageComponent = slugToPage[slug];
+    if (PageComponent) {
+        return <PageComponent />;
     }
 
     const service = getServiceBySlug(slug);
