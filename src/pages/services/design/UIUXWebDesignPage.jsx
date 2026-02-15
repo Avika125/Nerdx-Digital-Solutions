@@ -87,7 +87,7 @@ const UIUXWebDesignPage = () => {
             <div className="absolute inset-0 z-0 opacity-[0.03] bg-[linear-gradient(to_right,#fff_1px,transparent_1px),linear-gradient(to_bottom,#fff_1px,transparent_1px)] bg-[size:60px_60px] pointer-events-none" />
 
             {/* Hero */}
-            <Section className="pt-[12rem] pb-20 relative z-10">
+            <Section className="pt-[10rem] pb-12 relative z-10">
                 <div className="container">
                     <motion.div initial="hidden" animate="visible" variants={containerVariants} className="max-w-[70rem]">
                         <motion.div variants={textVariants} className="mb-8">
@@ -147,14 +147,14 @@ const UIUXWebDesignPage = () => {
                 </div>
             </Section>
 
-            <div className="relative z-10 py-4">
+            <div className="relative z-10 py-2">
                 <div className="container">
                     <div className="h-px bg-gradient-to-r from-transparent via-white/15 to-transparent" />
                 </div>
             </div>
 
             {/* Stats Strip */}
-            <Section className="relative z-10 py-12">
+            <Section className="relative z-10 py-8">
                 <div className="container">
                     <motion.div
                         initial="hidden"
@@ -167,7 +167,7 @@ const UIUXWebDesignPage = () => {
                             boxShadow: "0 0 80px rgba(172,106,255,0.05), inset 0 1px 0 rgba(255,255,255,0.05)"
                         }}
                     >
-                        <div className="p-8 md:p-12 lg:p-16 grid grid-cols-2 gap-8">
+                        <div className="p-6 md:p-10 lg:p-12 grid grid-cols-2 gap-6">
                             <AnimatedNumber value="500+" suffix="" label="Projects Delivered" />
                             <AnimatedNumber value="98" suffix="%" label="Client Satisfaction" />
                             <AnimatedNumber value="3x" suffix="" label="Avg. Conversion Lift" />
@@ -185,7 +185,7 @@ const UIUXWebDesignPage = () => {
             </Section>
 
             {/* We Design Online Stores - Online Store Workflow */}
-            <Section className="relative z-10 pb-20">
+            <Section className="relative z-10 pb-12">
                 <div className="container">
                     <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={containerVariants} className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
                         <div>
@@ -241,21 +241,21 @@ const UIUXWebDesignPage = () => {
                 </div>
             </Section>
 
-            <div className="relative z-10 py-4">
+            <div className="relative z-10 py-2">
                 <div className="container">
                     <div className="h-px bg-gradient-to-r from-transparent via-white/15 to-transparent" />
                 </div>
             </div>
 
             {/* Happy Clients & Industries */}
-            <Section className="relative z-10 pb-20">
+            <Section className="relative z-10 pb-12">
                 <div className="container">
                     <motion.div
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true }}
                         variants={containerVariants}
-                        className="relative p-10 md:p-14 rounded-3xl overflow-hidden backdrop-blur-sm"
+                        className="relative p-8 md:p-10 rounded-2xl overflow-hidden backdrop-blur-sm"
                         style={{
                             background: "linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(172,106,255,0.08) 100%)",
                             border: "1px solid rgba(255,255,255,0.1)",
@@ -298,7 +298,7 @@ const UIUXWebDesignPage = () => {
             </Section>
 
             {/* Intelligent UX/UI Design */}
-            <Section className="relative z-10 pb-20">
+            <Section className="relative z-10 pb-12">
                 <div className="container">
                     <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={containerVariants} className="max-w-4xl">
                         <motion.h2 variants={textVariants} className="font-playfair text-3xl md:text-4xl mb-8 text-white">
@@ -326,13 +326,13 @@ const UIUXWebDesignPage = () => {
             </Section>
 
             {/* Challenge & Solution */}
-            <Section className="relative z-10 pb-20">
+            <Section className="relative z-10 pb-12">
                 <div className="container">
                     <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={containerVariants} className="grid md:grid-cols-2 gap-8">
                         <motion.div
                             variants={textVariants}
                             whileHover={{ scale: 1.02 }}
-                            className="relative p-8 md:p-10 rounded-2xl overflow-hidden"
+                            className="relative p-6 md:p-8 rounded-2xl overflow-hidden"
                             style={{
                                 border: "1px solid rgba(255,100,100,0.2)",
                                 background: "linear-gradient(135deg, rgba(255,119,111,0.06) 0%, rgba(255,255,255,0.02) 100%)"
@@ -350,7 +350,7 @@ const UIUXWebDesignPage = () => {
                         <motion.div
                             variants={textVariants}
                             whileHover={{ scale: 1.02 }}
-                            className="relative p-8 md:p-10 rounded-2xl overflow-hidden"
+                            className="relative p-6 md:p-8 rounded-2xl overflow-hidden"
                             style={{
                                 border: "1px solid rgba(172,106,255,0.3)",
                                 background: "linear-gradient(135deg, rgba(172,106,255,0.1) 0%, rgba(255,255,255,0.03) 100%)"
@@ -375,14 +375,14 @@ const UIUXWebDesignPage = () => {
             </Section>
 
             {/* Testimonial / Design Quote */}
-            <Section className="relative z-10 pb-20">
+            <Section className="relative z-10 pb-12">
                 <div className="container">
                     <motion.div
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true }}
                         variants={containerVariants}
-                        className="relative p-12 md:p-16 rounded-3xl overflow-hidden"
+                        className="relative p-8 md:p-12 rounded-2xl overflow-hidden"
                         style={{
                             background: "linear-gradient(145deg, rgba(172,106,255,0.15) 0%, rgba(255,255,255,0.04) 50%)",
                             border: "1px solid rgba(255,255,255,0.1)",
@@ -401,7 +401,7 @@ const UIUXWebDesignPage = () => {
             </Section>
 
             {/* Design Principles Bento Grid */}
-            <Section className="relative z-10 pb-24">
+            <Section className="relative z-10 pb-16">
                 <div className="container">
                     <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={containerVariants}>
                         <motion.h2 variants={textVariants} className="font-playfair text-3xl md:text-4xl mb-4 text-white text-center">
@@ -437,7 +437,7 @@ const UIUXWebDesignPage = () => {
             </Section>
 
             {/* Our Expertise */}
-            <Section className="relative z-10 pb-24">
+            <Section className="relative z-10 pb-16">
                 <div className="container">
                     <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={containerVariants}>
                         <motion.h2 variants={textVariants} className="font-playfair text-3xl md:text-4xl mb-4 text-white text-center">
@@ -477,7 +477,7 @@ const UIUXWebDesignPage = () => {
             </Section>
 
             {/* Our Toolbelt */}
-            <Section className="relative z-10 pb-24">
+            <Section className="relative z-10 pb-16">
                 <div className="container">
                     <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={containerVariants}>
                         <motion.h2 variants={textVariants} className="font-playfair text-3xl md:text-4xl mb-4 text-white text-center">
@@ -509,7 +509,7 @@ const UIUXWebDesignPage = () => {
             </Section>
 
             {/* Our Process - Timeline Style */}
-            <Section className="relative z-10 pb-24">
+            <Section className="relative z-10 pb-16">
                 <div className="container">
                     <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={containerVariants}>
                         <motion.h2 variants={textVariants} className="font-playfair text-3xl md:text-4xl mb-4 text-white text-center">
@@ -552,14 +552,14 @@ const UIUXWebDesignPage = () => {
             </Section>
 
             {/* CTA */}
-            <Section className="relative z-10 pb-28">
+            <Section className="relative z-10 pb-20">
                 <div className="container">
                     <motion.div
                         initial={{ opacity: 0, y: 40 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
-                        className="max-w-3xl mx-auto text-center p-12 md:p-20 rounded-3xl backdrop-blur-sm"
+                        className="max-w-3xl mx-auto text-center p-8 md:p-14 rounded-2xl backdrop-blur-sm"
                         style={{
                             background: "linear-gradient(145deg, rgba(172,106,255,0.15) 0%, rgba(255,255,255,0.05) 100%)",
                             border: "1px solid rgba(255,255,255,0.15)",
