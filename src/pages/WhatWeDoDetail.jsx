@@ -8,12 +8,12 @@ import whatWeDoVideo from "../assets/whatwedopage.mp4";
 const WhatWeDoDetail = () => {
 
     const textVariants = {
-        hidden: { opacity: 0, y: 50 },
+        hidden: { opacity: 0, y: 30 },
         visible: {
             opacity: 1,
             y: 0,
-            transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] }
-        },
+            transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
+        }
     };
 
     const containerVariants = {
@@ -21,7 +21,7 @@ const WhatWeDoDetail = () => {
         visible: {
             opacity: 1,
             transition: { staggerChildren: 0.15, delayChildren: 0.2 }
-        },
+        }
     };
 
     const categories = serviceCategories;
@@ -64,6 +64,50 @@ const WhatWeDoDetail = () => {
             }}
             transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay }}
         />
+    );
+
+    const ServiceCard = ({ service, index, accent }) => (
+        <Link to={`/service/${service.slug}`} aria-label={service.title}>
+            <motion.article
+                variants={textVariants}
+                whileHover={{
+                    y: -6,
+                    scale: 1.015,
+                    boxShadow: "0 18px 40px rgba(0,0,0,0.45)"
+                }}
+                transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
+                className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 md:p-7 cursor-pointer"
+            >
+                <div className="relative z-10 flex flex-1 flex-col">
+                    <span
+                        className="mb-3 inline-flex h-8 w-8 items-center justify-center rounded-lg text-xs font-bold"
+                        style={{ background: `${accent}25`, color: accent }}
+                    >
+                        {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <h3 className="mb-3 font-playfair text-lg md:text-xl font-semibold leading-snug tracking-tight text-white">
+                        {service.title}
+                    </h3>
+                    <p className="flex-1 text-sm md:text-[0.95rem] leading-relaxed text-white/65">
+                        {service.description}
+                    </p>
+                    <div className="mt-5 flex items-center gap-2 font-code text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-white/50 group-hover:text-white transition-colors">
+                        <span>Learn more</span>
+                        <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+                    </div>
+                    <div
+                        className="mt-3 h-0.5 w-0 origin-left rounded-full transition-all duration-500 ease-out group-hover:w-full"
+                        style={{ background: accent }}
+                    />
+                </div>
+                <div
+                    className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                    style={{
+                        background: `radial-gradient(circle at top right, ${accent}25 0%, transparent 65%)`
+                    }}
+                />
+            </motion.article>
+        </Link>
     );
 
     return (
@@ -220,65 +264,14 @@ const WhatWeDoDetail = () => {
                                 {cat.metaphor}
                             </motion.h2>
 
-                            <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                                 {cat.services.map((service, svcIndex) => (
-                                    <Link key={svcIndex} to={`/service/${service.slug}`}>
-                                        <motion.div
-                                            variants={textVariants}
-                                            whileHover={{ y: -8, scale: 1.02, transition: { duration: 0.35, ease: [0.16, 1, 0.3, 1] } }}
-                                            className="group relative p-6 md:p-7 rounded-2xl overflow-hidden flex flex-col h-full cursor-pointer"
-                                            style={{
-                                                background: "linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%)",
-                                                border: "1px solid rgba(255,255,255,0.08)",
-                                                boxShadow: "0 4px 24px rgba(0,0,0,0.15)"
-                                            }}
-                                        >
-                                            {/* Hover gradient border glow */}
-                                            <div
-                                                className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                                                style={{
-                                                    background: `linear-gradient(135deg, ${cat.accent}15 0%, transparent 50%)`,
-                                                    border: `1px solid ${cat.accent}40`
-                                                }}
-                                            />
-                                            {/* Corner accent */}
-                                            <div
-                                                className="absolute top-0 right-0 w-24 h-24 opacity-20 group-hover:opacity-40 transition-opacity duration-500"
-                                                style={{
-                                                    background: `radial-gradient(circle at top right, ${cat.accent} 0%, transparent 70%)`
-                                                }}
-                                            />
-
-                                            <div className="relative z-10">
-                                                <span
-                                                    className="inline-flex w-8 h-8 rounded-lg items-center justify-center text-xs font-bold mb-4"
-                                                    style={{
-                                                        background: `${cat.accent}25`,
-                                                        color: cat.accent
-                                                    }}
-                                                >
-                                                    {String(svcIndex + 1).padStart(2, "0")}
-                                                </span>
-                                                <h3 className="text-lg md:text-xl font-playfair font-semibold mb-4 text-white leading-snug tracking-tight group-hover:text-white transition-colors">
-                                                    {service.title}
-                                                </h3>
-
-                                                <p className="text-white/60 leading-[1.65] flex-grow text-[0.9375rem] md:text-base font-normal">
-                                                    {service.description}
-                                                </p>
-
-                                                <div className="mt-6 flex items-center gap-2 font-code text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-white/50 group-hover:text-white transition-colors">
-                                                    <span>Learn more</span>
-                                                    <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
-                                                </div>
-
-                                                <div
-                                                    className="mt-4 h-0.5 rounded-full w-0 group-hover:w-full transition-all duration-500 ease-out origin-left"
-                                                    style={{ background: cat.accent }}
-                                                />
-                                            </div>
-                                        </motion.div>
-                                    </Link>
+                                    <ServiceCard
+                                        key={service.slug || svcIndex}
+                                        service={service}
+                                        index={svcIndex}
+                                        accent={cat.accent}
+                                    />
                                 ))}
                             </div>
 

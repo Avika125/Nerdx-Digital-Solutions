@@ -120,36 +120,44 @@ const MarketingAdvertisingDesignPage = () => {
                 <div className="container">
                     <motion.div initial="hidden" animate="visible" variants={containerVariants} className="max-w-[70rem]">
 
-                        <Link to="/what-we-do-detail" className="text-white/50 text-sm">← Back to services</Link>
+                        <Link to="/what-we-do-detail" className="inline-flex items-center gap-2 text-sm text-white/50 hover:text-white transition-colors font-code uppercase tracking-wider group">
+                            <span className="group-hover:-translate-x-1 transition-transform">←</span> Back to services
+                        </Link>
 
                         <div className="grid lg:grid-cols-2 gap-10 items-center">
 
                             <div>
-                                <motion.h1 variants={textVariants}
-                                    className="font-playfair font-bold text-6xl mb-4"
-                                    style={{ color: ACCENT }}>
+                                <motion.h1
+                                    variants={textVariants}
+                                    className="font-playfair font-bold tracking-tight leading-tight mb-3"
+                                    style={{ fontSize: "clamp(2.3rem, 4vw, 3.2rem)", color: ACCENT }}
+                                >
                                     Marketing & Advertising Design
                                 </motion.h1>
 
-                                <motion.p variants={textVariants} className="text-2xl mb-6 text-white/90">
+                                <motion.p variants={textVariants} className="text-xl md:text-2xl mb-4 text-white/90">
                                     Strategic Designs That Drive Attention & Sales.
                                 </motion.p>
 
-                                <motion.p variants={textVariants} className="text-lg text-white/60">
+                                <motion.p variants={textVariants} className="text-base md:text-lg text-white/65 leading-relaxed">
                                     We transform marketing messages into high-impact visuals that attract attention, influence decisions, and generate measurable results across digital and print platforms.
                                 </motion.p>
                             </div>
 
                             <motion.div
                                 variants={textVariants}
+                                whileHover={{ scale: 1.02, y: -4 }}
+                                transition={{ duration: 0.3 }}
                                 className="relative rounded-2xl overflow-hidden border border-white/15 shadow-2xl"
                                 style={{ boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5), 0 0 60px rgba(172,106,255,0.08)" }}
                             >
-                                <img
-                                    src={marketimg1}
-                                    alt="Marketing & Advertising Design — Strategic designs that drive attention and sales"
-                                    className="w-full h-auto object-cover rounded-2xl"
-                                />
+                                <div className="aspect-[16/10] w-full">
+                                    <img
+                                        src={marketimg1}
+                                        alt="Marketing & Advertising Design — Strategic designs that drive attention and sales"
+                                        className="h-full w-full object-cover"
+                                    />
+                                </div>
                             </motion.div>
 
                         </div>

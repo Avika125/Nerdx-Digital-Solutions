@@ -61,22 +61,35 @@ export default function ServicePageLayout({ content }) {
                             </Link>
                         </motion.div>
                         <div className={`grid gap-8 lg:gap-12 items-center ${hero.image ? "lg:grid-cols-2" : "max-w-3xl"}`}>
-                            <div>
+                            <div className="max-w-xl">
                                 <motion.div variants={textVariants} className="mb-3">
                                     <motion.span className="font-code px-3 py-1.5 rounded-full border border-white/20 bg-white/[0.06] backdrop-blur-sm text-[0.6rem] font-semibold uppercase tracking-[0.25em] text-white/90" whileHover={{ scale: 1.02 }} transition={{ duration: 0.2 }}>
                                         {category}
                                     </motion.span>
                                 </motion.div>
                                 <motion.div variants={textVariants} className="relative inline-block">
-                                    <h1 className="font-playfair font-bold text-4xl md:text-5xl lg:text-6xl tracking-tight mb-2" style={{ color: accent }}>{hero.title}</h1>
+                                    <h1
+                                        className="font-playfair font-bold tracking-tight leading-tight mb-2"
+                                        style={{ fontSize: "clamp(2.3rem, 4vw, 3.4rem)", color: accent }}
+                                    >
+                                        {hero.title}
+                                    </h1>
                                     <motion.div className="absolute -bottom-1 left-0 h-1 rounded-full bg-gradient-to-r from-[#AC6AFF] to-[#7ADB78]" initial={{ width: 0 }} animate={{ width: "100%" }} transition={{ duration: 1, delay: 0.5 }} style={{ background: `linear-gradient(to right, ${accent}, #7ADB78)` }} />
                                 </motion.div>
-                                <motion.p variants={textVariants} className="text-lg md:text-xl text-white/90 font-medium mb-4 mt-3">{hero.subtitle}</motion.p>
-                                <motion.p variants={textVariants} className="text-base md:text-lg text-white/60 max-w-xl leading-relaxed">{hero.description}</motion.p>
+                                <motion.p variants={textVariants} className="text-base md:text-lg text-white/90 font-medium mb-3 mt-3">{hero.subtitle}</motion.p>
+                                <motion.p variants={textVariants} className="text-sm md:text-base text-white/60 max-w-xl leading-relaxed">{hero.description}</motion.p>
                             </div>
                             {hero.image && (
-                                <motion.div variants={textVariants} whileHover={{ scale: 1.02, y: -4 }} transition={{ duration: 0.3 }} className="relative rounded-2xl overflow-hidden border border-white/15" style={{ boxShadow: `0 20px 40px -12px rgba(0,0,0,0.5), 0 0 40px ${accent}15` }}>
-                                    <img src={hero.image} alt={hero.title} className="w-full h-auto object-cover rounded-2xl" />
+                                <motion.div
+                                    variants={textVariants}
+                                    whileHover={{ scale: 1.02, y: -4 }}
+                                    transition={{ duration: 0.3 }}
+                                    className="relative rounded-2xl overflow-hidden border border-white/15 justify-self-end max-w-md w-full"
+                                    style={{ boxShadow: `0 16px 32px -12px rgba(0,0,0,0.5), 0 0 32px ${accent}15` }}
+                                >
+                                    <div className="aspect-[4/3] w-full">
+                                        <img src={hero.image} alt={hero.title} className="h-full w-full object-cover" />
+                                    </div>
                                 </motion.div>
                             )}
                         </div>
@@ -93,7 +106,18 @@ export default function ServicePageLayout({ content }) {
                         <div className="p-6 md:p-10 lg:p-12 grid grid-cols-2 gap-6">
                             {stats.items.map((s, i) => <AnimatedNumber key={i} value={s.value} suffix={s.suffix || ""} label={s.label} accent={accent} />)}
                         </div>
-                        {stats.image && <motion.div variants={textVariants} className="relative h-48 lg:h-full min-h-[12rem] lg:min-h-[14rem]"><img src={stats.image} alt="" className="absolute inset-0 w-full h-full object-cover" /></motion.div>}
+                        {stats.image && (
+                            <motion.div
+                                variants={textVariants}
+                                className={`relative flex items-center justify-center overflow-hidden px-4 ${stats.imageContain ? "min-h-[12rem] lg:min-h-[14rem]" : "h-44 lg:h-56"}`}
+                            >
+                                <img
+                                    src={stats.image}
+                                    alt=""
+                                    className={stats.imageContain ? "w-full h-auto max-h-[16rem] object-contain" : "w-full h-full object-cover rounded-2xl"}
+                                />
+                            </motion.div>
+                        )}
                     </motion.div>
                 </div>
             </Section>
@@ -117,7 +141,17 @@ export default function ServicePageLayout({ content }) {
                                 <Link to="/contact"><Button>Chat with An Expert</Button></Link>
                             </motion.div>
                         </div>
-                        {workflow.image && <motion.div variants={textVariants} whileHover={{ scale: 1.02, y: -4 }} className="relative rounded-2xl overflow-hidden border border-white/15"><img src={workflow.image} alt="" className="w-full h-auto object-cover rounded-2xl" /></motion.div>}
+                        {workflow.image && (
+                            <motion.div
+                                variants={textVariants}
+                                whileHover={{ scale: 1.02, y: -4 }}
+                                className="relative rounded-2xl overflow-hidden border border-white/15 max-w-md w-full justify-self-end"
+                            >
+                                <div className="aspect-[4/3] w-full">
+                                    <img src={workflow.image} alt="" className="h-full w-full object-cover" />
+                                </div>
+                            </motion.div>
+                        )}
                     </motion.div>
                 </div>
             </Section>
@@ -206,18 +240,31 @@ export default function ServicePageLayout({ content }) {
             {/* Expertise */}
             <Section className="relative z-10 pb-16">
                 <div className="container">
-                    <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={containerVariants}>
-                        <motion.h2 variants={textVariants} className="font-playfair text-2xl md:text-3xl mb-3 text-white text-center">{expertise.title}</motion.h2>
-                        <motion.p variants={textVariants} className="text-white/60 text-center mb-10 max-w-2xl mx-auto text-sm">{expertise.subtitle}</motion.p>
-                        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                            {expertise.cards.map((card, i) => <motion.div key={i} variants={textVariants} whileHover={{ y: -6 }} className="group relative p-5 rounded-2xl overflow-hidden flex flex-col h-full" style={{ background: "linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%)", border: "1px solid rgba(255,255,255,0.1)" }}>
-                                <div className="absolute top-0 right-0 w-16 h-16 rounded-full blur-2xl opacity-0 group-hover:opacity-30 transition-opacity" style={{ background: accent }} />
-                                <div className="relative z-10">
-                                    <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style={{ background: `${accent}25` }}><span className="text-xl" style={{ color: accent }}>{card.icon}</span></div>
-                                    <h4 className="font-playfair text-base font-semibold mb-2 text-white">{card.title}</h4>
-                                    <p className="text-white/60 text-xs leading-relaxed">{card.text}</p>
+                    <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={containerVariants} className={expertise.image ? "grid lg:grid-cols-2 gap-8 lg:gap-12 items-start" : ""}>
+                        {expertise.image && (
+                            <motion.div
+                                variants={textVariants}
+                                className="relative rounded-2xl overflow-hidden border border-white/15 order-2 lg:order-1 max-w-md w-full"
+                                style={{ boxShadow: "0 14px 32px -12px rgba(0,0,0,0.4)" }}
+                            >
+                                <div className="aspect-[4/3] w-full">
+                                    <img src={expertise.image} alt="" className="h-full w-full object-cover" />
                                 </div>
-                            </motion.div>)}
+                            </motion.div>
+                        )}
+                        <div className={expertise.image ? "order-1 lg:order-2" : ""}>
+                            <motion.h2 variants={textVariants} className="font-playfair text-2xl md:text-3xl mb-3 text-white text-center">{expertise.title}</motion.h2>
+                            <motion.p variants={textVariants} className="text-white/60 text-center mb-10 max-w-2xl mx-auto text-sm">{expertise.subtitle}</motion.p>
+                            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                                {expertise.cards.map((card, i) => <motion.div key={i} variants={textVariants} whileHover={{ y: -6 }} className="group relative p-5 rounded-2xl overflow-hidden flex flex-col h-full" style={{ background: "linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%)", border: "1px solid rgba(255,255,255,0.1)" }}>
+                                    <div className="absolute top-0 right-0 w-16 h-16 rounded-full blur-2xl opacity-0 group-hover:opacity-30 transition-opacity" style={{ background: accent }} />
+                                    <div className="relative z-10">
+                                        <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style={{ background: `${accent}25` }}><span className="text-xl" style={{ color: accent }}>{card.icon}</span></div>
+                                        <h4 className="font-playfair text-base font-semibold mb-2 text-white">{card.title}</h4>
+                                        <p className="text-white/60 text-xs leading-relaxed">{card.text}</p>
+                                    </div>
+                                </motion.div>)}
+                            </div>
                         </div>
                     </motion.div>
                 </div>

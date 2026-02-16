@@ -110,7 +110,10 @@ const UIUXWebDesignPage = () => {
                                     </motion.span>
                                 </motion.div>
                                 <motion.div variants={textVariants} className="relative inline-block">
-                                    <motion.h1 className="font-playfair font-bold text-5xl md:text-6xl lg:text-7xl tracking-tight mb-2" style={{ color: ACCENT }}>
+                                    <motion.h1
+                                        className="font-playfair font-bold tracking-tight leading-tight mb-2"
+                                        style={{ fontSize: "clamp(2.4rem, 4vw, 3.4rem)", color: ACCENT }}
+                                    >
                                         UI / UX Web Design
                                     </motion.h1>
                                     <motion.div
@@ -120,10 +123,10 @@ const UIUXWebDesignPage = () => {
                                         transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
                                     />
                                 </motion.div>
-                                <motion.p variants={textVariants} className="text-xl md:text-2xl text-white/90 font-medium mb-6 mt-4">
+                                <motion.p variants={textVariants} className="text-lg md:text-2xl text-white/90 font-medium mb-5 mt-4">
                                     Strategic UX/UI & Web Design.
                                 </motion.p>
-                                <motion.p variants={textVariants} className="text-lg md:text-xl text-white/60 max-w-xl leading-relaxed">
+                                <motion.p variants={textVariants} className="text-base md:text-lg text-white/60 max-w-xl leading-relaxed">
                                     Your website is your 24/7 salesperson. NerdX Solutions blends creative aesthetics with smart user psychology to build digital experiences that don&apos;t just look incredible—they convert visitors into paying customers.
                                 </motion.p>
                             </div>
@@ -136,11 +139,13 @@ const UIUXWebDesignPage = () => {
                                     boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5), 0 0 60px rgba(172,106,255,0.08)"
                                 }}
                             >
-                                <img
-                                    src={uiuxHeading}
-                                    alt="Strategic UX/UI & Web Design"
-                                    className="w-full h-auto object-cover rounded-2xl"
-                                />
+                                <div className="aspect-[16/10] w-full">
+                                    <img
+                                        src={uiuxHeading}
+                                        alt="Strategic UX/UI & Web Design"
+                                        className="h-full w-full object-cover"
+                                    />
+                                </div>
                             </motion.div>
                         </div>
                     </motion.div>

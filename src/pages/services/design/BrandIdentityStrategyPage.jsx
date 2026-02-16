@@ -87,7 +87,12 @@ const BrandIdentityStrategyPage = () => {
                                     </motion.span>
                                 </motion.div>
                                 <motion.div variants={textVariants} className="relative inline-block">
-                                    <h1 className="font-playfair font-bold text-4xl md:text-5xl lg:text-6xl tracking-tight mb-2" style={{ color: ACCENT }}>Brand Identity & Strategy</h1>
+                                    <h1
+                                        className="font-playfair font-bold tracking-tight leading-tight mb-2"
+                                        style={{ fontSize: "clamp(2.3rem, 4vw, 3.2rem)", color: ACCENT }}
+                                    >
+                                        Brand Identity & Strategy
+                                    </h1>
                                     <motion.div className="absolute -bottom-1 left-0 h-1 rounded-full bg-gradient-to-r from-[#AC6AFF] to-[#7ADB78]" initial={{ width: 0 }} animate={{ width: "100%" }} transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }} />
                                 </motion.div>
                                 <motion.p variants={textVariants} className="text-lg md:text-xl text-white/90 font-medium mb-4 mt-3">Crafting Brands That Lead and Inspire.</motion.p>
@@ -96,7 +101,9 @@ const BrandIdentityStrategyPage = () => {
                                 </motion.p>
                             </div>
                             <motion.div variants={textVariants} whileHover={{ scale: 1.02, y: -4 }} transition={{ duration: 0.3 }} className="relative rounded-2xl overflow-hidden border border-white/15" style={{ boxShadow: "0 20px 40px -12px rgba(0,0,0,0.5), 0 0 40px rgba(172,106,255,0.08)" }}>
-                                <img src={image5} alt="Brand Identity & Strategy" className="w-full h-auto object-cover rounded-2xl" />
+                                <div className="aspect-[16/10] w-full">
+                                    <img src={image5} alt="Brand Identity & Strategy" className="h-full w-full object-cover" />
+                                </div>
                             </motion.div>
                         </div>
                     </motion.div>
@@ -192,7 +199,9 @@ const BrandIdentityStrategyPage = () => {
                             </motion.ul>
                         </div>
                         <motion.div variants={textVariants} className="relative rounded-2xl overflow-hidden border border-white/15" style={{ boxShadow: "0 16px 40px -12px rgba(0,0,0,0.4)" }}>
-                            <img src={image7} alt="Transforming businesses into memorable brands" className="w-full h-auto object-cover rounded-2xl" />
+                            <div className="aspect-[16/10] w-full">
+                                <img src={image7} alt="Transforming businesses into memorable brands" className="h-full w-full object-cover" />
+                            </div>
                         </motion.div>
                     </motion.div>
                 </div>
