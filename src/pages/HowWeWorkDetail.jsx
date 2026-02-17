@@ -4,6 +4,9 @@ import Section from "../components/Section";
 import Button from "../components/Button";
 import { grid, searchMd, sliders04, plusSquare } from "../assets";
 import { useRef } from "react";
+import video4 from "../assets/video4.mp4";
+import whatWeDoVideo from "../assets/whatwedopage.mp4";
+
 
 const HowWeWorkDetail = () => {
     const containerRef = useRef(null);
@@ -33,21 +36,43 @@ const HowWeWorkDetail = () => {
         },
     };
 
-    const FloatingOrb = ({ color, size, top, left, delay, duration = 20 }) => (
+    const GlowOrb = ({ color, size, top, left }) => (
+        <div
+            style={{
+                position: "absolute",
+                width: size,
+                height: size,
+                top,
+                left,
+                background: color,
+                filter: "blur(180px)",
+                opacity: 0.25,
+                borderRadius: "50%",
+                zIndex: 0
+            }}
+        />
+    );
+
+    const FloatingOrb = ({ color, size, top, left, delay = 0 }) => (
         <motion.div
-            className={`absolute ${size} ${color} blur-[15rem] rounded-full pointer-events-none -z-1 opacity-30`}
+            style={{
+                position: "absolute",
+                width: size,
+                height: size,
+                top,
+                left,
+                background: color,
+                filter: "blur(100px)",
+                opacity: 0.15,
+                borderRadius: "50%",
+                zIndex: 0
+            }}
             animate={{
-                x: [0, 100, -60, 0],
-                y: [0, -80, 120, 0],
-                scale: [1, 1.25, 0.75, 1],
+                y: [0, 30, -20, 0],
+                x: [0, 15, -10, 0],
+                scale: [1, 1.05, 1]
             }}
-            transition={{
-                duration: duration,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: delay,
-            }}
-            style={{ top, left }}
+            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay }}
         />
     );
 
@@ -71,16 +96,36 @@ const HowWeWorkDetail = () => {
     };
 
     return (
-        <div ref={containerRef} className="bg-[#050510] overflow-hidden relative selection:bg-color-1 selection:text-n-1">
-            {/* Background Atmosphere */}
-            <FloatingOrb color="bg-color-1" size="w-[60rem] h-[60rem]" top="-10%" left="-20%" delay={0} duration={25} />
-            <FloatingOrb color="bg-color-2" size="w-[50rem] h-[50rem]" top="25%" left="70%" delay={3} duration={22} />
-            <FloatingOrb color="bg-color-3" size="w-[55rem] h-[55rem]" top="55%" left="-15%" delay={6} duration={28} />
-            <FloatingOrb color="bg-color-5" size="w-[45rem] h-[45rem]" top="80%" left="60%" delay={9} duration={24} />
+        <div ref={containerRef}
+            className="relative min-h-screen overflow-hidden text-white font-sans antialiased selection:bg-color-1 selection:text-n-1"
+            style={{ background: "#050510" }}
+        >
+            {/* Video background */}
+            <div className="fixed inset-0 z-0">
+                <video
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="absolute inset-0 w-full h-full object-cover"
+                >
+                    <source src={whatWeDoVideo} type="video/mp4" />
+                </video>
+                <div
+                    className="absolute inset-0 bg-[#050510]/85"
+                    aria-hidden
+                />
+            </div>
 
-            {/* Hero Section */}
-            <Section className="pt-[8rem] pb-[4rem] lg:pt-[10rem] lg:pb-[6rem] -mt-[5.25rem]" id="how-we-work-hero" crosses customPaddings>
-                <Grid3D />
+            {/* Dora-style ambient orbs */}
+            <GlowOrb color="#AC6AFF" size="600px" top="-10%" left="-10%" />
+            <GlowOrb color="#7ADB78" size="500px" top="60%" left="60%" />
+            <FloatingOrb color="#FFC876" size="400px" top="20%" left="70%" delay={1} />
+            <FloatingOrb color="#AC6AFF" size="300px" top="70%" left="10%" delay={2} />
+
+            <Grid3D />
+
+            <Section className="relative z-10 pt-[12rem] pb-28">
                 <div className="container relative z-10 text-center">
                     <motion.div
                         initial="hidden"
@@ -89,19 +134,14 @@ const HowWeWorkDetail = () => {
                         className="max-w-[85rem] mx-auto"
                     >
                         <motion.div variants={textVariants} className="inline-block mb-6 translate-y-[-10px]">
-                            <span className="px-5 py-2.5 rounded-full border border-n-1/10 bg-n-1/5 backdrop-blur-xl text-[0.65rem] md:text-xs font-code uppercase tracking-[0.4em] text-color-1 shadow-[0_0_20px_rgba(172,106,255,0.2)]">
+                            <span className="font-code px-5 py-2.5 rounded-full border border-white/25 bg-white/[0.07] backdrop-blur-md text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-white shadow-[0_0_30px_rgba(255,255,255,0.05)]">
                                 Product Strategy & Design
                             </span>
                         </motion.div>
 
                         <motion.h1
                             variants={textVariants}
-                            className="h1 font-grotesk font-black uppercase tracking-[-0.02em] 
-  mb-5 text-n-1 
-  text-[2rem] sm:text-[2.8rem] md:text-[3.8rem] lg:text-[4.5rem] xl:text-[5rem] 
-  leading-[1.15] 
-  bg-clip-text text-transparent 
-  bg-gradient-to-b from-n-1 via-n-1 to-n-1/20"
+                            className="font-playfair font-bold tracking-tight leading-[1.06] text-[2.5rem] sm:text-[3.5rem] md:text-[4.5rem] lg:text-[5.5rem] xl:text-[6rem] bg-clip-text text-transparent bg-gradient-to-b from-n-1 via-n-1 to-n-1/20"
                         >
                             Deep User Empathy<br className="hidden md:block" />
                             <span className="text-color-1 italic ml-2">Drives Results</span>
@@ -137,11 +177,8 @@ const HowWeWorkDetail = () => {
                 id="philosophy"
                 crosses
                 customPaddings
-                className="bg-n-8/40 backdrop-blur-md relative z-20 py-10 lg:py-12"
+                className="bg-white/5 backdrop-blur-md relative z-20 py-10 lg:py-12"
             >
-
-
-
                 <div className="container py-6 lg:py-12 relative">
                     <motion.div
                         initial="hidden"
@@ -151,11 +188,11 @@ const HowWeWorkDetail = () => {
                         className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center"
                     >
                         <div className="lg:col-span-6">
-                            <motion.h2 variants={textVariants} className="h2 font-grotesk font-black uppercase tracking-tighter text-n-1 text-[2rem] sm:text-[2.5rem] md:text-[3rem] leading-[1.1] mb-6">
+                            <motion.h2 variants={textVariants} className="font-playfair font-bold tracking-tight text-white text-[2rem] sm:text-[2.5rem] md:text-[3rem] leading-[1.1] mb-6">
                                 We refuse to <span className="text-color-3 italic">settle</span> for anything less than perfection
                             </motion.h2>
                         </div>
-                        <div className="lg:col-span-6 lg:border-l border-n-1/10 lg:pl-10">
+                        <div className="lg:col-span-6 lg:border-l border-white/10 lg:pl-10">
                             <motion.div variants={textVariants} className="space-y-6">
                                 <p className="text-n-1 text-lg md:text-xl font-light leading-relaxed">
                                     We work with you to revisit your brief and your pain points, ensuring that what's been identified is the <span className="text-color-1">actual user problem</span> to address.
@@ -185,26 +222,17 @@ const HowWeWorkDetail = () => {
                         viewport={{ once: true }}
                         variants={containerVariants}
                         className="relative mb-2 lg:mb-4"
-
-
                     >
-                        <motion.h3 variants={textVariants} className="h3 font-grotesk font-black uppercase tracking-[0.3em] text-color-1/80 text-xs md:text-sm mb-6 text-center">
+                        <motion.h3 variants={textVariants} className="font-code text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-color-1/80 text-center mb-6">
                             The Methodology
                         </motion.h3>
                         <motion.h2
                             variants={textVariants}
-                            className="h1 font-grotesk font-black uppercase 
-  tracking-[-0.03em]
-  text-n-1 
-  text-[1.8rem] sm:text-[2.5rem] md:text-[3.5rem] lg:text-[4.5rem]
-  leading-none opacity-[0.03]
-  text-center mb-4 select-none">
+                            className="font-playfair font-bold text-n-1 text-[2rem] sm:text-[2.5rem] md:text-[3.5rem] lg:text-[4.5rem] leading-none opacity-[0.03] text-center mb-4 select-none">
                             OUR NERD CORE
                         </motion.h2>
 
-
-
-                        <motion.p variants={textVariants} className="text-center text-n-1 text-xl md:text-3xl font-grotesk font-black uppercase tracking-tight relative z-10">
+                        <motion.p variants={textVariants} className="text-center text-n-1 text-xl md:text-3xl font-playfair font-bold tracking-tight relative z-10">
                             We are technical misfits
                         </motion.p>
                     </motion.div>
@@ -225,22 +253,22 @@ const HowWeWorkDetail = () => {
                                 transition={{ delay: index * 0.15, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                                 whileHover={{ y: -10, scale: 1.02, rotateX: 2 }}
                                 style={{ transformStyle: "preserve-3d" }}
-                                className="group relative p-[1px] rounded-[2rem] overflow-hidden bg-gradient-to-b from-n-1/20 to-transparent"
+                                className="group relative p-[1px] rounded-[2rem] overflow-hidden bg-gradient-to-b from-white/20 to-transparent"
                             >
-                                <div className="relative h-full p-8 lg:p-10 bg-[#070715]/90 backdrop-blur-2xl rounded-[2rem] transition-all duration-500 group-hover:bg-[#070715]/100 min-h-[320px] lg:min-h-[360px]">
+                                <div className="relative h-full p-8 lg:p-10 bg-white/5 backdrop-blur-2xl rounded-[2rem] transition-all duration-500 group-hover:bg-white/10 min-h-[320px] lg:min-h-[360px]">
                                     <div className="absolute top-0 right-0 p-6 lg:p-8 opacity-[0.03] group-hover:opacity-10 transition-all duration-500 group-hover:scale-110">
-                                        <div className="font-grotesk font-black text-[10rem] lg:text-[12rem] leading-none" style={{ color: item.color }}>
+                                        <div className="font-playfair font-bold text-[10rem] lg:text-[12rem] leading-none" style={{ color: item.color }}>
                                             {item.letter}
                                         </div>
                                     </div>
                                     <div className="relative z-10 h-full flex flex-col">
                                         <div
-                                            className="w-14 h-14 lg:w-16 lg:h-16 mb-8 lg:mb-10 rounded-xl flex items-center justify-center border border-n-1/10 bg-n-1/5 font-black text-2xl lg:text-3xl shadow-xl transition-all duration-500 group-hover:border-white/20"
+                                            className="w-14 h-14 lg:w-16 lg:h-16 mb-8 lg:mb-10 rounded-xl flex items-center justify-center border border-white/10 bg-white/5 font-bold text-2xl lg:text-3xl shadow-xl transition-all duration-500 group-hover:border-white/20"
                                             style={{ color: item.color, boxShadow: `0 0 20px ${item.shadow}` }}
                                         >
                                             {item.letter}
                                         </div>
-                                        <h6 className="h6 font-code uppercase tracking-[0.2em] mb-4 lg:mb-5 text-n-1 font-bold text-sm lg:text-base">{item.title}</h6>
+                                        <h6 className="font-code uppercase tracking-[0.2em] mb-4 lg:mb-5 text-n-1 font-bold text-sm lg:text-base">{item.title}</h6>
                                         <p className="body-2 text-n-4 font-light leading-relaxed mb-4 text-sm lg:text-base group-hover:text-n-2 transition-colors">{item.text}</p>
                                     </div>
                                     <div className="absolute bottom-0 left-0 h-[2px] w-0 transition-all duration-700 ease-out group-hover:w-full" style={{ background: item.color }} />
@@ -256,9 +284,8 @@ const HowWeWorkDetail = () => {
                 id="stages"
                 crosses
                 customPaddings
-                className="bg-[#050510]/50 py-12 lg:py-14"
+                className="bg-white/5 py-12 lg:py-14"
             >
-
                 <div className="container py-6 lg:py-12 relative z-10">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -266,7 +293,7 @@ const HowWeWorkDetail = () => {
                         viewport={{ once: true }}
                         className="text-center mb-10"
                     >
-                        <h3 className="h1 font-grotesk font-black uppercase tracking-tighter text-n-1 mb-4 text-[2.5rem] md:text-[3.5rem] lg:text-[4.5rem] leading-[1.1]">Execution Hierarchy</h3>
+                        <h3 className="font-playfair font-bold tracking-tighter text-white mb-4 text-[2.5rem] md:text-[3.5rem] lg:text-[4.5rem] leading-[1.1]">Execution Hierarchy</h3>
                         <p className="text-n-3 text-base md:text-xl max-w-3xl mx-auto font-light leading-relaxed italic">"Transparency is core to our process. Here is how we bring your vision to life, from pixel-perfect theory to high-performance reality."</p>
                     </motion.div>
 
@@ -300,19 +327,19 @@ const HowWeWorkDetail = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: index * 0.2, duration: 1 }}
-                                className="group relative flex flex-col p-8 bg-[#09091a] border border-n-1/10 rounded-[2.5rem] hover:border-white/20 transition-all duration-500 shadow-2xl hover:shadow-white/5"
+                                className="group relative flex flex-col p-8 bg-white/5 border border-white/10 rounded-[2.5rem] hover:border-white/20 transition-all duration-500 shadow-2xl hover:shadow-white/5"
                             >
                                 <div className="flex items-start justify-between mb-8">
-                                    <div className="p-4 rounded-2xl bg-n-8 border border-n-1/10 shadow-inner group-hover:scale-110 transition-transform duration-500" style={{ color: item.color }}>
+                                    <div className="p-4 rounded-2xl bg-white/5 border border-white/10 shadow-inner group-hover:scale-110 transition-transform duration-500" style={{ color: item.color }}>
                                         <img src={item.icon} width={24} height={24} alt={item.title} />
                                     </div>
                                     <span className="font-code text-[0.6rem] uppercase tracking-[0.4em] text-n-5 font-bold">PHASE 0{index + 1}</span>
                                 </div>
-                                <h4 className="h4 font-grotesk font-black uppercase tracking-tight text-white mb-3 text-[1.8rem] leading-none">{item.stage}</h4>
-                                <p className="font-code text-[0.65rem] font-bold text-n-1 uppercase tracking-[0.3em] mb-6 pb-4 border-b border-n-1/5" style={{ color: item.color }}>{item.title}</p>
+                                <h4 className="font-playfair font-bold tracking-tight text-white mb-3 text-[1.8rem] leading-none">{item.stage}</h4>
+                                <p className="font-code text-[0.65rem] font-bold text-n-1 uppercase tracking-[0.3em] mb-6 pb-4 border-b border-white/10" style={{ color: item.color }}>{item.title}</p>
                                 <p className="body-2 text-n-3 font-light leading-relaxed mb-8 text-base">{item.text}</p>
                                 <div className="mt-auto flex items-center gap-4">
-                                    <div className="flex-1 h-[2px] bg-n-1/5 rounded-full overflow-hidden">
+                                    <div className="flex-1 h-[2px] bg-white/10 rounded-full overflow-hidden">
                                         <motion.div
                                             initial={{ width: 0 }}
                                             whileInView={{ width: "100%" }}
@@ -345,13 +372,10 @@ const HowWeWorkDetail = () => {
                         viewport={{ once: true }}
                         className="max-w-5xl mx-auto"
                     >
-                        <h2 className="h1 font-grotesk font-black uppercase tracking-tighter 
-mb-8 text-n-1 leading-[1.1] 
-text-[2rem] md:text-[2.8rem] lg:text-[3.5rem]">
+                        <h2 className="font-playfair font-bold tracking-tight mb-8 text-n-1 leading-[1.1] text-[2rem] md:text-[2.8rem] lg:text-[3.5rem]">
                             Let's build <br className="md:hidden" />
                             <span className="text-color-3 italic">the future</span>, together.
                         </h2>
-
 
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-8">
                             <Link to="/contact">

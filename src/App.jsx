@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import ButtonGradient from "./assets/svg/ButtonGradient";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop";
 
 import LandingPage from "./pages/LandingPage";
 import WhoWeAreDetail from "./pages/WhoWeAreDetail";
@@ -16,6 +17,7 @@ const App = () => {
     <>
       <div className="pt-[4.75rem] lg:pt-[5.25rem] overflow-hidden">
         <Header />
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/who-we-are-detail" element={<WhoWeAreDetail />} />

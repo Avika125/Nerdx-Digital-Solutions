@@ -192,7 +192,7 @@ const WhoWeAre = () => {
                 <div className="relative h-48 md:h-56 overflow-hidden">
                   <img
                     src={relationshipImage}
-                    alt="Team collaboration"
+                    alt="Team collaboration" 
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#111126] via-[#111126]/50 to-transparent" />
