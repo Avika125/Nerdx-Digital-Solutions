@@ -41,6 +41,7 @@ const Contact = () => {
         "digital newsletter",
         "not sure, help!",
     ]);
+
     const [isAdding, setIsAdding] = useState(false);
     const [newOption, setNewOption] = useState("");
 
@@ -56,10 +57,9 @@ const Contact = () => {
         }
     };
 
-    // Reusable Input Component for cleaner JSX
     const FormInput = ({ label, placeholder, type = "text", ...props }) => (
         <div className="group relative">
-            <label className="block font-code text-[0.65rem] uppercase tracking-[0.2em] text-n-4 mb-2 group-focus-within:text-color-1 transition-colors">
+            <label className="block font-code text-[0.65rem] uppercase tracking-[0.25em] text-white/50 mb-2 group-focus-within:text-color-1 transition-all duration-300">
                 {label}
             </label>
             <div className="relative">
@@ -67,155 +67,148 @@ const Contact = () => {
                     <textarea
                         rows="1"
                         placeholder={placeholder}
-                        className="w-full bg-transparent border-b border-n-6 py-3 text-n-1 text-lg lg:text-xl font-light outline-none transition-all focus:border-color-1 placeholder:text-n-6 resize-none overflow-hidden"
-                        style={{ minHeight: "3rem" }}
+                        className="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-white text-sm md:text-base font-light outline-none transition-all duration-300 focus:border-color-1/50 focus:bg-white/[0.06] placeholder:text-white/20 resize-none overflow-hidden"
+                        style={{ minHeight: "3.5rem" }}
                         onInput={(e) => {
                             e.target.style.height = "auto";
                             e.target.style.height = e.target.scrollHeight + "px";
                         }}
                         {...props}
-                    ></textarea>
+                    />
                 ) : (
                     <input
                         type={type}
                         placeholder={placeholder}
-                        className="w-full bg-transparent border-b border-n-6 py-3 text-n-1 text-lg lg:text-xl font-light outline-none transition-all focus:border-color-1 placeholder:text-n-6"
+                        className="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-white text-sm md:text-base font-light outline-none transition-all duration-300 focus:border-color-1/50 focus:bg-white/[0.06] placeholder:text-white/20"
                         {...props}
                     />
                 )}
-                <div className="absolute bottom-0 left-0 w-0 h-[1px] bg-color-1 transition-all duration-500 group-focus-within:w-full" />
+                <div className="absolute inset-0 rounded-xl bg-color-1/5 blur-xl opacity-0 group-focus-within:opacity-100 transition-opacity duration-500 pointer-events-none" />
             </div>
         </div>
     );
 
     return (
-        <Section className="py-20 lg:py-24 overflow-hidden" id="lets-talk" crosses>
-            {/* Ambient Background Glows */}
-            <div className="absolute top-[20%] left-[20%] w-[40rem] h-[40rem] bg-color-1/10 rounded-full blur-[10rem] pointer-events-none mix-blend-screen animate-pulse" />
-            <div className="absolute bottom-[20%] right-[20%] w-[35rem] h-[35rem] bg-color-2/10 rounded-full blur-[8rem] pointer-events-none mix-blend-screen" />
-
+        <Section className="py-16 lg:py-24 overflow-hidden relative z-10" id="lets-talk">
             <div className="container relative z-10">
                 <motion.div
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true }}
                     variants={containerVariants}
-                    className="max-w-[60rem] mx-auto"
+                    className="max-w-[56rem] mx-auto"
                 >
-                    {/* Header Section */}
-                    <div className="text-center mb-16 lg:mb-20">
+                    {/* Header */}
+                    <div className="text-center mb-12 lg:mb-16">
                         <motion.h2
                             variants={textVariants}
-                            className="font-grotesk font-black uppercase tracking-tighter text-[1rem] sm:text-[2rem] md:text-[3rem] lg:text-[4rem] leading-[0.9] text-white mb-6"
+                            className="font-playfair font-bold text-3xl md:text-5xl lg:text-6xl text-white mb-6 tracking-tight leading-[1.15]"
                         >
-                            Let's Build <br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-color-1 to-color-2">
-                                The Future
+                            Ready to build <br />
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#AC6AFF] via-[#FFC876] to-[#7ADB78]">
+                                something legendary?
                             </span>
                         </motion.h2>
 
                         <motion.p
                             variants={textVariants}
-                            className="text-n-3 text-lg md:text-xl font-light max-w-2xl mx-auto leading-relaxed"
+                            className="text-white/50 text-sm md:text-base font-light max-w-xl mx-auto leading-relaxed"
                         >
-                            Have a vision? We have the engineering artistry to realize it.
-                            <br className="hidden md:block" /> Drop your brief below or request a quote.
+                            Drop your brief below. We engineer digital experiences that leave a lasting impact.
                         </motion.p>
                     </div>
 
-                    {/* Form Container */}
+                    {/* Form */}
                     <motion.form
                         variants={textVariants}
-                        className="relative bg-[#050510]/80 backdrop-blur-xl border border-white/10 rounded-[2.5rem] p-8 md:p-12 lg:p-16 overflow-hidden shadow-2xl"
+                        className="relative group/form"
                         onSubmit={(e) => e.preventDefault()}
                     >
-                        {/* Decorative Top Border Gradient */}
-                        <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-color-1 to-transparent opacity-50" />
+                        <div className="relative bg-[#080815]/60 backdrop-blur-3xl border border-white/10 rounded-[2rem] p-6 md:p-10 lg:p-14 overflow-hidden shadow-[0_0_60px_rgba(0,0,0,0.5)]">
 
-                        <div className="grid gap-12 lg:gap-16">
-                            {/* Section 1: Project Details */}
-                            <div className="space-y-8">
+                            <div className="relative z-10 grid gap-12">
+
+                                {/* Vision */}
                                 <FormInput
                                     label="The Vision"
-                                    placeholder="Tell us about your project, goals, and any specific requirements..."
+                                    placeholder="What are we building?"
                                     type="textarea"
                                 />
-                            </div>
 
-                            {/* Section 2: User Info */}
-                            <div className="grid md:grid-cols-2 gap-10 md:gap-12">
-                                <FormInput
-                                    label="Your Name"
-                                    placeholder="John Doe"
-                                    type="text"
-                                />
-                                <FormInput
-                                    label="Email Address"
-                                    placeholder="john@example.com"
-                                    type="email"
-                                />
-                            </div>
+                                {/* User Info */}
+                                <div className="grid md:grid-cols-2 gap-8">
+                                    <FormInput
+                                        label="Your Name"
+                                        placeholder="John Doe"
+                                    />
+                                    <FormInput
+                                        label="Email Address"
+                                        placeholder="john@example.com"
+                                        type="email"
+                                    />
+                                </div>
 
-                            {/* Section 3: Services */}
-                            <div className="space-y-6">
-                                <label className="block font-code text-[1rem] uppercase tracking-[0.2em] text-n-4">
-                                    I need help with:
-                                </label>
-                                <div className="flex flex-wrap gap-3">
-                                    {options.map((option) => (
-                                        <div
-                                            key={option}
-                                            onClick={() => toggleService(option)}
-                                            className={`
-                                                relative cursor-pointer px-6 py-3 rounded-full border transition-all duration-300 font-code text-xs uppercase tracking-wider
-                                                ${selectedServices.includes(option)
-                                                    ? "bg-white/5 border-color-1 text-white shadow-[0_0_20px_rgba(172,106,255,0.3)]"
-                                                    : "bg-transparent border-white/10 text-n-3 hover:border-white/30 hover:text-white"
-                                                }
-                                            `}
-                                        >
-                                            {selectedServices.includes(option) && (
-                                                <div className="absolute inset-0 rounded-full bg-color-1/10 blur-md -z-1" />
-                                            )}
-                                            {option}
-                                        </div>
-                                    ))}
+                                {/* Services */}
+                                <div className="space-y-6">
+                                    <div className="flex items-center gap-4">
+                                        <div className="h-px flex-1 bg-white/10" />
+                                        <label className="font-code text-[0.65rem] uppercase tracking-[0.25em] text-white/40 whitespace-nowrap">
+                                            What do you need?
+                                        </label>
+                                        <div className="h-px flex-1 bg-white/10" />
+                                    </div>
 
-                                    {/* Add Custom Tag Logic */}
-                                    {isAdding ? (
-                                        <input
-                                            autoFocus
-                                            type="text"
-                                            value={newOption}
-                                            onChange={(e) => setNewOption(e.target.value)}
-                                            onKeyDown={handleAddOption}
-                                            onBlur={() => setIsAdding(false)}
-                                            className="px-6 py-3 rounded-full border border-color-1 bg-transparent text-white text-xs font-code uppercase tracking-wider outline-none w-40 placeholder:text-white/20"
-                                            placeholder="TYPE & ENTER"
-                                        />
-                                    ) : (
+                                    <div className="flex flex-wrap justify-center gap-3">
+                                        {options.map((option) => (
+                                            <motion.div
+                                                key={option}
+                                                whileHover={{ scale: 1.05 }}
+                                                whileTap={{ scale: 0.95 }}
+                                                onClick={() => toggleService(option)}
+                                                className={`
+                                                    relative cursor-pointer px-6 py-3 rounded-full border transition-all duration-500 font-code text-[0.6rem] uppercase tracking-[0.15em]
+                                                    ${selectedServices.includes(option)
+                                                        ? "bg-white/15 border-color-1 text-white"
+                                                        : "bg-white/5 border-white/10 text-white/40 hover:border-white/30 hover:text-white"
+                                                    }
+                                                `}
+                                            >
+                                                {option}
+                                            </motion.div>
+                                        ))}
+
                                         <button
                                             onClick={() => setIsAdding(true)}
-                                            className="px-6 py-3 rounded-full border border-dashed border-white/20 text-white/40 hover:text-white hover:border-white/60 transition-all font-code text-xs uppercase tracking-wider flex items-center gap-2 group"
+                                            className="px-6 py-3 rounded-full border border-dashed border-white/20 text-white/30 hover:text-white hover:border-white/60 transition-all font-code text-[0.6rem] uppercase tracking-wider"
                                         >
-                                            <span>+ Build Custom</span>
+                                            + Custom
                                         </button>
-                                    )}
+                                    </div>
                                 </div>
-                            </div>
 
-                            {/* Actions */}
-                            <div className="pt-8 flex justify-center">
-                                <Button
-                                    className="w-full sm:w-auto min-w-[12rem]"
-                                    white // Use white variant for high contrast CTA
-                                    onClick={() => alert("Form submitted!")}
-                                >
-                                    Let's Make It Happen
-                                </Button>
+                                {/* Submit */}
+                                <div className="pt-6 flex flex-col items-center gap-4">
+                                    <motion.div
+                                        whileHover={{ scale: 1.05 }}
+                                        whileTap={{ scale: 0.98 }}
+                                        className="w-full sm:w-auto"
+                                    >
+                                        <Button
+                                            className="w-full sm:w-auto min-w-[14rem] py-5 rounded-xl"
+                                            white
+                                            onClick={() => alert("Form submitted!")}
+                                        >
+                                            Submit Vision
+                                        </Button>
+                                    </motion.div>
+
+                                    <p className="text-[0.6rem] font-code uppercase tracking-[0.2em] text-white/25">
+                                        Average response time: &lt; 24 hours
+                                    </p>
+                                </div>
+
                             </div>
                         </div>
-
                     </motion.form>
                 </motion.div>
             </div>

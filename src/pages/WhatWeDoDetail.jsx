@@ -309,8 +309,8 @@ const WhatWeDoDetail = () => {
                                 className="font-playfair font-bold mb-5 text-white tracking-tight leading-[1.15]"
                                 style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)" }}
                             >
-                            Let’s find the right way for you.
-                        </h2>
+                                Let’s find the right way for you.
+                            </h2>
                             <p className="text-white/65 mb-12 max-w-xl mx-auto text-base md:text-lg leading-[1.7] font-light">
                                 Start with a conversation — we&apos;ll match you with the right services and a custom quote.
                             </p>
