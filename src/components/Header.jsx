@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useLocation, useNavigate, Link } from "react-router-dom";
 import { disablePageScroll, enablePageScroll } from "scroll-lock";
 
@@ -12,6 +12,20 @@ const Header = () => {
     const pathname = useLocation();
     const navigate = useNavigate();
     const [openNavigation, setOpenNavigation] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 20) {
+                setScrolled(true);
+            } else {
+                setScrolled(false);
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     const toggleNavigation = () => {
         if (openNavigation) {
@@ -32,11 +46,13 @@ const Header = () => {
 
     return (
         <div
-            className={`fixed top-0 left-0 w-full z-50  border-b border-n-6 lg:bg-n-8/90 lg:backdrop-blur-sm ${openNavigation ? "bg-n-8" : "bg-n-8/90 backdrop-blur-sm"
-                }`}
+            className={`fixed left-1/2 -translate-x-1/2 z-50 transition-all duration-500 ease-in-out border-white/10 ${scrolled
+                ? "top-6 w-[95%] md:w-[80rem] rounded-3xl md:rounded-full bg-n-8/80 backdrop-blur-md border shadow-2xl"
+                : "top-0 w-full border-b border-n-6 bg-n-8/90 backdrop-blur-sm"
+                } ${openNavigation ? "bg-n-8 !top-0 !w-full !rounded-none !border-b !border-n-6" : ""}`}
         >
-            <div className="flex items-center justify-between px-8 lg:px-12 xl:px-16 max-lg:py-4 py-6">
-                <Link className="block w-[12rem] xl:mr-8" to="/">
+            <div className={`flex items-center justify-between transition-all duration-500 ${scrolled ? "px-6 py-3" : "px-8 lg:px-12 xl:px-16 max-lg:py-4 py-6"}`}>
+                <Link className="block w-[10rem] md:w-[12rem] xl:mr-8" to="/">
                     <img src={brainwave} width={190} height={40} alt="KrishNova Softwares" />
                 </Link>
 
