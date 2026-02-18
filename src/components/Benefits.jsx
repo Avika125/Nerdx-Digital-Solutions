@@ -72,7 +72,7 @@ const ServiceCard = ({ service, index, accentColor }) => {
       }}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
+      viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.6, delay: index * 0.08 }}
       className="relative p-[1.8rem] bg-no-repeat bg-[length:100%_100%] md:max-w-[19rem]"
     >
@@ -194,6 +194,7 @@ const Benefits = () => {
 
   return (
     <Section id="features" className="relative pt-24 pb-24 overflow-hidden">
+      <ClipPath />
 
       <div
         ref={containerRef}
@@ -226,7 +227,6 @@ const Benefits = () => {
 
         <GradientLight />
       </div>
-      <ClipPath />
     </Section>
   );
 };
