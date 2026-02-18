@@ -68,53 +68,56 @@ const ServiceCard = ({ service, index, accentColor }) => {
         rotateX,
         rotateY,
         transformStyle: "preserve-3d",
+        style={{
+        rotateX,
+      rotateY,
+      transformStyle: "preserve-3d",
         backgroundImage: `url(${benefitCards[index % benefitCards.length]})`,
       }}
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.6, delay: index * 0.08 }}
-      className="relative p-[1.8rem] bg-no-repeat bg-[length:100%_100%] md:max-w-[19rem]"
-    >
-      <div className="relative z-2 flex flex-col min-h-[17rem] pointer-events-none">
-        <h5 className="h5 mb-5">{service.title}</h5>
-        <p className="body-2 mb-6 text-n-3">{service.description}</p>
-        <div className="flex items-center mt-auto">
-          <img
-            src={benefitIcons[index % benefitIcons.length]}
-            width={48}
-            height={48}
-            alt={service.title}
-          />
-          <button
-            onClick={() => navigate(`/service/${service.slug}`)}
-            className="ml-auto pointer-events-auto flex items-center text-[0.68rem] font-bold tracking-[0.18em] uppercase text-n-1"
-          >
-            Explore more
-            <Arrow />
-          </button>
-        </div>
-      </div>
-
-      {service.light && <GradientLight />}
-
-      <div
-        className="absolute inset-0.5 bg-n-8"
-        style={{ clipPath: "url(#benefits)" }}
+whileInView = {{ opacity: 1, y: 0 }}
+viewport = {{ once: true, margin: "-50px" }}
+transition = {{ duration: 0.6, delay: index * 0.08 }}
+className = "relative p-[1.8rem] bg-no-repeat bg-[length:100%_100%] md:max-w-[19rem]"
+  >
+  <div className="relative z-2 flex flex-col min-h-[17rem] pointer-events-none">
+    <h5 className="h5 mb-5">{service.title}</h5>
+    <p className="body-2 mb-6 text-n-3">{service.description}</p>
+    <div className="flex items-center mt-auto">
+      <img
+        src={benefitIcons[index % benefitIcons.length]}
+        width={48}
+        height={48}
+        alt={service.title}
+      />
+      <button
+        onClick={() => navigate(`/service/${service.slug}`)}
+        className="ml-auto pointer-events-auto flex items-center text-[0.68rem] font-bold tracking-[0.18em] uppercase text-n-1"
       >
-        <div className="absolute inset-0 opacity-0 transition-opacity hover:opacity-10">
-          {service.imageUrl && (
-            <img
-              src={service.imageUrl}
-              width={380}
-              height={362}
-              alt={service.title}
-              className="w-full h-full object-cover"
-            />
-          )}
-        </div>
-      </div>
-    </motion.div>
+        Explore more
+        <Arrow />
+      </button>
+    </div>
+  </div>
+
+{ service.light && <GradientLight /> }
+
+<div
+  className="absolute inset-0.5 bg-n-8"
+  style={{ clipPath: "url(#benefits)" }}
+>
+  <div className="absolute inset-0 opacity-0 transition-opacity hover:opacity-10">
+    {service.imageUrl && (
+      <img
+        src={service.imageUrl}
+        width={380}
+        height={362}
+        alt={service.title}
+        className="w-full h-full object-cover"
+      />
+    )}
+  </div>
+</div>
+    </motion.div >
   );
 };
 
@@ -206,17 +209,14 @@ const Benefits = () => {
       >
 
         {/* Title */}
-        <motion.div
-          style={{ opacity: headingOpacity }}
-          className="mb-20 text-center"
-        >
+        <div className="mb-20 text-center">
           <h2 className="text-[2rem] md:text-[2.6rem] font-playfair font-bold text-n-1">
             <br />
             <span className="italic bg-clip-text text-transparent bg-gradient-to-r from-color-1 via-n-1 to-color-4">
               What We Do..
             </span>
           </h2>
-        </motion.div>
+        </div>
 
         {/* Categories */}
         <div className="space-y-24">
