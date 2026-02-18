@@ -1,249 +1,232 @@
 import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-
-import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring, useMotionValue } from "framer-motion";
 import Section from "./Section";
 import { GradientLight } from "./design/Benefits";
-import BenefitsImage from "../assets/benefits.png";
+import { serviceCategories } from "../pages/services";
+import {
+  benefitCard1,
+  benefitCard2,
+  benefitCard3,
+  benefitCard4,
+  benefitCard5,
+  benefitCard6,
+  benefitIcon1,
+  benefitIcon2,
+  benefitIcon3,
+  benefitIcon4,
+} from "../assets";
+import ClipPath from "../assets/svg/ClipPath";
+import Arrow from "../assets/svg/Arrow";
+
+const benefitCards = [
+  benefitCard1,
+  benefitCard2,
+  benefitCard3,
+  benefitCard4,
+  benefitCard5,
+  benefitCard6,
+];
+
+const benefitIcons = [
+  benefitIcon1,
+  benefitIcon2,
+  benefitIcon3,
+  benefitIcon4,
+];
+
+
+/* ---------------- Service Card ---------------- */
+
+const ServiceCard = ({ service, index, accentColor }) => {
+  const navigate = useNavigate();
+  const cardRef = useRef(null);
+
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
+  const mouseXSpring = useSpring(x);
+  const mouseYSpring = useSpring(y);
+
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["8deg", "-8deg"]);
+  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-8deg", "8deg"]);
+
+  const handleMouseMove = (e) => {
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+
+    x.set((e.clientX - rect.left) / rect.width - 0.5);
+    y.set((e.clientY - rect.top) / rect.height - 0.5);
+  };
+
+  return (
+    <motion.div
+      ref={cardRef}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={() => { x.set(0); y.set(0); }}
+      style={{
+        rotateX,
+        rotateY,
+        transformStyle: "preserve-3d",
+        backgroundImage: `url(${benefitCards[index % benefitCards.length]})`,
+      }}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6, delay: index * 0.08 }}
+      className="relative p-[1.8rem] bg-no-repeat bg-[length:100%_100%] md:max-w-[19rem]"
+    >
+      <div className="relative z-2 flex flex-col min-h-[17rem] pointer-events-none">
+        <h5 className="h5 mb-5">{service.title}</h5>
+        <p className="body-2 mb-6 text-n-3">{service.description}</p>
+        <div className="flex items-center mt-auto">
+          <img
+            src={benefitIcons[index % benefitIcons.length]}
+            width={48}
+            height={48}
+            alt={service.title}
+          />
+          <button
+            onClick={() => navigate(`/service/${service.slug}`)}
+            className="ml-auto pointer-events-auto flex items-center text-[0.68rem] font-bold tracking-[0.18em] uppercase text-n-1"
+          >
+            Explore more
+            <Arrow />
+          </button>
+        </div>
+      </div>
+
+      {service.light && <GradientLight />}
+
+      <div
+        className="absolute inset-0.5 bg-n-8"
+        style={{ clipPath: "url(#benefits)" }}
+      >
+        <div className="absolute inset-0 opacity-0 transition-opacity hover:opacity-10">
+          {service.imageUrl && (
+            <img
+              src={service.imageUrl}
+              width={380}
+              height={362}
+              alt={service.title}
+              className="w-full h-full object-cover"
+            />
+          )}
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
+/* ---------------- Category Section ---------------- */
+
+const CategorySection = ({ category }) => {
+  const scrollRef = useRef(null);
+
+  const scroll = (dir) => {
+    scrollRef.current?.scrollBy({
+      left: dir === "left" ? -400 : 400,
+      behavior: "smooth",
+    });
+  };
+
+  return (
+    <div className="mb-20 relative z-10">
+
+      {/* Header */}
+      <div className="flex items-center justify-between mb-10">
+
+        <div className="flex items-center gap-5">
+          <div
+            className="w-1.5 h-10 rounded-full"
+            style={{ backgroundColor: category.accent }}
+          />
+          <h3 className="text-[1.6rem] md:text-[1.9rem] font-playfair font-bold text-n-1">
+            {category.metaphor}
+          </h3>
+        </div>
+
+        <div className="hidden lg:flex gap-3">
+          <button onClick={() => scroll("left")} className="w-10 h-10 rounded-full border border-n-1/10">
+            ←
+          </button>
+          <button onClick={() => scroll("right")} className="w-10 h-10 rounded-full border border-n-1/10">
+            →
+          </button>
+        </div>
+
+      </div>
+
+      {/* Cards */}
+      <div
+        ref={scrollRef}
+        className="flex gap-6 overflow-x-auto scrollbar-hide pb-10"
+      >
+        {category.services.map((service, i) => (
+          <div
+            key={service.slug}
+            className="flex-shrink-0 w-[15rem] md:w-[16rem] lg:w-[18rem] flex"
+          >
+            <ServiceCard
+              service={service}
+              index={i}
+              accentColor={category.accent}
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+/* ---------------- Main Section ---------------- */
 
 const Benefits = () => {
-  const navigate = useNavigate();
   const containerRef = useRef(null);
-
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const [isHovered, setIsHovered] = useState(false);
 
-  // Scroll parallax and 3D effects
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end start"],
   });
 
-  // Parallax for background blobs
-  const y1 = useTransform(scrollYProgress, [0, 1], [0, -300]);
-  const y2 = useTransform(scrollYProgress, [0, 1], [0, -150]);
-
-  // 3D Transforms for the main image
-  const imageRotateX = useTransform(scrollYProgress, [0, 0.5, 1], [15, 0, -15]);
-  const imageRotateY = useTransform(scrollYProgress, [0, 0.5, 1], [-10, 0, 10]);
-  const imageScale = useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 1, 0.9]);
-  const imageY = useTransform(scrollYProgress, [0, 0.5, 1], [100, 0, -50]);
-
-  // Spring physics for smoother 3D motion
-  const smoothRotateX = useSpring(imageRotateX, { stiffness: 100, damping: 30 });
-  const smoothRotateY = useSpring(imageRotateY, { stiffness: 100, damping: 30 });
-
-  const handleMouseMove = (e) => {
-    if (!containerRef.current) return;
-    const rect = containerRef.current.getBoundingClientRect();
-    setMousePos({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
-    });
-  };
-
-  const scrollToWhatWeDo = () => {
-    const el = document.getElementById("whatwedo");
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
-  const narrativeText = `Our approach is simple — understand deeply, design beautifully, build intelligently. Every engagement unfolds across three essential layers. Above the screen, we shape strategy through research, insight, and clarity. On the screen, we craft refined digital experiences that feel effortless and intuitive. Below the screen, we build scalable, performance-driven technology designed for longevity. Elegant thinking. Precise execution. Measurable impact.`;
+  const headingOpacity = useTransform(scrollYProgress, [0, 0.2], [0, 1]);
 
   return (
-    <Section
-      id="features"
-      className="pt-20 pb-20 md:pt-32 md:pb-32 overflow-hidden"
-    >
+    <Section id="features" className="relative pt-24 pb-24 overflow-hidden">
+
       <div
         ref={containerRef}
-        onMouseMove={handleMouseMove}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-        className="container relative z-2 mt-0"
+        onMouseMove={(e) => {
+          const rect = containerRef.current.getBoundingClientRect();
+          setMousePos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+        }}
+        className="container relative z-2"
       >
-        {/* Cinematic Backdrop Glow */}
+
+        {/* Title */}
         <motion.div
-          className="pointer-events-none absolute -inset-px z-30 transition duration-500"
-          style={{
-            background: `radial-gradient(800px circle at ${mousePos.x}px ${mousePos.y}px, rgba(86, 86, 224, 0.15), transparent 80%)`,
-            opacity: isHovered ? 1 : 0.3,
-          }}
-        />
+          style={{ opacity: headingOpacity }}
+          className="mb-20 text-center"
+        >
+          <h2 className="text-[2rem] md:text-[2.6rem] font-playfair font-bold text-n-1">
+            <br />
+            <span className="italic bg-clip-text text-transparent bg-gradient-to-r from-color-1 via-n-1 to-color-4">
+              What We Do..
+            </span>
+          </h2>
+        </motion.div>
 
-        {/* Floating Parallax Accents */}
-        <motion.div
-          style={{ y: y1 }}
-          className="absolute -top-40 -left-40 w-80 h-80 bg-color-1/10 rounded-full blur-[120px] pointer-events-none animate-pulse"
-        />
-        <motion.div
-          style={{ y: y2 }}
-          className="absolute -bottom-40 -right-40 w-[30rem] h-[30rem] bg-color-2/5 rounded-full blur-[150px] pointer-events-none"
-        />
-
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-20">
-
-          {/* Text Content Area */}
-          <div className="flex-1 text-center lg:text-left relative z-10 lg:max-w-xl">
-            {/* Vision Tag */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="flex items-center space-x-3 opacity-70 px-4 py-2 bg-n-1/5 rounded-full backdrop-blur-md border border-n-1/10 mb-8 w-fit mx-auto lg:mx-0"
-            >
-              <div className="w-2 h-2 rounded-full bg-color-1 animate-pulse" />
-              <span className="uppercase tracking-[0.3em] text-[0.7rem] text-n-1 font-bold">
-                The Architecture of Design
-              </span>
-            </motion.div>
-
-            {/* Heading */}
-            <motion.h2
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="font-grotesk font-black uppercase tracking-[-0.03em]
-text-[1.6rem] sm:text-[2.2rem] md:text-[2.8rem] lg:text-[3.4rem]
-leading-[1] mb-8
-bg-clip-text text-transparent
-bg-gradient-to-b from-n-1 via-n-1 to-n-1/20"
-            >
-              Technology meets <br />
-              <span className="text-color-1 inline-block -skew-x-2 transition-all duration-500 hover:scale-105">
-                creativity
-              </span>
-            </motion.h2>
-
-            {/* Narrative Staggered Reveal */}
-            <div className="mb-12">
-              <p className="text-n-3 text-lg md:text-xl font-light leading-relaxed">
-                {narrativeText.split(" ").map((word, i) => (
-                  <motion.span
-                    key={i}
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{
-                      duration: 0.4,
-                      delay: 0.1 + i * 0.012,
-                    }}
-                    className="inline-block mr-[0.25em]"
-                  >
-                    {[
-                      "understand", "deeply,", "design", "beautifully,", "build", "intelligently.", "Elegant", "thinking.", "Precise", "execution.", "Measurable", "impact."
-                    ].includes(word.replace(/[.,]/g, "")) ? (
-                      <span className="text-n-1 font-semibold">{word}</span>
-                    ) : (
-                      word
-                    )}
-                  </motion.span>
-                ))}
-              </p>
-            </div>
-
-            {/* Action Group */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className="flex flex-col sm:flex-row items-center gap-8"
-            >
-              <motion.button
-                onClick={() => navigate("/what-we-do-detail")}
-
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.96 }}
-                className="relative px-10 py-5 rounded-2xl text-n-1 font-bold text-lg
-                backdrop-blur-xl border border-n-1/20 overflow-hidden
-                bg-gradient-to-br from-color-1/10 to-color-3/10
-                shadow-[0_0_40px_rgba(120,120,255,0.2)]
-                hover:shadow-[0_0_60px_rgba(120,120,255,0.4)]
-                transition-all duration-500 group"
-              >
-                <span className="relative z-10" href="/what-we-do-detail">Explore</span>
-
-                <div className="absolute inset-0 bg-gradient-to-r from-color-1/20 to-color-3/20 opacity-0 group-hover:opacity-100 transition-opacity" />
-              </motion.button>
-
-              <p className="text-n-4 text-sm font-code uppercase tracking-widest max-w-[200px] text-center lg:text-left">
-                Click to explore the Services
-              </p>
-            </motion.div>
-          </div>
-
-          {/* Cinematic 3D Image Scene */}
-          <div className="flex-1 relative w-full h-full lg:min-h-[600px] flex items-center justify-center">
-            <motion.div
-              style={{
-                perspective: "1500px",
-                transformStyle: "preserve-3d",
-                y: imageY,
-                scale: imageScale,
-                rotateX: smoothRotateX,
-                rotateY: smoothRotateY,
-              }}
-              className="relative z-20 w-full max-w-[500px] lg:max-w-none px-4"
-            >
-              {/* Image Container with Custom Glow and Mask */}
-              <div className="relative group">
-                <motion.div
-                  animate={{
-                    y: [0, -15, 0],
-                  }}
-                  transition={{
-                    duration: 6,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                  }}
-                  className="relative p-1 rounded-3xl overflow-hidden border border-n-1/10 bg-n-8/50 backdrop-blur-sm"
-                >
-                  <img
-                    src={BenefitsImage}
-                    alt="The Vision"
-                    className="w-full h-auto rounded-3xl object-cover shadow-2xl transition-transform duration-700 group-hover:scale-105"
-                  />
-
-                  {/* Internal Glow Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-tr from-color-1/20 via-transparent to-color-2/20 mix-blend-overlay pointer-events-none" />
-                </motion.div>
-
-                {/* Floating Shadow/Glow underneath */}
-                <motion.div
-                  animate={{
-                    scale: [1, 1.1, 1],
-                    opacity: [0.3, 0.5, 0.3],
-                  }}
-                  transition={{
-                    duration: 6,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                  }}
-                  className="absolute -bottom-10 left-1/2 -translate-x-1/2 w-[80%] h-12 bg-color-1/30 blur-[60px] rounded-[100%] pointer-events-none -z-1"
-                />
-              </div>
-
-              {/* Decorative Tech Elements - Dora AI Style */}
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                className="absolute -top-10 -right-10 w-32 h-32 border border-n-1/5 rounded-full pointer-events-none"
-              />
-              <motion.div
-                animate={{ rotate: -360 }}
-                transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-                className="absolute -bottom-10 -left-10 w-48 h-48 border border-n-1/5 rounded-full border-dashed pointer-events-none"
-              />
-            </motion.div>
-          </div>
-
+        {/* Categories */}
+        <div className="space-y-24">
+          {serviceCategories.map((category) => (
+            <CategorySection key={category.metaphor} category={category} />
+          ))}
         </div>
 
         <GradientLight />
       </div>
+      <ClipPath />
     </Section>
   );
 };

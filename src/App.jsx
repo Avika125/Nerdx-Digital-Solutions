@@ -11,6 +11,8 @@ import WhatWeDoDetail from "./pages/WhatWeDoDetail";
 import ServiceDetail from "./pages/ServiceDetail";
 import StuffThatWorkedDetail from "./pages/StuffThatWorkedDetail";
 import ContactDetail from "./pages/ContactDetail";
+import Chatbot from "./components/Chatbot";
+import WhatsAppButton from "./components/WhatsAppButton";
 
 const App = () => {
   return (
@@ -30,6 +32,8 @@ const App = () => {
         <Footer />
       </div>
 
+      <Chatbot />
+      <WhatsAppButton />
       <ButtonGradient />
     </>
   );

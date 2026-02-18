@@ -236,7 +236,7 @@ const BrandIdentityStrategyPage = () => {
                     <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={containerVariants} className="relative p-8 md:p-12 rounded-2xl overflow-hidden" style={{ background: "linear-gradient(145deg, rgba(172,106,255,0.15) 0%, rgba(255,255,255,0.04) 50%)", border: "1px solid rgba(255,255,255,0.1)" }}>
                         <span className="absolute top-6 left-6 text-5xl font-playfair opacity-20 text-white">&quot;</span>
                         <motion.p variants={textVariants} className="relative z-10 text-lg md:text-xl font-playfair italic text-white/90 leading-relaxed max-w-3xl mx-auto text-center">A brand is a promise. We help you make that promise clear, compelling, and impossible to ignore.</motion.p>
-                        <motion.p variants={textVariants} className="text-center mt-6 font-code text-xs uppercase tracking-[0.25em] text-white/40">— NerdX Brand Strategy</motion.p>
+                        <motion.p variants={textVariants} className="text-center mt-6 font-code text-xs uppercase tracking-[0.25em] text-white/40">— KrishNova Softwares Brand Strategy</motion.p>
                     </motion.div>
                 </div>
             </Section>

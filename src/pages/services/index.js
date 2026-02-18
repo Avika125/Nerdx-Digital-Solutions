@@ -16,6 +16,11 @@ import ebayStoreSetupManagement from "./marketing/ebay-store-setup-management.js
 import devops from "./management/devops.js";
 import epicorErp from "./management/epicor-erp.js";
 
+import aiAutomationSystems from "./automation/ai-automation-systems.js";
+import dataEngineeringAnalytics from "./automation/data-engineering-analytics.js";
+import saasProductDevelopment from "./automation/saas-product-development.js";
+import customAiAgents from "./automation/custom-ai-agents.js";
+
 export const serviceCategories = [
     {
         metaphor: "Design Services",
@@ -47,6 +52,16 @@ export const serviceCategories = [
         metaphor: "Management Services",
         accent: "#7ADB78",
         services: [devops, epicorErp]
+    },
+    {
+        metaphor: "AI Automation",
+        accent: "#00F5FF",
+        services: [
+            aiAutomationSystems,
+            dataEngineeringAnalytics,
+            saasProductDevelopment,
+            customAiAgents
+        ]
     }
 ];
 

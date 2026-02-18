@@ -37,7 +37,7 @@ const Header = () => {
         >
             <div className="flex items-center justify-between px-8 lg:px-12 xl:px-16 max-lg:py-4 py-6">
                 <Link className="block w-[12rem] xl:mr-8" to="/">
-                    <img src={brainwave} width={190} height={40} alt="Nerdx" />
+                    <img src={brainwave} width={190} height={40} alt="KrishNova Softwares" />
                 </Link>
 
                 {/* Mobile Navigation */}

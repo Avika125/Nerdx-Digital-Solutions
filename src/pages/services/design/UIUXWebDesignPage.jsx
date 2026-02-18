@@ -127,7 +127,7 @@ const UIUXWebDesignPage = () => {
                                     Strategic UX/UI & Web Design.
                                 </motion.p>
                                 <motion.p variants={textVariants} className="text-base md:text-lg text-white/60 max-w-xl leading-relaxed">
-                                    Your website is your 24/7 salesperson. NerdX Solutions blends creative aesthetics with smart user psychology to build digital experiences that don&apos;t just look incredible—they convert visitors into paying customers.
+                                    Your website is your 24/7 salesperson. KrishNova Softwares blends creative aesthetics with smart user psychology to build digital experiences that don&apos;t just look incredible—they convert visitors into paying customers.
                                 </motion.p>
                             </div>
                             <motion.div
@@ -310,7 +310,7 @@ const UIUXWebDesignPage = () => {
                             Intelligent UX/UI Design & Web Design.
                         </motion.h2>
                         <motion.p variants={textVariants} className="text-lg text-white/70 leading-relaxed mb-12">
-                            At NerdX Solutions, we don't just decorate screens; we engineer experiences. We blend aesthetic precision with data-driven strategy to create websites and interfaces that captivate users and guide them seamlessly toward your business goals.
+                            At KrishNova Softwares, we don't just decorate screens; we engineer experiences. We blend aesthetic precision with data-driven strategy to create websites and interfaces that captivate users and guide them seamlessly toward your business goals.
                         </motion.p>
                         <motion.ul variants={textVariants} className="space-y-4">
                             {[
@@ -367,7 +367,7 @@ const UIUXWebDesignPage = () => {
                                 The Solution
                             </h3>
                             <p className="text-white/65 leading-relaxed mb-6">
-                                NerdX solves this by prioritizing clarity and function. We strip away the noise to build streamlined, high-performance interfaces that reduce friction and make buying from you the easiest decision your customer makes today.
+                                KrishNova Softwares solves this by prioritizing clarity and function. We strip away the noise to build streamlined, high-performance interfaces that reduce friction and make buying from you the easiest decision your customer makes today.
                             </p>
                             <div className="flex flex-wrap gap-3">
                                 {["Data-Backed Strategy", "Seamless Functionality", "Scalable Architecture"].map((t, i) => (
@@ -399,7 +399,7 @@ const UIUXWebDesignPage = () => {
                             Great design is invisible. It doesn&apos;t shout—it guides. Every pixel we place serves a purpose: to help your users find what they need and take action before they even think about it.
                         </motion.p>
                         <motion.p variants={textVariants} className="text-center mt-8 font-code text-xs uppercase tracking-[0.3em] text-white/40">
-                            — NerdX Design Philosophy
+                            — KrishNova Softwares Design Philosophy
                         </motion.p>
                     </motion.div>
                 </div>
@@ -452,7 +452,7 @@ const UIUXWebDesignPage = () => {
                             Our UX/UI Design & Web Design Expertise
                         </motion.p>
                         <motion.p variants={textVariants} className="text-white/60 text-center mb-12 max-w-3xl mx-auto">
-                            From initial sketches to final code, NerdX Solutions delivers end-to-end production. We ensure every pixel serves a specific purpose, creating digital products that are functionally robust and ready to scale.
+                            From initial sketches to final code, KrishNova Softwares delivers end-to-end production. We ensure every pixel serves a specific purpose, creating digital products that are functionally robust and ready to scale.
                         </motion.p>
                         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
                             {expertiseCards.map((card, i) => (

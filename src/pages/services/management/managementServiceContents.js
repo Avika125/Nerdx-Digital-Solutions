@@ -43,7 +43,7 @@ export const devopsContent = {
     },
     intelligentSection: {
         title: "DevOps Expertise.",
-        description: "At NerdX Solutions, we bridge development and operations. CI/CD pipelines, cloud infrastructure, and monitoring — we make shipping software fast, reliable, and stress-free.",
+        description: "At KrishNova Softwares, we bridge development and operations. CI/CD pipelines, cloud infrastructure, and monitoring — we make shipping software fast, reliable, and stress-free.",
         bullets: [
             "CI/CD Pipelines: Automate build, test, and deploy. Ship with confidence.",
             "Cloud Infrastructure: AWS, GCP, Azure — scalable and cost-optimized.",
@@ -54,12 +54,12 @@ export const devopsContent = {
     },
     challengeSolution: {
         challenge: "Manual deployments, slow feedback loops, and infrastructure drift slow you down. Operations become a bottleneck.",
-        solution: "NerdX automates your delivery pipeline. CI/CD, IaC, and monitoring — we make deployments fast, reliable, and predictable.",
+        solution: "KrishNova Softwares automates your delivery pipeline. CI/CD, IaC, and monitoring — we make deployments fast, reliable, and predictable.",
         tags: ["Automated", "Reliable", "Scalable"]
     },
     testimonial: {
         quote: "The best DevOps is invisible — developers ship, and it just works. We build that.",
-        attribution: "NerdX DevOps Philosophy",
+        attribution: "KrishNova Softwares DevOps Philosophy",
         ctaText: "Book a free DevOps assessment and let's streamline your pipeline."
     },
     principles: {
@@ -128,9 +128,9 @@ export const epicorErpContent = {
         image: epicorWorkflowImage
     },
     happyClients: { label: "Trusted by operations", title: "Happy Clients", stat: "25+", subtext: "Epicor implementations", tags: ["Manufacturing", "Distribution", "Retail", "Supply Chain", "Finance", "Inventory", "CRM", "Custom"] },
-    intelligentSection: { title: "Epicor ERP Expertise.", description: "At NerdX Solutions, we implement and customize Epicor ERP. From requirements to go-live, we streamline your operations, unify your data, and help you make better decisions.", bullets: ["Implementation: Requirements, configuration, and go-live support.", "Customization: Extend Epicor to fit your unique processes.", "Data Migration: Clean, accurate data from legacy systems.", "Training & Support: Your team equipped to use the system.", "Integration: Connect Epicor to other systems and tools."] },
-    challengeSolution: { challenge: "Siloed data, manual processes, and legacy systems slow operations. Without unified ERP, visibility and efficiency suffer.", solution: "NerdX implements Epicor ERP tailored to your business. Streamlined processes, real-time data, and a single source of truth.", tags: ["Streamlined Ops", "Real-Time Data", "Custom Fit"] },
-    testimonial: { quote: "ERP is the backbone of operations. Done right, it makes everything else possible.", attribution: "NerdX ERP Philosophy", ctaText: "Book a free ERP assessment and let's streamline your operations." },
+    intelligentSection: { title: "Epicor ERP Expertise.", description: "At KrishNova Softwares, we implement and customize Epicor ERP. From requirements to go-live, we streamline your operations, unify your data, and help you make better decisions.", bullets: ["Implementation: Requirements, configuration, and go-live support.", "Customization: Extend Epicor to fit your unique processes.", "Data Migration: Clean, accurate data from legacy systems.", "Training & Support: Your team equipped to use the system.", "Integration: Connect Epicor to other systems and tools."] },
+    challengeSolution: { challenge: "Siloed data, manual processes, and legacy systems slow operations. Without unified ERP, visibility and efficiency suffer.", solution: "KrishNova Softwares implements Epicor ERP tailored to your business. Streamlined processes, real-time data, and a single source of truth.", tags: ["Streamlined Ops", "Real-Time Data", "Custom Fit"] },
+    testimonial: { quote: "ERP is the backbone of operations. Done right, it makes everything else possible.", attribution: "KrishNova Softwares ERP Philosophy", ctaText: "Book a free ERP assessment and let's streamline your operations." },
     principles: { title: "Why Epicor ERP", subtitle: "Three benefits of proper implementation", items: [{ title: "Unified Data", desc: "One source of truth across finance, inventory, and operations.", emoji: "◇" }, { title: "Process Efficiency", desc: "Automate workflows and eliminate manual errors.", emoji: "◆" }, { title: "Visibility", desc: "Real-time dashboards and reporting for better decisions.", emoji: "○" }] },
     expertise: {
         title: "Our Epicor Expertise",

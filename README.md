@@ -1,8 +1,8 @@
-# Nerdx - Digital Solutions Agency
+# KrishNova Softwares - Digital Solutions Agency
 
-![Nerdx Banner](https://via.placeholder.com/1200x400?text=Nerdx+Digital+Solutions)
+![KrishNova Softwares Banner](https://via.placeholder.com/1200x400?text=KrishNova+Softwares)
 
-**Nerdx** is a modern, high-performance website for a digital solutions agency. Built with React, Tailwind CSS, and Framer Motion, it features a premium, animated UI that showcases the agency's philosophy ("NERD"), services, and workflow.
+**KrishNova Softwares** is a modern, high-performance website for a digital solutions agency. Built with React, Tailwind CSS, and Framer Motion, it features a premium, animated UI that showcases the agency's philosophy ("NERD"), services, and workflow.
 
 ## 🚀 Built With
 
@@ -40,12 +40,8 @@ src/
 
 1.  **Clone the repository**
     ```bash
-<<<<<<< HEAD
-    git clone https://github.com/your-username/nerdx.git
-=======
     git clone https://github.com/Avika125/Nerdx-Digital-Solutions.git
->>>>>>> e2d2bd6af4234b94801d3bd36817dc4a69795c2f
-    cd nerdx
+    cd Nerdx-Digital-Solutions
     ```
 
 2.  **Install dependencies**
@@ -63,27 +59,12 @@ src/
     npm run build
     ```
 
-<<<<<<< HEAD
 ## 🎨 Design Philosophy
 
-**Nerdx** isn't just a portfolio; it's a statement. The design reflects a balance between technical expertise and creative freedom.
+**KrishNova Softwares** isn't just a portfolio; it's a statement. The design reflects a balance between technical expertise and creative freedom.
 -   **"Navigate, Explode, Refine, Define"**: Our core methodology visualizing how we take raw ideas and turn them into polished digital products.
 -   **User-Centric**: Every animation and layout decision is made to enhance the user's journey through the site.
 
 ---
 
-=======
-5. Deployed :-
-   https://nerdxdigitalsolutions.netlify.app/    
-    
-
-## 🎨 Design Philosophy
-
-**Nerdx** isn't just a portfolio; it's a statement. The design reflects a balance between technical expertise and creative freedom.
--   **"Navigate, Explode, Refine, Define"**: Our core methodology visualizing how we take raw ideas and turn them into polished digital products.
--   **User-Centric**: Every animation and layout decision is made to enhance the user's journey through the site.
-
----
-
->>>>>>> e2d2bd6af4234b94801d3bd36817dc4a69795c2f
-*Built with ❤️ by the Nerdx*
+*Built with ❤️ by KrishNova Softwares*

@@ -32,7 +32,7 @@ export const brandIdentityContent = {
     },
     intelligentSection: {
         title: "Strategic Brand Identity & Positioning.",
-        description: "At NerdX Solutions, we don't just design logos — we build brand systems. Every element, from color palette to voice and tone, works together to create a cohesive identity that resonates with your target audience and drives business growth.",
+        description: "At KrishNova Softwares, we don't just design logos — we build brand systems. Every element, from color palette to voice and tone, works together to create a cohesive identity that resonates with your target audience and drives business growth.",
         bullets: [
             "Brand Audit & Strategy: We analyze your market, competitors, and audience to define a clear positioning.",
             "Logo & Visual Identity: Distinctive logos and visual systems that capture your essence.",
@@ -43,12 +43,12 @@ export const brandIdentityContent = {
     },
     challengeSolution: {
         challenge: "Generic logos and inconsistent messaging make you forgettable. Without a clear brand identity, customers struggle to remember you or understand what makes you different from competitors.",
-        solution: "NerdX creates distinctive, memorable brand systems. We define your positioning, design a cohesive visual identity, and deliver guidelines that keep your brand consistent and impactful everywhere.",
+        solution: "KrishNova Softwares creates distinctive, memorable brand systems. We define your positioning, design a cohesive visual identity, and deliver guidelines that keep your brand consistent and impactful everywhere.",
         tags: ["Strategic Positioning", "Visual Cohesion", "Scalable Systems"]
     },
     testimonial: {
         quote: "A brand is a promise. We help you make that promise clear, compelling, and impossible to ignore.",
-        attribution: "NerdX Brand Strategy",
+        attribution: "KrishNova Softwares Brand Strategy",
         ctaText: "Book a free brand consultation and let's define what makes you unforgettable."
     },
     principles: {
@@ -120,7 +120,7 @@ export const marketingAdvertisingContent = {
     },
     intelligentSection: {
         title: "Strategic Marketing & Advertising Design.",
-        description: "Great campaigns start with great design. At NerdX Solutions, we create marketing and advertising visuals that stop the scroll, capture attention, and drive action. Every asset is designed with your audience and goals in mind.",
+        description: "Great campaigns start with great design. At KrishNova Softwares, we create marketing and advertising visuals that stop the scroll, capture attention, and drive action. Every asset is designed with your audience and goals in mind.",
         bullets: [
             "Social Media Graphics: Scroll-stopping visuals optimized for each platform and format.",
             "Digital Ads: High-converting ad creatives for Google, Meta, LinkedIn, and programmatic.",
@@ -131,12 +131,12 @@ export const marketingAdvertisingContent = {
     },
     challengeSolution: {
         challenge: "Generic stock visuals and templated designs get ignored. In a crowded feed, only distinctive, on-brand creatives stand out and drive results.",
-        solution: "NerdX creates custom marketing and advertising designs tailored to your brand and campaign goals. We combine strategy with striking visuals to maximize engagement and conversions.",
+        solution: "KrishNova Softwares creates custom marketing and advertising designs tailored to your brand and campaign goals. We combine strategy with striking visuals to maximize engagement and conversions.",
         tags: ["Custom Creatives", "Platform-Optimized", "Conversion-Focused"]
     },
     testimonial: {
         quote: "In marketing, design isn't decoration — it's your first salesperson. Make it count.",
-        attribution: "NerdX Creative Philosophy",
+        attribution: "KrishNova Softwares Creative Philosophy",
         ctaText: "Book a free consultation and let's create campaigns that convert."
     },
     principles: {
