@@ -5,12 +5,6 @@ import Section from "./Section";
 import { GradientLight } from "./design/Benefits";
 import { serviceCategories } from "../pages/services";
 import {
-  benefitCard1,
-  benefitCard2,
-  benefitCard3,
-  benefitCard4,
-  benefitCard5,
-  benefitCard6,
   benefitIcon1,
   benefitIcon2,
   benefitIcon3,
@@ -19,15 +13,6 @@ import {
 import ClipPath from "../assets/svg/ClipPath";
 import Arrow from "../assets/svg/Arrow";
 
-const benefitCards = [
-  benefitCard1,
-  benefitCard2,
-  benefitCard3,
-  benefitCard4,
-  benefitCard5,
-  benefitCard6,
-];
-
 const benefitIcons = [
   benefitIcon1,
   benefitIcon2,
@@ -35,6 +20,44 @@ const benefitIcons = [
   benefitIcon4,
 ];
 
+
+/* ---------------- Card Border ---------------- */
+
+const CardBorder = ({ color, index }) => {
+  const gradId = `benefit-grad-${index}`;
+  return (
+    <div className="absolute inset-0 pointer-events-none">
+      <svg
+        className="w-full h-full"
+        viewBox="0 0 384 366"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        preserveAspectRatio="none"
+      >
+        <path
+          vectorEffect="non-scaling-stroke"
+          d="M32 1H319.453C328.037 1 336.238 4.5601 342.1 10.832L374.648 45.6545C380.015 51.3966 383 58.9629 383 66.8225V334C383 351.121 369.121 365 352 365H32C14.8792 365 1 351.121 1 334V32C1 14.8792 14.8792 1 32 1Z"
+          stroke="white"
+          strokeOpacity="0.15"
+          strokeWidth="2"
+        />
+        <path
+          vectorEffect="non-scaling-stroke"
+          d="M32 1H319.453C328.037 1 336.238 4.5601 342.1 10.832L374.648 45.6545C380.015 51.3966 383 58.9629 383 66.8225V334C383 351.121 369.121 365 352 365H32C14.8792 365 1 351.121 1 334V32C1 14.8792 14.8792 1 32 1Z"
+          stroke={`url(#${gradId})`}
+          strokeOpacity="0.85"
+          strokeWidth="2"
+        />
+        <defs>
+          <linearGradient id={gradId} x1="192" y1="0" x2="192" y2="366" gradientUnits="userSpaceOnUse">
+            <stop stopColor={color || "#AC6AFF"} />
+            <stop offset="0.562842" stopColor="#D633FF" stopOpacity="0" />
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+  );
+};
 
 /* ---------------- Service Card ---------------- */
 
@@ -68,14 +91,15 @@ const ServiceCard = ({ service, index, accentColor }) => {
         rotateX,
         rotateY,
         transformStyle: "preserve-3d",
-        backgroundImage: `url(${benefitCards[index % benefitCards.length]})`,
       }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.6, delay: index * 0.08 }}
-      className="relative p-[1.8rem] bg-no-repeat bg-[length:100%_100%] md:max-w-[19rem]"
+      className="relative p-[1.8rem] md:max-w-[19rem] min-h-[22rem] flex flex-col"
     >
-      <div className="relative z-2 flex flex-col min-h-[17rem] pointer-events-none">
+      <CardBorder color={accentColor} index={index + service.slug} />
+
+      <div className="relative z-2 flex flex-col flex-1 pointer-events-none">
         <h5 className="h5 mb-5">{service.title}</h5>
         <p className="body-2 mb-6 text-n-3">{service.description}</p>
         <div className="flex items-center mt-auto">
@@ -98,7 +122,7 @@ const ServiceCard = ({ service, index, accentColor }) => {
       {service.light && <GradientLight />}
 
       <div
-        className="absolute inset-0.5 bg-n-8"
+        className="absolute inset-[1px] bg-n-8 -z-1"
         style={{ clipPath: "url(#benefits)" }}
       >
         <div className="absolute inset-0 opacity-0 transition-opacity hover:opacity-10">
