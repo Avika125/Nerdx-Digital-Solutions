@@ -2,11 +2,8 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { RiMessage3Line, RiCloseLine, RiSendPlane2Fill } from "react-icons/ri";
 
-const Chatbot = () => {
-    const [isOpen, setIsOpen] = useState(false);
+const Chatbot = ({ isOpen, toggleChat }) => {
     const [message, setMessage] = useState("");
-
-    const toggleChat = () => setIsOpen(!isOpen);
 
     return (
         <div className="fixed bottom-6 right-6 z-[999] flex flex-col items-end">

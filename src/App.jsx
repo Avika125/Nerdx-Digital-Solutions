@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import ButtonGradient from "./assets/svg/ButtonGradient";
 import Header from "./components/Header";
@@ -15,6 +16,8 @@ import Chatbot from "./components/Chatbot";
 import WhatsAppButton from "./components/WhatsAppButton";
 
 const App = () => {
+  const [isChatOpen, setIsChatOpen] = useState(false);
+
   return (
     <>
       <div className="pt-[4.75rem] lg:pt-[5.25rem] overflow-hidden">
@@ -32,8 +35,8 @@ const App = () => {
         <Footer />
       </div>
 
-      <Chatbot />
-      <WhatsAppButton />
+      <Chatbot isOpen={isChatOpen} toggleChat={() => setIsChatOpen(!isChatOpen)} />
+      <WhatsAppButton hide={isChatOpen} />
       <ButtonGradient />
     </>
   );
