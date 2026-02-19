@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { RiMessage3Line, RiCloseLine, RiSendPlane2Fill } from "react-icons/ri";
+import { RiCloseLine, RiSendPlane2Fill } from "react-icons/ri";
+import chatbotImage from "../assets/chatbotimage.png";
 
 const Chatbot = ({ isOpen, toggleChat }) => {
     const [message, setMessage] = useState("");
@@ -125,7 +126,8 @@ const Chatbot = ({ isOpen, toggleChat }) => {
                                 exit={{ rotate: -90, opacity: 0 }}
                                 transition={{ duration: 0.2 }}
                             >
-                                <RiMessage3Line size={32} className="text-n-1" />
+                                <img src={chatbotImage} alt="Chatbot" className="w-12 h-12
+                                 object-contain" />
                             </motion.div>
                         )}
                     </AnimatePresence>
