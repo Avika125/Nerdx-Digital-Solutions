@@ -42,9 +42,6 @@ const Hero = () => {
           <p className="body-1 max-w-3xl mx-auto mb-6 text-n-2 lg:mb-8 text-sm md:text-base lg:text-lg">
             By combining creative thinking, advanced technology, and refined design, we help ambitious brands shape their identity, connect with audiences, and stand confidently in the digital future.
           </p>
-          <Button href="#features" white>
-            Chat us
-          </Button>
         </div>
         <div className="relative max-w-[23rem] mx-auto md:max-w-5xl xl:mb-24">
           <div className="relative z-1 p-0.5 rounded-2xl bg-conic-gradient">
