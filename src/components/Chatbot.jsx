@@ -126,7 +126,7 @@ const Chatbot = ({ isOpen, toggleChat }) => {
                                 exit={{ rotate: -90, opacity: 0 }}
                                 transition={{ duration: 0.2 }}
                             >
-                                <img src={chatbotImage} alt="Chatbot" className="w-12 h-12
+                                <img src={chatbotImage} alt="Chatbot" className="w-10 h-10
                                  object-contain" />
                             </motion.div>
                         )}
