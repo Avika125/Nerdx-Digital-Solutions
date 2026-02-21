@@ -24,12 +24,9 @@ const Chatbot = ({ isOpen, toggleChat }) => {
                                 <div className="w-10 h-10 rounded-full bg-conic-gradient p-[1px]">
                                     <div className="w-full h-full rounded-full bg-n-8 flex items-center justify-center overflow-hidden">
                                         <img
-                                            src="/assets/favicon.svg"
+                                            src={chatbotImage}
                                             alt="KrishNova AI"
-                                            className="w-6 h-6 object-contain"
-                                            onError={(e) => {
-                                                e.target.src = "https://ui-avatars.com/api/?name=KrishNova&background=random";
-                                            }}
+                                            className="w-full h-full object-contain p-1"
                                         />
                                     </div>
                                 </div>
