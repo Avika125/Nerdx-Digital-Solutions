@@ -17,7 +17,7 @@ import SocialMediaMarketingPage from "./services/marketing/SocialMediaMarketingP
 import EbayStoreSetupManagementPage from "./services/marketing/EbayStoreSetupManagementPage";
 import DevOpsPage from "./services/management/DevOpsPage";
 import EpicorErpPage from "./services/management/EpicorErpPage";
-import AiAutomationSystemsPage from "./services/automation/AiAutomationSystemsPage";
+import AiAutomationSystemsPage from "./services/automation/AIAutomationSystemsPage";
 import DataEngineeringAnalyticsPage from "./services/automation/DataEngineeringAnalyticsPage";
 import SaasProductDevelopmentPage from "./services/automation/SaasProductDevelopmentPage";
 import CustomAiAgentsPage from "./services/automation/CustomAiAgentsPage";
