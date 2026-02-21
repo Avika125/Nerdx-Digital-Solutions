@@ -183,7 +183,7 @@ const CategorySection = ({ category }) => {
       {/* Cards */}
       <div
         ref={scrollRef}
-        className="flex gap-6 overflow-x-auto scrollbar-hide pb-10"
+        className="flex gap-6 overflow-x-auto scrollbar-hide pb-10 px-4 md:px-0"
       >
         {category.services.map((service, i) => (
           <div
@@ -229,9 +229,9 @@ const Benefits = () => {
       >
 
         {/* Title */}
-        <div className="mb-20 text-center">
-          <h2 className="text-[2rem] md:text-[2.6rem] font-playfair font-bold text-n-1">
-            <br />
+        <div className="mb-12 md:mb-20 text-center px-4">
+          <h2 className="text-[1.75rem] md:text-[2.6rem] font-playfair font-bold text-n-1">
+            <br className="hidden md:block" />
             <span className="italic bg-clip-text text-transparent bg-gradient-to-r from-color-1 via-n-1 to-color-4">
               What We Do..
             </span>

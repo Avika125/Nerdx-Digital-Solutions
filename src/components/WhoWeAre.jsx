@@ -64,9 +64,8 @@ const WhoWeAre = () => {
           loop
           playsInline
           onLoadedData={() => setVideoLoaded(true)}
-          className={`absolute inset-0 w-full h-full object-contain scale-110 transition-opacity duration-[2000ms] ${
-            videoLoaded ? "opacity-70" : "opacity-0"
-          }`}
+          className={`absolute inset-0 w-full h-full object-contain scale-110 transition-opacity duration-[2000ms] ${videoLoaded ? "opacity-70" : "opacity-0"
+            }`}
         />
         <div className="absolute inset-0 bg-n-8/60" />
         <div className="absolute inset-0 bg-gradient-to-b from-n-8 via-transparent to-n-8" />
@@ -97,18 +96,18 @@ const WhoWeAre = () => {
           {/* Main Heading (Reduced Size) */}
           <motion.div
             variants={itemVariants}
-            className="max-w-[60rem] text-center mb-10 md:mb-16"
+            className="max-w-[60rem] text-center mb-10 md:mb-16 px-4 md:px-0"
           >
-            <h2 className="font-grotesk font-black uppercase tracking-tighter text-[1.5rem] sm:text-[2.5rem] md:text-[3.5rem] lg:text-[4.5rem] leading-[1.05] mb-6 bg-clip-text text-transparent bg-gradient-to-b from-n-1 via-n-1 to-n-1/30">
+            <h2 className="font-grotesk font-black uppercase tracking-tighter text-[1.25rem] sm:text-[2.5rem] md:text-[3.5rem] lg:text-[4.5rem] leading-[1.05] mb-6 bg-clip-text text-transparent bg-gradient-to-b from-n-1 via-n-1 to-n-1/30">
               Digital Solutions <br className="hidden md:block" />
               <span className="text-color-3 inline-block -skew-x-6 px-1">
                 Misfits
               </span>
             </h2>
 
-            <div className="relative mx-auto max-w-[40rem] p-1 bg-gradient-to-r from-color-1/20 via-transparent to-color-3/20 rounded-2xl">
-              <div className="bg-n-8/80 backdrop-blur-xl rounded-xl p-6 md:p-8 border border-n-1/5 shadow-xl">
-                <p className="text-n-2 text-base md:text-lg lg:text-xl font-light italic leading-relaxed tracking-tight">
+            <div className="relative mx-auto max-w-[40rem] p-0.5 md:p-1 bg-gradient-to-r from-color-1/20 via-transparent to-color-3/20 rounded-2xl">
+              <div className="bg-n-8/80 backdrop-blur-xl rounded-xl p-5 md:p-8 border border-n-1/5 shadow-xl">
+                <p className="text-n-2 text-sm md:text-lg lg:text-xl font-light italic leading-relaxed tracking-tight">
                   We’re a digital solutions studio built by tech misfits,
                   passionate creatives, and endlessly curious minds — united by
                   a shared mission to challenge norms and build meaningful
@@ -192,7 +191,7 @@ const WhoWeAre = () => {
                 <div className="relative h-48 md:h-56 overflow-hidden">
                   <img
                     src={relationshipImage}
-                    alt="Team collaboration" 
+                    alt="Team collaboration"
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#111126] via-[#111126]/50 to-transparent" />

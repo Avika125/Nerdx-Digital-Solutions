@@ -40,22 +40,20 @@ const Header = () => {
     <>
       {/* ================= HEADER ================= */}
       <div
-        className={`fixed left-1/2 -translate-x-1/2 z-50 transition-all duration-500 ease-in-out border-white/10 ${
-          scrolled
-            ? "top-6 w-[95%] md:w-[80rem] rounded-3xl md:rounded-full bg-n-8/80 backdrop-blur-md border shadow-2xl"
-            : "top-0 w-full border-b border-n-6 bg-n-8/90 backdrop-blur-sm"
-        }`}
+        className={`fixed left-1/2 -translate-x-1/2 z-[999] transition-all duration-500 ease-in-out border-white/10 ${scrolled
+          ? "top-4 md:top-6 w-[calc(100%-1.5rem)] md:w-[95%] xl:w-[80rem] rounded-2xl md:rounded-full bg-n-8/80 backdrop-blur-md border shadow-2xl"
+          : "top-0 w-full border-b border-n-6 bg-n-8/90 backdrop-blur-sm"
+          }`}
       >
         <div
-          className={`flex items-center justify-between transition-all duration-500 ${
-            scrolled
-              ? "px-6 py-3"
-              : "px-8 lg:px-12 xl:px-16 max-lg:py-4 py-6"
-          }`}
+          className={`flex items-center justify-between transition-all duration-500 ${scrolled
+            ? "px-4 md:px-6 py-3"
+            : "px-4 md:px-8 lg:px-12 xl:px-16 py-4 lg:py-6"
+            }`}
         >
           {/* Logo */}
-          <NavLink className="block w-[10rem] md:w-[12rem]" to="/">
-            <img src={brainwave} width={190} height={40} alt="Logo" />
+          <NavLink className="block w-[7rem] xs:w-[9rem] md:w-[12rem]" to="/">
+            <img src={brainwave} width={190} height={40} alt="Logo" className="w-full h-auto" />
           </NavLink>
 
           {/* Desktop Button */}
@@ -65,14 +63,12 @@ const Header = () => {
           >
             <div className="w-full h-full bg-n-8 rounded-xl flex flex-col justify-center items-center gap-1">
               <span
-                className={`w-5 h-[2px] bg-white transition-all duration-300 ${
-                  openNavigation ? "rotate-45 translate-y-[3px]" : ""
-                }`}
+                className={`w-5 h-[2px] bg-white transition-all duration-300 ${openNavigation ? "rotate-45 translate-y-[3px]" : ""
+                  }`}
               ></span>
               <span
-                className={`w-5 h-[2px] bg-white transition-all duration-300 ${
-                  openNavigation ? "-rotate-45 -translate-y-[3px]" : ""
-                }`}
+                className={`w-5 h-[2px] bg-white transition-all duration-300 ${openNavigation ? "-rotate-45 -translate-y-[3px]" : ""
+                  }`}
               ></span>
             </div>
           </button>
@@ -89,11 +85,10 @@ const Header = () => {
 
         {/* ================= DESKTOP DROPDOWN ================= */}
         <div
-          className={`hidden lg:block fixed left-0 right-0 bg-n-8/95 backdrop-blur-md transition-all duration-500 ease-out overflow-hidden ${
-            openNavigation
-              ? "top-[5rem] max-h-screen opacity-100"
-              : "top-[5rem] max-h-0 opacity-0"
-          }`}
+          className={`hidden lg:block fixed left-0 right-0 bg-n-8/95 backdrop-blur-md transition-all duration-500 ease-out overflow-hidden ${openNavigation
+            ? "top-[5rem] max-h-screen opacity-100"
+            : "top-[5rem] max-h-0 opacity-0"
+            }`}
           style={{ zIndex: 40 }}
         >
           <div className="container mx-auto px-5 lg:px-7.5 xl:px-10 py-12 flex justify-center">
@@ -108,10 +103,9 @@ const Header = () => {
                     group relative px-8 py-6 text-center
                     transition-all duration-300
                     hover:scale-105 active:scale-95
-                    ${
-                      isActive
-                        ? "text-color-1 scale-105"
-                        : "text-n-1 hover:text-color-1"
+                    ${isActive
+                      ? "text-color-1 scale-105"
+                      : "text-n-1 hover:text-color-1"
                     }
                     `
                   }
@@ -126,14 +120,13 @@ const Header = () => {
         </div>
       </div>
 
-      {/* ================= MOBILE FULLSCREEN MENU ================= */}
       <nav
         className={`
           ${openNavigation ? "flex" : "hidden"}
           fixed inset-0
           bg-n-8/95 backdrop-blur-xl
           lg:hidden
-          z-40
+          z-[1000]
           flex-col
         `}
       >
@@ -162,10 +155,9 @@ const Header = () => {
                 tracking-[0.2em]
                 transition-all duration-300
                 hover:scale-105 active:scale-95
-                ${
-                  isActive
-                    ? "text-color-1 scale-105"
-                    : "text-white hover:text-color-1"
+                ${isActive
+                  ? "text-color-1 scale-105"
+                  : "text-white hover:text-color-1"
                 }
                 `
               }
