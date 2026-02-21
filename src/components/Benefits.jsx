@@ -95,23 +95,24 @@ const ServiceCard = ({ service, index, accentColor }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.6, delay: index * 0.08 }}
-      className="relative p-[1.8rem] md:max-w-[19rem] min-h-[22rem] flex flex-col"
+      className="relative p-4 md:p-[1.8rem] md:max-w-[19rem] aspect-square md:aspect-auto md:min-h-[22rem] flex flex-col"
     >
       <CardBorder color={accentColor} index={index + service.slug} />
 
       <div className="relative z-2 flex flex-col flex-1 pointer-events-none">
-        <h5 className="h5 mb-5">{service.title}</h5>
-        <p className="body-2 mb-6 text-n-3">{service.description}</p>
+        <h5 className="text-[1.1rem] md:h5 h-12 md:h-auto overflow-hidden line-clamp-2 mb-2 md:mb-5">{service.title}</h5>
+        <p className="text-[0.7rem] leading-relaxed md:body-2 mb-3 md:mb-6 text-n-3 line-clamp-3 md:line-clamp-none">{service.description}</p>
         <div className="flex items-center mt-auto">
           <img
             src={benefitIcons[index % benefitIcons.length]}
-            width={48}
-            height={48}
+            width={32}
+            height={32}
             alt={service.title}
+            className="md:w-[48px] md:h-[48px]"
           />
           <button
             onClick={() => navigate(`/service/${service.slug}`)}
-            className="ml-auto pointer-events-auto flex items-center text-[0.68rem] font-bold tracking-[0.18em] uppercase text-n-1"
+            className="ml-auto pointer-events-auto flex items-center text-[0.6rem] md:text-[0.68rem] font-bold tracking-[0.1rem] md:tracking-[0.18em] uppercase text-n-1"
           >
             Explore more
             <Arrow />
@@ -188,7 +189,7 @@ const CategorySection = ({ category }) => {
         {category.services.map((service, i) => (
           <div
             key={service.slug}
-            className="flex-shrink-0 w-[15rem] md:w-[16rem] lg:w-[18rem] flex"
+            className="flex-shrink-0 w-[13.5rem] md:w-[16rem] lg:w-[18rem] aspect-square md:aspect-auto flex"
           >
             <ServiceCard
               service={service}
