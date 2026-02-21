@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { RiCloseLine, RiSendPlane2Fill } from "react-icons/ri";
-import chatbotImage from "../assets/chatbotimage.png";
+import chatbotImage from "../assets/chatbotimage.webp";
 
 const Chatbot = ({ isOpen, toggleChat }) => {
     const [message, setMessage] = useState("");
@@ -60,14 +60,14 @@ const Chatbot = ({ isOpen, toggleChat }) => {
 
                             <div className="flex flex-col items-end w-full">
                                 <div className="p-3 bg-color-1 text-n-1 rounded-2xl rounded-tr-none text-sm leading-relaxed max-w-[85%] shadow-lg">
-                                    I'm interested in your AI Automation services.
+                                    I&apos;m interested in your AI Automation services.
                                 </div>
                                 <span className="text-[10px] text-n-4 mt-1 mr-1">Just now</span>
                             </div>
 
                             <div className="flex flex-col items-start max-w-[85%]">
                                 <div className="p-3 bg-n-6 rounded-2xl rounded-tl-none text-sm text-n-1 leading-relaxed">
-                                    That's great! We specialize in custom AI agents and workflow automation. Would you like to schedule a free consultation?
+                                    That&apos;s great! We specialize in custom AI agents and workflow automation. Would you like to schedule a free consultation?
                                 </div>
                                 <span className="text-[10px] text-n-4 mt-1 ml-1">Just now</span>
                             </div>
@@ -126,7 +126,7 @@ const Chatbot = ({ isOpen, toggleChat }) => {
                                 exit={{ rotate: -90, opacity: 0 }}
                                 transition={{ duration: 0.2 }}
                             >
-                                <img src={chatbotImage} alt="Chatbot" className="w-10 h-10
+                                <img src={chatbotImage} alt="Chatbot" className="w-40 h-40
                                  object-contain" />
                             </motion.div>
                         )}

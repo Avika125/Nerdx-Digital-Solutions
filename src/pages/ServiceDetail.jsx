@@ -17,6 +17,10 @@ import SocialMediaMarketingPage from "./services/marketing/SocialMediaMarketingP
 import EbayStoreSetupManagementPage from "./services/marketing/EbayStoreSetupManagementPage";
 import DevOpsPage from "./services/management/DevOpsPage";
 import EpicorErpPage from "./services/management/EpicorErpPage";
+import AiAutomationSystemsPage from "./services/automation/AiAutomationSystemsPage";
+import DataEngineeringAnalyticsPage from "./services/automation/DataEngineeringAnalyticsPage";
+import SaasProductDevelopmentPage from "./services/automation/SaasProductDevelopmentPage";
+import CustomAiAgentsPage from "./services/automation/CustomAiAgentsPage";
 
 const slugToPage = {
     "ui-ux-web-design": UIUXWebDesignPage,
@@ -32,7 +36,11 @@ const slugToPage = {
     "social-media-marketing": SocialMediaMarketingPage,
     "ebay-store-setup-management": EbayStoreSetupManagementPage,
     devops: DevOpsPage,
-    "epicor-erp": EpicorErpPage
+    "epicor-erp": EpicorErpPage,
+    "ai-automation-systems": AiAutomationSystemsPage,
+    "data-engineering-analytics": DataEngineeringAnalyticsPage,
+    "saas-product-development": SaasProductDevelopmentPage,
+    "custom-ai-agents": CustomAiAgentsPage
 };
 
 const ServiceDetail = () => {

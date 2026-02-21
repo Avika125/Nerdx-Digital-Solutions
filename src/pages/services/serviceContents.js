@@ -5,3 +5,4 @@ export { brandIdentityContent, marketingAdvertisingContent } from "./design/desi
 export { fullStackContent, wordpressContent, chromeExtensionContent, appDevelopmentContent, chatBotContent } from "./development/developmentServiceContents";
 export { seoSemContent, brandingStrategicsContent, socialMediaContent, ebayStoreContent } from "./marketing/marketingServiceContents";
 export { devopsContent, epicorErpContent } from "./management/managementServiceContents";
+export { aiAutomationSystemsContent, dataEngineeringAnalyticsContent, saasProductDevelopmentContent, customAiAgentsContent } from "./automation/automationServiceContents";
