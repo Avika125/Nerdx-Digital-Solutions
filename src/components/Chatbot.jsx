@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { RiCloseLine, RiSendPlane2Fill } from "react-icons/ri";
-import chatbotImage from "../assets/chatbotimage.webp";
+import chatbotImage from "../assets/chatbotimage.ico";
 
 const Chatbot = ({ isOpen, toggleChat }) => {
     const [message, setMessage] = useState("");
