@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { disablePageScroll, enablePageScroll } from "scroll-lock";
-
-import { brainwave } from "../assets";
+import krishnova from "../assets/krishnova.png"
 import { navigation } from "../constants";
 import Button from "./Button";
 import MenuSvg from "../assets/svg/MenuSvg";
@@ -47,13 +46,13 @@ const Header = () => {
       >
         <div
           className={`flex items-center justify-between transition-all duration-500 ${scrolled
-            ? "px-4 md:px-6 py-3"
-            : "px-4 md:px-8 lg:px-12 xl:px-16 py-4 lg:py-6"
+            ? "px-4 md:px-6 py-2"
+            : "px-4 md:px-8 lg:px-12 xl:px-16 py-3 lg:py-4"
             }`}
         >
           {/* Logo */}
-          <NavLink className="block w-[7rem] xs:w-[9rem] md:w-[12rem]" to="/">
-            <img src={brainwave} width={190} height={40} alt="Logo" className="w-full h-auto" />
+          <NavLink className="block w-[4rem] xs:w-[6rem] md:w-[8rem]" to="/">
+            <img src={krishnova} width={190} height={40} alt="Logo" className="w-full h-auto" />
           </NavLink>
 
           {/* Desktop Button */}
