@@ -57,7 +57,7 @@ export const DoraDualBackground = () => {
       <div className="absolute top-[10%] left-[5%] w-[90%] h-[80%] blur-[160px] bg-[#4A90E2]/20 rounded-full" />
 
       {/* Upper Moon (Swapped: Points UP) - MASSIVELY BRIGHTER */}
-      <div className="absolute top-[-75%] md:top-[-38%] left-1/2 -translate-x-1/2 w-[350%] h-[120%] md:w-[120%] md:h-[60%] lg:w-[100%] lg:h-[50%] opacity-80 md:opacity-100">
+      <div className="absolute top-[-85%] md:top-[-38%] left-1/2 -translate-x-1/2 w-[350%] h-[120%] md:w-[120%] md:h-[60%] lg:w-[100%] lg:h-[50%] opacity-80 md:opacity-100">
         <div
           className="w-full h-full rounded-[100%]"
           style={{
@@ -71,7 +71,7 @@ export const DoraDualBackground = () => {
       </div>
 
       {/* Lower Moon (Swapped: Points DOWN) - MASSIVELY BRIGHTER */}
-      <div className="absolute bottom-[-75%] md:bottom-[-38%] left-1/2 -translate-x-1/2 w-[350%] h-[120%] md:w-[120%] md:h-[60%] lg:w-[100%] lg:h-[50%] opacity-80 md:opacity-100">
+      <div className="absolute bottom-[-85%] md:bottom-[-38%] left-1/2 -translate-x-1/2 w-[350%] h-[120%] md:w-[120%] md:h-[60%] lg:w-[100%] lg:h-[50%] opacity-80 md:opacity-100">
         <div
           className="w-full h-full rounded-[100%]"
           style={{
