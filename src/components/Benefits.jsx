@@ -12,6 +12,7 @@ import {
 } from "../assets";
 import ClipPath from "../assets/svg/ClipPath";
 import Arrow from "../assets/svg/Arrow";
+import whatwedopage from "../assets/whatwedopage.mp4";
 
 const benefitIcons = [
   benefitIcon1,
@@ -20,6 +21,47 @@ const benefitIcons = [
   benefitIcon4,
 ];
 
+/* ---------------- Background Orbs ---------------- */
+
+const GlowOrb = ({ color, size, top, left }) => (
+  <div
+    style={{
+      position: "absolute",
+      width: size,
+      height: size,
+      top,
+      left,
+      background: color,
+      filter: "blur(180px)",
+      opacity: 0.25,
+      borderRadius: "50%",
+      zIndex: 0
+    }}
+  />
+);
+
+const FloatingOrb = ({ color, size, top, left, delay = 0 }) => (
+  <motion.div
+    style={{
+      position: "absolute",
+      width: size,
+      height: size,
+      top,
+      left,
+      background: color,
+      filter: "blur(100px)",
+      opacity: 0.15,
+      borderRadius: "50%",
+      zIndex: 0
+    }}
+    animate={{
+      y: [0, 30, -20, 0],
+      x: [0, 15, -10, 0],
+      scale: [1, 1.05, 1]
+    }}
+    transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay }}
+  />
+);
 
 /* ---------------- Card Border ---------------- */
 
@@ -120,8 +162,6 @@ const ServiceCard = ({ service, index, accentColor }) => {
         </div>
       </div>
 
-      {service.light && <GradientLight />}
-
       <div
         className="absolute inset-[1px] bg-n-8 -z-1"
         style={{ clipPath: "url(#benefits)" }}
@@ -217,7 +257,38 @@ const Benefits = () => {
   const headingOpacity = useTransform(scrollYProgress, [0, 0.2], [0, 1]);
 
   return (
-    <Section id="features" className="relative pt-24 pb-24 overflow-hidden">
+    <Section
+      id="features"
+      className="relative pt-24 pb-24 overflow-hidden"
+      style={{ background: "#050510" }}
+    >
+      {/* Background Layer - Matched from WhatWeDoDetail.jsx */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        {/* Fixed Video Background */}
+        <div className="absolute inset-0 z-0">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover"
+          >
+            <source src={whatwedopage} type="video/mp4" />
+          </video>
+          {/* Overlay to ensure readability and match the site theme */}
+          <div className="absolute inset-0 bg-[#050510]/80" />
+        </div>
+
+        {/* Ambient orbs from WhatWeDoDetail */}
+        <GlowOrb color="#AC6AFF" size="600px" top="-10%" left="-10%" />
+        <GlowOrb color="#7ADB78" size="500px" top="60%" left="60%" />
+        <FloatingOrb color="#FFC876" size="400px" top="20%" left="70%" delay={1} />
+        <FloatingOrb color="#AC6AFF" size="300px" top="70%" left="10%" delay={2} />
+
+        {/* Subtle grid overlay */}
+        <div className="absolute inset-0 z-0 opacity-[0.03] bg-[linear-gradient(to_right,#fff_1px,transparent_1px),linear-gradient(to_bottom,#fff_1px,transparent_1px)] bg-[size:60px_60px]" />
+      </div>
+
       <ClipPath />
 
       <div
@@ -246,7 +317,7 @@ const Benefits = () => {
           ))}
         </div>
 
-        <GradientLight />
+
       </div>
     </Section>
   );
