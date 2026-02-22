@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { companyLogos } from "../constants";
+import point1 from "../assets/point1.mp4";
 
 const POINTS = [
   {
@@ -256,22 +257,19 @@ const Hero = () => {
                 {/* THE VIDEO CONTAINER (Point 2) */}
                 {activeIndex === 1 && (
                   <div className="relative w-full h-auto flex items-center justify-center mb-6 md:mb-8 px-2 transition-all duration-700 animate-in fade-in slide-in-from-bottom-12">
-                    <div className="w-full aspect-video rounded-xl bg-white/5 border border-white/10 flex items-center justify-center overflow-hidden relative group shadow-[0_0_40px_rgba(172,106,255,0.1)]">
-                      <div className="absolute inset-0 bg-gradient-to-br from-[#AC6AFF]/10 to-[#00F5FF]/10" />
+                    <div className="w-full aspect-video rounded-xl bg-black border border-white/10 flex items-center justify-center overflow-hidden relative group shadow-[0_0_40px_rgba(172,106,255,0.15)]">
+                      <video
+                        src={point1}
+                        className="w-full h-full object-cover"
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
 
-                      {/* Animated Glow Border */}
-                      <div className="absolute inset-0 rounded-xl border border-white/20 opacity-20 group-hover:opacity-100 transition-opacity animate-pulse" />
-
-                      <div className="flex flex-col items-center gap-3">
-                        <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 flex items-center justify-center animate-bounce">
-                          <svg width="20" height="20" md-width="24" md-height="24" viewBox="0 0 24 24" fill="white" opacity="0.6">
-                            <path d="M8 5v14l11-7z" />
-                          </svg>
-                        </div>
-                        <p className="text-white/40 text-[8px] md:text-[10px] font-bold uppercase tracking-[0.3em]">
-                          Awaiting Video Feed
-                        </p>
-                      </div>
+                      {/* Animated Glow Border Overlay */}
+                      <div className="absolute inset-0 rounded-xl border border-white/10 opacity-30 group-hover:opacity-60 transition-opacity" />
                     </div>
                   </div>
                 )}
