@@ -1,8 +1,8 @@
-import { useState, useRef } from "react";
+import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { motion, useScroll, useTransform, useSpring, useMotionValue } from "framer-motion";
+import { motion, useTransform, useSpring, useMotionValue } from "framer-motion";
 import Section from "./Section";
-import { GradientLight } from "./design/Benefits";
+import { GradientLight, DoraDualBackground } from "./design/Benefits";
 import { serviceCategories } from "../pages/services";
 import {
   benefitIcon1,
@@ -12,7 +12,6 @@ import {
 } from "../assets";
 import ClipPath from "../assets/svg/ClipPath";
 import Arrow from "../assets/svg/Arrow";
-import whatwedopage from "../assets/whatwedopage.mp4";
 
 const benefitIcons = [
   benefitIcon1,
@@ -20,48 +19,6 @@ const benefitIcons = [
   benefitIcon3,
   benefitIcon4,
 ];
-
-/* ---------------- Background Orbs ---------------- */
-
-const GlowOrb = ({ color, size, top, left }) => (
-  <div
-    style={{
-      position: "absolute",
-      width: size,
-      height: size,
-      top,
-      left,
-      background: color,
-      filter: "blur(180px)",
-      opacity: 0.25,
-      borderRadius: "50%",
-      zIndex: 0
-    }}
-  />
-);
-
-const FloatingOrb = ({ color, size, top, left, delay = 0 }) => (
-  <motion.div
-    style={{
-      position: "absolute",
-      width: size,
-      height: size,
-      top,
-      left,
-      background: color,
-      filter: "blur(100px)",
-      opacity: 0.15,
-      borderRadius: "50%",
-      zIndex: 0
-    }}
-    animate={{
-      y: [0, 30, -20, 0],
-      x: [0, 15, -10, 0],
-      scale: [1, 1.05, 1]
-    }}
-    transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay }}
-  />
-);
 
 /* ---------------- Card Border ---------------- */
 
@@ -110,11 +67,11 @@ const ServiceCard = ({ service, index, accentColor }) => {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
-  const mouseXSpring = useSpring(x);
-  const mouseYSpring = useSpring(y);
+  const mouseXSpring = useSpring(x, { stiffness: 150, damping: 30 });
+  const mouseYSpring = useSpring(y, { stiffness: 150, damping: 30 });
 
-  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["8deg", "-8deg"]);
-  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-8deg", "8deg"]);
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["5deg", "-5deg"]);
+  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-5deg", "5deg"]);
 
   const handleMouseMove = (e) => {
     if (!cardRef.current) return;
@@ -133,31 +90,34 @@ const ServiceCard = ({ service, index, accentColor }) => {
         rotateX,
         rotateY,
         transformStyle: "preserve-3d",
+        willChange: "transform",
       }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.6, delay: index * 0.08 }}
-      className="relative p-4 md:p-[1.8rem] md:max-w-[19rem] aspect-square md:aspect-auto md:min-h-[22rem] flex flex-col"
+      className="relative p-5 md:p-[1.8rem] md:max-w-[19rem] aspect-auto min-h-[18rem] md:min-h-[22rem] flex flex-col snap-center"
     >
       <CardBorder color={accentColor} index={index + service.slug} />
 
       <div className="relative z-2 flex flex-col flex-1 pointer-events-none">
-        <h5 className="text-[1.1rem] md:h5 h-12 md:h-auto overflow-hidden line-clamp-2 mb-2 md:mb-5">{service.title}</h5>
-        <p className="text-[0.7rem] leading-relaxed md:body-2 mb-3 md:mb-6 text-n-3 line-clamp-3 md:line-clamp-none">{service.description}</p>
-        <div className="flex items-center mt-auto">
-          <img
-            src={benefitIcons[index % benefitIcons.length]}
-            width={32}
-            height={32}
-            alt={service.title}
-            className="md:w-[48px] md:h-[48px]"
-          />
+        <h5 className="text-[1.2rem] md:h5 h-14 md:h-auto overflow-hidden line-clamp-2 mb-3 md:mb-5 font-bold">{service.title}</h5>
+        <p className="text-[0.8rem] leading-relaxed md:body-2 mb-4 md:mb-6 text-n-3 line-clamp-4 md:line-clamp-none opacity-90">{service.description}</p>
+        <div className="flex items-center mt-auto pb-2">
+          <div className="flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-xl bg-n-7/50 border border-n-1/10">
+            <img
+              src={benefitIcons[index % benefitIcons.length]}
+              width={24}
+              height={24}
+              alt={service.title}
+              className="md:w-[32px] md:h-[32px] object-contain"
+            />
+          </div>
           <button
             onClick={() => navigate(`/service/${service.slug}`)}
-            className="ml-auto pointer-events-auto flex items-center text-[0.6rem] md:text-[0.68rem] font-bold tracking-[0.1rem] md:tracking-[0.18em] uppercase text-n-1"
+            className="ml-auto pointer-events-auto flex items-center text-[0.7rem] md:text-[0.68rem] font-bold tracking-[0.1rem] md:tracking-[0.18em] uppercase text-n-1 hover:text-color-1 transition-colors"
           >
-            Explore more
-            <Arrow />
+            Explore
+            <Arrow className="ml-2 w-4 h-4 md:w-auto md:h-auto" />
           </button>
         </div>
       </div>
@@ -188,8 +148,10 @@ const CategorySection = ({ category }) => {
   const scrollRef = useRef(null);
 
   const scroll = (dir) => {
-    scrollRef.current?.scrollBy({
-      left: dir === "left" ? -400 : 400,
+    if (!scrollRef.current) return;
+    const scrollAmount = scrollRef.current.clientWidth * 0.8;
+    scrollRef.current.scrollBy({
+      left: dir === "left" ? -scrollAmount : scrollAmount,
       behavior: "smooth",
     });
   };
@@ -224,12 +186,12 @@ const CategorySection = ({ category }) => {
       {/* Cards */}
       <div
         ref={scrollRef}
-        className="flex gap-6 overflow-x-auto scrollbar-hide pb-10 px-4 md:px-0"
+        className="flex gap-4 md:gap-6 overflow-x-auto scrollbar-hide pb-10 px-6 md:px-0 snap-x snap-mandatory scroll-smooth"
       >
         {category.services.map((service, i) => (
           <div
             key={service.slug}
-            className="flex-shrink-0 w-[13.5rem] md:w-[16rem] lg:w-[18rem] aspect-square md:aspect-auto flex"
+            className="flex-shrink-0 w-[16rem] md:w-[16rem] lg:w-[18rem] flex"
           >
             <ServiceCard
               service={service}
@@ -246,57 +208,16 @@ const CategorySection = ({ category }) => {
 /* ---------------- Main Section ---------------- */
 
 const Benefits = () => {
-  const containerRef = useRef(null);
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"],
-  });
-
-  const headingOpacity = useTransform(scrollYProgress, [0, 0.2], [0, 1]);
-
   return (
     <Section
       id="features"
       className="relative pt-24 pb-24 overflow-hidden"
-      style={{ background: "#050510" }}
     >
-      {/* Background Layer - Matched from WhatWeDoDetail.jsx */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        {/* Fixed Video Background */}
-        <div className="absolute inset-0 z-0">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-full h-full object-cover"
-          >
-            <source src={whatwedopage} type="video/mp4" />
-          </video>
-          {/* Overlay to ensure readability and match the site theme */}
-          <div className="absolute inset-0 bg-[#050510]/80" />
-        </div>
-
-        {/* Ambient orbs from WhatWeDoDetail */}
-        <GlowOrb color="#AC6AFF" size="600px" top="-10%" left="-10%" />
-        <GlowOrb color="#7ADB78" size="500px" top="60%" left="60%" />
-        <FloatingOrb color="#FFC876" size="400px" top="20%" left="70%" delay={1} />
-        <FloatingOrb color="#AC6AFF" size="300px" top="70%" left="10%" delay={2} />
-
-        {/* Subtle grid overlay */}
-        <div className="absolute inset-0 z-0 opacity-[0.03] bg-[linear-gradient(to_right,#fff_1px,transparent_1px),linear-gradient(to_bottom,#fff_1px,transparent_1px)] bg-[size:60px_60px]" />
-      </div>
+      <DoraDualBackground />
 
       <ClipPath />
 
       <div
-        ref={containerRef}
-        onMouseMove={(e) => {
-          const rect = containerRef.current.getBoundingClientRect();
-          setMousePos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
-        }}
         className="container relative z-2"
       >
 

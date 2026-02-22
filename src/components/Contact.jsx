@@ -2,52 +2,9 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import Section from "./Section";
 import Button from "./Button";
-import whatwedopage from "../assets/whatwedopage.mp4";
 
 const Contact = () => {
   const [selectedServices, setSelectedServices] = useState([]);
-
-  /* ---------------- Background Orbs ---------------- */
-
-  const GlowOrb = ({ color, size, top, left }) => (
-    <div
-      style={{
-        position: "absolute",
-        width: size,
-        height: size,
-        top,
-        left,
-        background: color,
-        filter: "blur(180px)",
-        opacity: 0.25,
-        borderRadius: "50%",
-        zIndex: 0
-      }}
-    />
-  );
-
-  const FloatingOrb = ({ color, size, top, left, delay = 0 }) => (
-    <motion.div
-      style={{
-        position: "absolute",
-        width: size,
-        height: size,
-        top,
-        left,
-        background: color,
-        filter: "blur(100px)",
-        opacity: 0.15,
-        borderRadius: "50%",
-        zIndex: 0
-      }}
-      animate={{
-        y: [0, 30, -20, 0],
-        x: [0, 15, -10, 0],
-        scale: [1, 1.05, 1]
-      }}
-      transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay }}
-    />
-  );
 
   const toggleService = (service) => {
     if (selectedServices.includes(service)) {
@@ -119,36 +76,9 @@ const Contact = () => {
 
   return (
     <Section
-      className="py-16 lg:py-24 overflow-hidden relative"
+      className="py-16 lg:py-24 overflow-hidden relative z-10"
       id="lets-talk"
     >
-      {/* Background Layer - Matched from WhatWeDoDetail.jsx */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        {/* Fixed Video Background */}
-        <div className="absolute inset-0 z-0">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-full h-full object-cover"
-          >
-            <source src={whatwedopage} type="video/mp4" />
-          </video>
-          {/* Overlay to ensure readability and match the site theme */}
-          <div className="absolute inset-0 bg-[#050510]/80" />
-        </div>
-
-        {/* Ambient orbs from WhatWeDoDetail */}
-        <GlowOrb color="#AC6AFF" size="600px" top="-10%" left="-10%" />
-        <GlowOrb color="#7ADB78" size="600px" top="40%" left="60%" />
-        <FloatingOrb color="#FFC876" size="400px" top="10%" left="70%" delay={1} />
-        <FloatingOrb color="#AC6AFF" size="300px" top="60%" left="5%" delay={2} />
-
-        {/* Subtle grid overlay */}
-        <div className="absolute inset-0 z-0 opacity-[0.03] bg-[linear-gradient(to_right,#fff_1px,transparent_1px),linear-gradient(to_bottom,#fff_1px,transparent_1px)] bg-[size:60px_60px]" />
-      </div>
-
       <div className="container relative z-10">
         <motion.div className="max-w-[56rem] mx-auto">
 
