@@ -137,7 +137,7 @@ const Hero = () => {
   return (
     <section
       ref={outerRef}
-      className="relative"
+      className={`relative ${isMobile ? "overflow-hidden" : ""}`}
       style={{ minHeight: isMobile ? "auto" : "400vh", background: "#0d0d1a" }}
     >
       {/* Ambient glow */}
